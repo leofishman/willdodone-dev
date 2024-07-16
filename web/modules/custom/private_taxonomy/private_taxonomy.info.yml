@@ -1,0 +1,16 @@
+name: Private Taxonomy
+type: module
+description: 'Allows per-user taxonomy terms for a given vocabulary.'
+package: Taxonomy
+core: 8.x
+core_version_requirement: ^10 || ^11
+configure: private_taxonomy.settings
+dependencies:
+  - drupal:taxonomy
+test_dependencies:
+  - pathauto:pathauto
+
+# Information added by Drupal.org packaging script on 2023-01-11
+version: '8.x-2.7'
+project: 'private_taxonomy'
+datestamp: 1673424213
