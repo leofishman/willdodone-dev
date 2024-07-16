@@ -1,0 +1,21 @@
+uuid: b089632c-db48-4dd5-a565-ba23863f1a3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_progress
+    - node.type.task
+  module:
+    - task_field
+id: node.task.field_progress
+field_name: field_progress
+entity_type: node
+bundle: task
+label: Progress
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: task_field_progress

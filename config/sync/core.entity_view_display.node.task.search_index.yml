@@ -1,0 +1,52 @@
+uuid: 93f8df7a-04bb-43e5-8484-fa6ba7b5b170
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.search_index
+    - field.field.node.task.body
+    - field.field.node.task.comment
+    - field.field.node.task.field_image
+    - field.field.node.task.field_progress
+    - field.field.node.task.field_project
+    - field.field.node.task.field_tags
+    - field.field.node.task.field_time_used
+    - node.type.task
+  module:
+    - comment
+    - user
+id: node.task.search_index
+targetEntityType: node
+bundle: task
+mode: search_index
+content:
+  comment:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_image: true
+  field_progress: true
+  field_project: true
+  field_time_used: true
+  search_api_excerpt: true
