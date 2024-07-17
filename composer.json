@@ -17,6 +17,7 @@
   "require": {
     "composer/installers": "^2.0",
     "drupal/ai": "1.0.x-dev@dev",
+    "drupal/ajax_comments": "^1.0@beta",
     "drupal/backup_migrate": "^5.0",
     "drupal/better_exposed_filters": "^6.0",
     "drupal/bpmn_io": "^2.0",

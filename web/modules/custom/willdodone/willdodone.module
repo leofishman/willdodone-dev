@@ -29,6 +29,10 @@ function willdodone_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
       'callback' => '::quickAddAjaxCallback',
       'wrapper' => 'quick-add-wrapper',
     ];
+
+  }
+  if ($form_id =='comment_comment_form') {
+      $form['#attached']['library'][] = 'willdodone/comment';
   }
 }
 
