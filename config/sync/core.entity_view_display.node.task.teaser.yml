@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment.default
     - core.entity_view_mode.node.teaser
     - field.field.node.task.body
     - field.field.node.task.comment
@@ -14,7 +15,10 @@ dependencies:
     - image.style.medium
     - node.type.task
   module:
+    - comment
     - image
+    - simpler_quickedit
+    - task_field
     - text
     - user
 id: node.task.teaser
@@ -27,8 +31,21 @@ content:
     label: hidden
     settings:
       trim_length: 600
+    third_party_settings:
+      simpler_quickedit:
+        editHover: '1'
+        click: 0
+        edit: 0
+    weight: 4
+    region: content
+  comment:
+    type: comment_default
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
     third_party_settings: {  }
-    weight: 101
+    weight: 6
     region: content
   field_image:
     type: image
@@ -39,24 +56,49 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: -1
+    weight: 1
+    region: content
+  field_progress:
+    type: task_field_progress_default
+    label: above
+    settings:
+      foo: bar
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        editHover: '1'
+        edit: 0
+    weight: 0
+    region: content
+  field_project:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings:
+      simpler_quickedit:
+        editHover: '1'
+        click: 0
+        edit: 0
+    weight: 5
     region: content
   field_tags:
     type: entity_reference_label
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    weight: 10
+    third_party_settings:
+      simpler_quickedit:
+        editHover: '1'
+        click: 0
+        edit: 0
+    weight: 2
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 3
     region: content
 hidden:
-  comment: true
-  field_progress: true
-  field_project: true
   field_time_used: true
   search_api_excerpt: true
