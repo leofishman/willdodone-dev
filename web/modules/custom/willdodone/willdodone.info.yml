@@ -1,10 +1,10 @@
-name: 'willdodone'
+name: 'WillDoDone'
 type: module
-description: 'Project and Task doer'
+description: 'Project and Task doer willdOdOne!'
 package: Custom
 core_version_requirement: ^10 || ^11
 dependencies:
-  - ai:ai
+#  - ai:ai
   - color_field:color_field
   - formblock:formblock
   - node_view_permissions:node_view_permissions

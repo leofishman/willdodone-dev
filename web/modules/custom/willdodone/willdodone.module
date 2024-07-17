@@ -23,7 +23,7 @@ function willdodone_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
       }
     }
   }
-  if ($form_id == 'node_task_quick_form') {
+  if ($form_id == 'node_task_quickadd_form') {
     $form['#attached']['library'][] = 'willdodone/quick_add';
     $form['actions']['submit']['#ajax'] = [
       'callback' => '::quickAddAjaxCallback',
