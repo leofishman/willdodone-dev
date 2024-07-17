@@ -1,0 +1,15 @@
+quick_add:
+  version: 1.0
+  css:
+    theme:
+      css/quick_add.css: {}
+timer:
+  version: 1.x
+  js:
+    js/timer.js: {}
+  css:
+    theme:
+      css/timer.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

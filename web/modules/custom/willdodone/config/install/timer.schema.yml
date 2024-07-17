@@ -1,0 +1,8 @@
+field.storage_settings.timer:
+  type: mapping
+  label: 'Timer settings'
+  mapping:
+    multiple_timers:
+      type: boolean
+      label: 'Allow multiple timers'
+

@@ -4,15 +4,27 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - media.type.audio
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.task
+    - taxonomy.vocabulary.project
+    - taxonomy.vocabulary.tags
   module:
     - comment
     - contact
     - file
     - filter
     - media
+    - node
+    - node_view_permissions
+    - quickedit
     - search
     - shortcut
     - system
+    - taxonomy
 _core:
   default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
 id: authenticated
@@ -22,11 +34,45 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access in-place editing'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'create audio media'
+  - 'create document media'
+  - 'create image media'
+  - 'create media'
+  - 'create remote_video media'
+  - 'create task content'
+  - 'create terms in project'
+  - 'create terms in tags'
+  - 'create video media'
+  - 'delete media'
+  - 'delete own audio media'
+  - 'delete own document media'
   - 'delete own files'
+  - 'delete own image media'
+  - 'delete own remote_video media'
+  - 'delete own task content'
+  - 'delete own video media'
+  - 'delete terms in project'
+  - 'delete terms in tags'
+  - 'edit own audio media'
+  - 'edit own document media'
+  - 'edit own image media'
+  - 'edit own remote_video media'
+  - 'edit own task content'
+  - 'edit own video media'
+  - 'edit terms in project'
+  - 'edit terms in tags'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'update media'
+  - 'use advanced search'
   - 'use text format basic_html'
+  - 'view any article content'
+  - 'view any page content'
   - 'view media'
+  - 'view own task content'
+  - 'view own unpublished content'
+  - 'view own unpublished media'

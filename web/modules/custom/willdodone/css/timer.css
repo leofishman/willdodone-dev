@@ -1,0 +1,26 @@
+.timer-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.timer-status--running {
+  background-color: #e6f7e6;
+  color: #2e7d32;
+}
+
+.timer-status--stopped {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.timer-status__icon {
+  margin-right: 8px;
+}
+
+.timer-status__elapsed-time {
+  margin-left: 8px;
+}

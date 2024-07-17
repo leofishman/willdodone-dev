@@ -34,6 +34,7 @@ module:
   history: 0
   image: 0
   inline_entity_form: 0
+  inline_form_errors: 0
   jquery_ui: 0
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0

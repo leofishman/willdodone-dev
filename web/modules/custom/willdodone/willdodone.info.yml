@@ -1,0 +1,14 @@
+name: 'willdodone'
+type: module
+description: 'Project and Task doer'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - ai:ai
+  - color_field:color_field
+  - formblock:formblock
+  - node_view_permissions:node_view_permissions
+  - pathauto:pathauto
+  - quickedit:quickedit
+  - taxonomy:taxonomy
+  - private_taxonomy:private_taxonomy
