@@ -1,0 +1,14 @@
+uuid: 3be0eaa7-dad3-497e-85ba-a5fcde980375
+langcode: en
+status: true
+dependencies:
+  module:
+    - private_taxonomy
+third_party_settings:
+  private_taxonomy:
+    private: 1
+name: Project
+vid: project
+description: null
+weight: 0
+new_revision: false

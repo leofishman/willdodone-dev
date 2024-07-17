@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a timer status.
+ *
+ * Available variables:
+ * - status: The current status of the timer (boolean).
+ * - start: The start time of the timer.
+ * - end: The end time of the timer (if stopped).
+ * - show_elapsed_time: Whether to show the elapsed time.
+ * - elapsed_time: The elapsed time (if show_elapsed_time is true).
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set classes = [
+  'timer-status',
+  status ? 'timer-status--running' : 'timer-status--stopped',
+] %}
+TIMER STATUS TWIG
+<div{{ attributes.addClass(classes) }}>
+  <span class="timer-status__icon">
+    {% if status %}
+      {{ 'Play'|t }}
+    {% else %}
+      {{ 'Stop'|t }}
+    {% endif %}
+  </span>
+  {% if show_elapsed_time %}
+    <span class="timer-status__elapsed-time">
+      {{ elapsed_time }}
+    </span>
+  {% endif %}
+</div>

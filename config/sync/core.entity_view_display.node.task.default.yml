@@ -1,0 +1,109 @@
+uuid: 9c980afb-751b-4c47-a5da-7f9b07e81c23
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.task.body
+    - field.field.node.task.comment
+    - field.field.node.task.field_image
+    - field.field.node.task.field_progress
+    - field.field.node.task.field_project
+    - field.field.node.task.field_tags
+    - field.field.node.task.field_time_used
+    - image.style.wide
+    - node.type.task
+  module:
+    - comment
+    - datetime_range
+    - image
+    - simpler_quickedit
+    - task_field
+    - text
+    - user
+id: node.task.default
+targetEntityType: node
+bundle: task
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  comment:
+    type: comment_default
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings:
+      simpler_quickedit:
+        click: 0
+        edit: 0
+        editHover: 0
+    weight: 110
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: wide
+      image_loading:
+        attribute: eager
+    third_party_settings: {  }
+    weight: -1
+    region: content
+  field_progress:
+    type: task_field_progress_default
+    label: above
+    settings:
+      foo: bar
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_project:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        editHover: '1'
+        edit: 0
+    weight: 104
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_time_used:
+    type: daterange_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: html_time
+      from_to: both
+      separator: '-'
+    third_party_settings:
+      simpler_quickedit:
+        click: 0
+        edit: 0
+        editHover: 0
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

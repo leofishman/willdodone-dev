@@ -65,7 +65,6 @@
 # Ignore contrib
 /web/modules/contrib
 /web/themes/contrib
-/web/libraries
 /web/private
 /private
 

@@ -1,0 +1,26 @@
+uuid: 9ae588ac-af1d-472c-b9f0-4ffe61cb884f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time_used
+    - node.type.task
+  module:
+    - datetime_range
+id: node.task.field_time_used
+field_name: field_time_used
+entity_type: node
+bundle: task
+label: 'Time used'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+    default_end_date_type: relative
+    default_end_date: '+1 minute'
+default_value_callback: ''
+settings: {  }
+field_type: daterange
