@@ -1,0 +1,23 @@
+uuid: 27735642-2bbb-4d50-9cbc-034b9a064a0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.my_tasks
+  module:
+    - views
+  theme:
+    - olivero
+id: olivero_exposedformmy_taskspage_my_tasks
+theme: olivero
+region: content_below
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:my_tasks-page_my_tasks'
+settings:
+  id: 'views_exposed_filter_block:my_tasks-page_my_tasks'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility: {  }

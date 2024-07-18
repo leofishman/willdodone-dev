@@ -3,6 +3,11 @@ quick_add:
   css:
     theme:
       css/quick_add.css: {}
+comment:
+  version: 1.0
+  css:
+    theme:
+      css/comment.css: {}
 timer:
   version: 1.x
   js:
