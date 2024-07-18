@@ -17,16 +17,6 @@ targetEntityType: node
 bundle: task
 mode: quickadd
 content:
-  field_tags:
-    type: entity_reference_autocomplete_tags
-    weight: 1
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -42,6 +32,7 @@ hidden:
   field_image: true
   field_progress: true
   field_project: true
+  field_tags: true
   field_time_used: true
   path: true
   promote: true

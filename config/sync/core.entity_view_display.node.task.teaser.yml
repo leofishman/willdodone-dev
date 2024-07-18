@@ -74,12 +74,12 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
+      link: false
     third_party_settings:
       simpler_quickedit:
-        editHover: '1'
-        click: 0
-        edit: 0
+        click: '1'
+        edit: '1'
+        editHover: 0
     weight: 5
     region: content
   field_tags:
