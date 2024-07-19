@@ -2,10 +2,6 @@ uuid: 27735642-2bbb-4d50-9cbc-034b9a064a0d
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.my_tasks
-  module:
-    - views
   theme:
     - olivero
 id: olivero_exposedformmy_taskspage_my_tasks

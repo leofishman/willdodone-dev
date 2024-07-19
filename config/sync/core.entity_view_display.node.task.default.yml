@@ -31,7 +31,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 3
     region: content
   comment:
     type: comment_default
@@ -44,7 +44,7 @@ content:
         click: 0
         edit: 0
         editHover: 0
-    weight: 110
+    weight: 5
     region: content
   field_image:
     type: image
@@ -55,7 +55,7 @@ content:
       image_loading:
         attribute: eager
     third_party_settings: {  }
-    weight: -1
+    weight: 2
     region: content
   field_progress:
     type: task_field_progress_default
@@ -63,7 +63,7 @@ content:
     settings:
       foo: bar
     third_party_settings: {  }
-    weight: 102
+    weight: 1
     region: content
   field_project:
     type: entity_reference_label
@@ -75,7 +75,7 @@ content:
         click: '1'
         editHover: '1'
         edit: 0
-    weight: 104
+    weight: 0
     region: content
   field_tags:
     type: entity_reference_label
@@ -83,7 +83,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 6
     region: content
   field_time_used:
     type: daterange_default
@@ -98,12 +98,12 @@ content:
         click: 0
         edit: 0
         editHover: 0
-    weight: 103
+    weight: 4
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 7
     region: content
 hidden:
   search_api_excerpt: true
