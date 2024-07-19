@@ -1814,6 +1814,15 @@ display:
       header: {  }
       display_extenders: {  }
       path: task/orphans
+      menu:
+        type: normal
+        title: orphans
+        description: ''
+        weight: -46
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2243,7 +2252,7 @@ display:
         type: normal
         title: Doing
         description: 'Currently active task page'
-        weight: 0
+        weight: -49
         expanded: false
         menu_name: main
         parent: ''
@@ -2273,7 +2282,7 @@ display:
         type: normal
         title: 'My Tasks'
         description: ''
-        weight: 0
+        weight: -48
         expanded: false
         menu_name: main
         parent: ''
@@ -2504,7 +2513,7 @@ display:
         type: normal
         title: 'all tasks'
         description: ''
-        weight: 0
+        weight: -47
         expanded: false
         menu_name: main
         parent: ''
