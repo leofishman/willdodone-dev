@@ -1,0 +1,14 @@
+uuid: 84eb9b9f-384b-4e1d-bf81-cd20ca0ddf82
+langcode: en
+status: true
+dependencies:
+  module:
+    - private_taxonomy
+third_party_settings:
+  private_taxonomy:
+    private: 1
+name: Goal
+vid: goal
+description: null
+weight: 0
+new_revision: false

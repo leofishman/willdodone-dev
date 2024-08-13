@@ -1750,7 +1750,46 @@ display:
           plugin_id: string
           operator: empty
           value: Completed
-          group: 1
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_progress_status:
+          id: field_progress_status
+          table: node__field_progress
+          field: field_progress_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: new
+          group: 2
           exposed: false
           expose:
             operator_id: ''
@@ -1783,6 +1822,7 @@ display:
         operator: AND
         groups:
           1: AND
+          2: OR
       style:
         type: default
         options:

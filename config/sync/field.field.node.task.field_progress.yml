@@ -15,7 +15,12 @@ label: Progress
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    priority: 0
+    timer: false
+    status: new
+    deadline: null
 default_value_callback: ''
 settings: {  }
 field_type: task_field_progress
