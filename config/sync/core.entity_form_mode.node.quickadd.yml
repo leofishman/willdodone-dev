@@ -1,0 +1,11 @@
+uuid: 39dfde2e-9ffb-48ce-a7af-d373b68f0eee
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.quickadd
+label: quickadd
+description: 'just add the title form'
+targetEntityType: node
+cache: true

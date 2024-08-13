@@ -1,0 +1,24 @@
+uuid: 5f6c9bf7-8b4f-4710-93aa-2ce257d57f50
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.my_tasks
+  module:
+    - views
+  theme:
+    - olivero
+id: olivero_views_block__my_tasks_block_orphan_task
+theme: olivero
+region: sidebar
+weight: -7
+provider: null
+plugin: 'views_block:my_tasks-block_orphan_task'
+settings:
+  id: 'views_block:my_tasks-block_orphan_task'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: '3'
+visibility: {  }

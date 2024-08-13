@@ -1,0 +1,33 @@
+uuid: 24398c8e-f941-44ef-8ff4-06d21dd35338
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project
+    - node.type.task
+    - taxonomy.vocabulary.project
+  content:
+    - 'taxonomy_term:project:576dccea-a374-42b4-b127-386dea4a4a58'
+id: node.task.field_project
+field_name: field_project
+entity_type: node
+bundle: task
+label: Project
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 576dccea-a374-42b4-b127-386dea4a4a58
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      project: project
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

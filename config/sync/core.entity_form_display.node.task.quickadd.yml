@@ -1,0 +1,45 @@
+uuid: c2f0e860-5ce3-4f18-a35a-61afebbcf0d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.quickadd
+    - field.field.node.task.body
+    - field.field.node.task.comment
+    - field.field.node.task.field_goal
+    - field.field.node.task.field_image
+    - field.field.node.task.field_link
+    - field.field.node.task.field_progress
+    - field.field.node.task.field_project
+    - field.field.node.task.field_tags
+    - field.field.node.task.field_time_used
+    - node.type.task
+id: node.task.quickadd
+targetEntityType: node
+bundle: task
+mode: quickadd
+content:
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  comment: true
+  created: true
+  field_goal: true
+  field_image: true
+  field_link: true
+  field_progress: true
+  field_project: true
+  field_tags: true
+  field_time_used: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

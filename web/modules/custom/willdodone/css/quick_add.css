@@ -1,0 +1,8 @@
+.js-form-item.form-item.js-form-type-vertical-tabs, .form-required, .vertical-tabs.clearfix {
+  display: none;
+}
+
+.rotate .contextual-region.view.view-projects.view-id-projects.view-display-id-project_block_1 {
+  transform: rotate(90deg) translateX(40%);
+  margin-bottom: 20px;
+}

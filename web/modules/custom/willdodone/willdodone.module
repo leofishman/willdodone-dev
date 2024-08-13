@@ -1,0 +1,90 @@
+<?php
+/**
+ * @file
+ * Primary module hooks for willdodone module.
+ */
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\taxonomy\TermInterface;
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function willdodone_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $content_types = ['task', 'project'];
+  $vocabularies = ['tags', 'goals'];
+
+  if (in_array($form_id, array_map(function($type) { return "node_{$type}_form"; }, $content_types))) {
+    foreach ($vocabularies as $vocabulary) {
+      if (isset($form["field_{$vocabulary}"])) {
+        $form["field_{$vocabulary}"]["widget"]["#selection_settings"]["filter"]["field_user"] = \Drupal::currentUser()->id();
+      }
+    }
+  }
+  if ($form_id == 'node_task_quickadd_form') {
+    $form['#attached']['library'][] = 'willdodone/quick_add';
+    $form['actions']['submit']['#ajax'] = [
+      'callback' => '::quickAddAjaxCallback',
+      'wrapper' => 'quick-add-wrapper',
+    ];
+
+  }
+  if ($form_id =='comment_comment_form') {
+      $form['#attached']['library'][] = 'willdodone/comment';
+  }
+}
+
+
+function quickAddAjaxCallback(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  return $form['actions']['submit'];
+}
+
+/**
+ * Implements hook_theme().
+ */
+function willdodone_theme() {
+  return [
+    'timer_status' => [
+      'variables' => [
+        'status' => '',
+//        'start' => '',
+//        'end' => '',
+//        'show_elapsed_time' => FALSE,
+//        'elapsed_time' => NULL,
+      ],
+    ],
+    'timer_formatter' => [
+      'variables' => [
+        'status' => '',
+//        'start' => '',
+//        'end' => '',
+//        'show_elapsed_time' => FALSE,
+//        'elapsed_time' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function willdodone_theme_suggestions_timer_status(array $variables) {
+  $suggestions = [];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'timer_status__' . $sanitized_view_mode;
+
+  if (isset($variables['elements']['#entity_type'])) {
+    $suggestions[] = 'timer_status__' . $variables['elements']['#entity_type'];
+    $suggestions[] = 'timer_status__' . $variables['elements']['#entity_type'] . '__' . $sanitized_view_mode;
+  }
+
+  if (isset($variables['elements']['#bundle'])) {
+    $suggestions[] = 'timer_status__' . $variables['elements']['#entity_type'] . '__' . $variables['elements']['#bundle'];
+    $suggestions[] = 'timer_status__' . $variables['elements']['#entity_type'] . '__' . $variables['elements']['#bundle'] . '__' . $sanitized_view_mode;
+  }
+
+  return $suggestions;
+}

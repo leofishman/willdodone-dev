@@ -1,0 +1,5 @@
+services:
+  private_taxonomy.route_subscriber:
+    class: Drupal\private_taxonomy\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

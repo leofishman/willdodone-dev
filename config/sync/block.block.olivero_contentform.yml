@@ -1,0 +1,23 @@
+uuid: 6019bb7a-d466-48a7-aa6f-9cc162ba2c9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - formblock
+  theme:
+    - olivero
+id: olivero_contentform
+theme: olivero
+region: sidebar
+weight: -9
+provider: null
+plugin: formblock_node
+settings:
+  id: formblock_node
+  label: 'Add task'
+  label_display: visible
+  provider: formblock
+  type: task
+  form_mode: quickadd
+  show_help: 0
+visibility: {  }
