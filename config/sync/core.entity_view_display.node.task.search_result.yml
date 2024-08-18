@@ -33,12 +33,17 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 2
+    region: content
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   body: true
@@ -50,4 +55,3 @@ hidden:
   field_project: true
   field_tags: true
   field_time_used: true
-  search_api_excerpt: true
