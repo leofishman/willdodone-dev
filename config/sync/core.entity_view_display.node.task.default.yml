@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_display.comment.comment.default
     - field.field.node.task.body
     - field.field.node.task.comment
+    - field.field.node.task.field_files
     - field.field.node.task.field_goal
     - field.field.node.task.field_image
     - field.field.node.task.field_link
@@ -18,6 +19,7 @@ dependencies:
   module:
     - comment
     - datetime_range
+    - file
     - image
     - link
     - simpler_quickedit
@@ -52,6 +54,14 @@ content:
         edit: 0
         editHover: 0
     weight: 5
+    region: content
+  field_files:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_goal:
     type: entity_reference_label

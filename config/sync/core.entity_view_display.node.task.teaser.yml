@@ -7,6 +7,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.task.body
     - field.field.node.task.comment
+    - field.field.node.task.field_files
     - field.field.node.task.field_goal
     - field.field.node.task.field_image
     - field.field.node.task.field_link
@@ -102,6 +103,7 @@ content:
     weight: 3
     region: content
 hidden:
+  field_files: true
   field_goal: true
   field_link: true
   field_time_used: true
