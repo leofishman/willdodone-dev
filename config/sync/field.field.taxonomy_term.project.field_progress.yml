@@ -1,0 +1,26 @@
+uuid: 6bccc4ce-4d9e-4295-a883-e078eed47ac5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_progress
+    - taxonomy.vocabulary.project
+  module:
+    - task_field
+id: taxonomy_term.project.field_progress
+field_name: field_progress
+entity_type: taxonomy_term
+bundle: project
+label: Progress
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    priority: 10
+    timer: false
+    status: new
+    deadline: null
+default_value_callback: ''
+settings: {  }
+field_type: task_field_progress
