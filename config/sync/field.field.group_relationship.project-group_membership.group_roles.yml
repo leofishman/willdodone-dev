@@ -1,0 +1,22 @@
+uuid: 43488e63-4f8b-4b2c-bb6c-b4451514af68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group_relationship.group_roles
+    - group.relationship_type.project-group_membership
+id: group_relationship.project-group_membership.group_roles
+field_name: group_roles
+entity_type: group_relationship
+bundle: project-group_membership
+label: Roles
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'group_type:group_role'
+  handler_settings:
+    group_type_id: project
+field_type: entity_reference

@@ -21,6 +21,7 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
   facets: 0
   facets_exposed_filters: 0
   facets_range_widget: 0
@@ -30,13 +31,19 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  flag: 0
+  flag_bookmark: 0
+  flexible_permissions: 0
   formblock: 0
+  gnode: 0
+  group: 0
   help: 0
   history: 0
   image: 0
   inline_entity_form: 0
   inline_form_errors: 0
   jquery_ui: 0
+  jquery_ui_datepicker: 0
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0
   layout_builder: 0
@@ -50,6 +57,7 @@ module:
   navigation: 0
   node: 0
   node_view_permissions: 0
+  optional_end_date: 0
   options: 0
   page_cache: 0
   path: 0
@@ -72,6 +80,7 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  variationcache: 0
   views_ui: 0
   willdodone: 0
   pathauto: 1

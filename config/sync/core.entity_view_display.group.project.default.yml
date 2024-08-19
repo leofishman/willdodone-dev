@@ -1,0 +1,59 @@
+uuid: a27b3465-ccb3-456d-a4a9-d345bb0fef35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.project.field_link
+    - field.field.group.project.field_media
+    - field.field.group.project.field_progress
+    - group.type.project
+  module:
+    - link
+    - task_field
+id: group.project.default
+targetEntityType: group
+bundle: project
+mode: default
+content:
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: -2
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: -3
+    region: content
+  field_progress:
+    type: task_field_progress_default
+    label: above
+    settings:
+      foo: bar
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+hidden:
+  changed: true
+  created: true
+  search_api_excerpt: true
+  uid: true

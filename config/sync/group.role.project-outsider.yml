@@ -1,0 +1,15 @@
+uuid: 88ea212a-57a4-4b63-bdf2-7b68ad2ed02c
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project
+    - user.role.authenticated
+id: project-outsider
+label: Outsider
+weight: -101
+admin: false
+scope: outsider
+global_role: authenticated
+group_type: project
+permissions: {  }

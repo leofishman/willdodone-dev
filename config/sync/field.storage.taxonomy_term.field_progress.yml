@@ -1,0 +1,19 @@
+uuid: e696c7ed-00c3-4c08-909e-1a21e026c922
+langcode: en
+status: true
+dependencies:
+  module:
+    - task_field
+    - taxonomy
+id: taxonomy_term.field_progress
+field_name: field_progress
+entity_type: taxonomy_term
+type: task_field_progress
+settings: {  }
+module: task_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: 6da9b3a2-ff6e-43e0-849d-92c0ee12c609
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.relationship_type.project-group_node-task
+id: group_relationship.project-group_node-task.default
+targetEntityType: group_relationship
+bundle: project-group_node-task
+mode: default
+content:
+  entity_id:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
+  uid: true

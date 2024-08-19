@@ -1,0 +1,17 @@
+uuid: 39d4ad4e-a68b-4d6b-bdec-0a127cdf6771
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project
+    - node.type.article
+  module:
+    - gnode
+    - node
+id: project-group_node-article
+group_type: project
+content_plugin: 'group_node:article'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: true

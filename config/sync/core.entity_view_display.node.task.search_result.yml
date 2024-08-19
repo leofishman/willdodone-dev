@@ -18,6 +18,7 @@ dependencies:
     - node.type.task
   module:
     - image
+    - task_field
     - user
 id: node.task.search_result
 targetEntityType: node
@@ -33,12 +34,41 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 0
+    weight: 1
+    region: content
+  field_progress:
+    type: task_field_progress_default
+    label: above
+    settings:
+      foo: bar
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_project:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 4
+    region: content
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   body: true
@@ -46,8 +76,4 @@ hidden:
   field_files: true
   field_goal: true
   field_link: true
-  field_progress: true
-  field_project: true
-  field_tags: true
   field_time_used: true
-  search_api_excerpt: true

@@ -1,0 +1,26 @@
+uuid: 24d5ecfd-d32a-4f4e-a7e9-f2896c6a7381
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_progress
+    - group.type.project
+  module:
+    - task_field
+id: group.project.field_progress
+field_name: field_progress
+entity_type: group
+bundle: project
+label: Progress
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    priority: 10
+    timer: false
+    status: new
+    deadline: null
+default_value_callback: ''
+settings: {  }
+field_type: task_field_progress

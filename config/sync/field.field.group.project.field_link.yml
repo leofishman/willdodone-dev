@@ -1,0 +1,23 @@
+uuid: c635b40b-8a60-4379-afbb-f9f1f562f3b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_link
+    - group.type.project
+  module:
+    - link
+id: group.project.field_link
+field_name: field_link
+entity_type: group
+bundle: project
+label: link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

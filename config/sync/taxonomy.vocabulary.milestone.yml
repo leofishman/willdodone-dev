@@ -1,0 +1,14 @@
+uuid: efaac97f-b180-4a33-8f85-e0dc37627f63
+langcode: en
+status: true
+dependencies:
+  module:
+    - private_taxonomy
+third_party_settings:
+  private_taxonomy:
+    private: 1
+name: Milestone
+vid: milestone
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,22 @@
+uuid: 7f47c163-2720-40ed-955e-025be91c9c05
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project
+    - user.role.authenticated
+id: project-member
+label: Member
+weight: -100
+admin: false
+scope: insider
+global_role: authenticated
+group_type: project
+permissions:
+  - 'create group_node:task entity'
+  - 'create group_node:task relationship'
+  - 'delete own group_node:task entity'
+  - 'delete own group_node:task relationship'
+  - 'update own group_node:task entity'
+  - 'update own group_node:task relationship'
+  - 'view own unpublished group_node:task entity'

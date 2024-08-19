@@ -1,0 +1,14 @@
+uuid: a4887f59-3918-4316-8082-d4229b7416cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project
+id: project-admin
+label: Admin
+weight: 100
+admin: true
+scope: individual
+global_role: null
+group_type: project
+permissions: {  }

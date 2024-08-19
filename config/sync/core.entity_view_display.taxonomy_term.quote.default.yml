@@ -1,0 +1,40 @@
+uuid: 97ee49ff-e931-4906-a918-5b15c80cc37f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.quote.field_media
+    - field.field.taxonomy_term.quote.field_quote
+    - taxonomy.vocabulary.quote
+  module:
+    - text
+id: taxonomy_term.quote.default
+targetEntityType: taxonomy_term
+bundle: quote
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_quote:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

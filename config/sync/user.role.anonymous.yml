@@ -1,29 +1,11 @@
 uuid: 7980d9ad-8557-453d-924a-2dbeaaf3db69
 langcode: en
 status: true
-dependencies:
-  config:
-    - filter.format.restricted_html
-  module:
-    - comment
-    - contact
-    - filter
-    - media
-    - node_view_permissions
-    - search
-    - system
+dependencies: {  }
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
 id: anonymous
 label: 'Anonymous user'
 weight: 0
 is_admin: false
-permissions:
-  - 'access comments'
-  - 'access content'
-  - 'access site-wide contact form'
-  - 'search content'
-  - 'use text format restricted_html'
-  - 'view any article content'
-  - 'view any page content'
-  - 'view media'
+permissions: {  }

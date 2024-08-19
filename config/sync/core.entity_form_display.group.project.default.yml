@@ -1,0 +1,63 @@
+uuid: a3023fb5-dc48-4dfc-bf47-af14556ad3a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.project.field_link
+    - field.field.group.project.field_media
+    - field.field.group.project.field_progress
+    - group.type.project
+  module:
+    - link
+    - media_library
+    - path
+    - task_field
+id: group.project.default
+targetEntityType: group
+bundle: project
+mode: default
+content:
+  field_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_media:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_progress:
+    type: task_field_progress
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  uid: true

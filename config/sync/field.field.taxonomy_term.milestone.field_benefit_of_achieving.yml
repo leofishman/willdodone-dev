@@ -1,0 +1,22 @@
+uuid: a12a047d-4e9c-4562-8827-daefca5f36b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_benefit_of_achieving
+    - taxonomy.vocabulary.milestone
+  module:
+    - text
+id: taxonomy_term.milestone.field_benefit_of_achieving
+field_name: field_benefit_of_achieving
+entity_type: taxonomy_term
+bundle: milestone
+label: 'Benefit of achieving'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

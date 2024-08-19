@@ -1,0 +1,12 @@
+uuid: 8edfe345-3ebb-4b89-a449-9b3d36da90dc
+langcode: en
+status: true
+dependencies: {  }
+id: project
+label: Project
+description: ''
+new_revision: true
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - project-admin

@@ -1,0 +1,20 @@
+uuid: 730b8a5f-55ce-4246-b9e8-99edf9d99409
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - text
+id: taxonomy_term.field_benefit_of_achieving
+field_name: field_benefit_of_achieving
+entity_type: taxonomy_term
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

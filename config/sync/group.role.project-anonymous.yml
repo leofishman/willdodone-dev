@@ -1,0 +1,15 @@
+uuid: 94586b1b-83c9-42cd-934b-14b73b210891
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project
+    - user.role.anonymous
+id: project-anonymous
+label: Anonymous
+weight: -102
+admin: false
+scope: outsider
+global_role: anonymous
+group_type: project
+permissions: {  }

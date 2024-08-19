@@ -1,0 +1,24 @@
+uuid: f1dbed19-965f-4d8a-8341-7e1fd992ea81
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.projects
+  module:
+    - views
+  theme:
+    - olivero
+id: olivero_views_block__projects_block_1
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'views_block:projects-block_1'
+settings:
+  id: 'views_block:projects-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: '10'
+visibility: {  }
