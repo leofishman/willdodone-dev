@@ -9,25 +9,32 @@ dependencies:
     - media.type.image
     - media.type.remote_video
     - media.type.video
+    - node.type.article
+    - node.type.page
     - node.type.task
     - taxonomy.vocabulary.goal
     - taxonomy.vocabulary.milestone
     - taxonomy.vocabulary.project
+    - taxonomy.vocabulary.quote
     - taxonomy.vocabulary.tags
   module:
     - comment
     - contact
     - file
     - filter
+    - flag
+    - group
     - media
     - node
     - node_view_permissions
+    - path
     - private_taxonomy
     - quickedit
     - search
     - shortcut
     - system
     - taxonomy
+    - toolbar
 _core:
   default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
 id: authenticated
@@ -37,21 +44,29 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access group overview'
   - 'access in-place editing'
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'administer group'
   - 'administer own taxonomy'
+  - 'create article content'
   - 'create audio media'
   - 'create document media'
   - 'create image media'
   - 'create media'
+  - 'create page content'
+  - 'create project group'
   - 'create remote_video media'
   - 'create task content'
   - 'create terms in goal'
   - 'create terms in milestone'
   - 'create terms in project'
+  - 'create terms in quote'
   - 'create terms in tags'
+  - 'create url aliases'
   - 'create video media'
   - 'delete media'
   - 'delete own audio media'
@@ -65,9 +80,11 @@ permissions:
   - 'delete terms in milestone'
   - 'delete terms in project'
   - 'delete terms in tags'
+  - 'edit own article content'
   - 'edit own audio media'
   - 'edit own document media'
   - 'edit own image media'
+  - 'edit own page content'
   - 'edit own remote_video media'
   - 'edit own task content'
   - 'edit own terms in goal'
@@ -76,16 +93,21 @@ permissions:
   - 'edit terms in goal'
   - 'edit terms in milestone'
   - 'edit terms in project'
+  - 'edit terms in quote'
   - 'edit terms in tags'
+  - 'flag bookmark'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'unflag bookmark'
   - 'update media'
   - 'use advanced search'
   - 'use text format basic_html'
   - 'view any article content'
   - 'view any page content'
   - 'view media'
+  - 'view own article content'
+  - 'view own page content'
   - 'view own task content'
   - 'view own unpublished content'
   - 'view own unpublished media'

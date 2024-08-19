@@ -1,0 +1,38 @@
+uuid: 74c42337-a39b-421c-ad6d-7bc3cba7b262
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group_relationship.project-group_membership.group_roles
+    - group.relationship_type.project-group_membership
+  module:
+    - path
+id: group_relationship.project-group_membership.default
+targetEntityType: group_relationship
+bundle: project-group_membership
+mode: default
+content:
+  entity_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  group_roles:
+    type: options_buttons
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  uid: true

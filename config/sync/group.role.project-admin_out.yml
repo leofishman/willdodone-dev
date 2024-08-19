@@ -1,0 +1,15 @@
+uuid: 5f337e0e-bdca-4144-b197-36cb439c5d39
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.project
+    - user.role.administrator
+id: project-admin_out
+label: Administrator
+weight: 101
+admin: true
+scope: outsider
+global_role: administrator
+group_type: project
+permissions: {  }
