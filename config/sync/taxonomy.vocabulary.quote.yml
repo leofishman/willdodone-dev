@@ -1,0 +1,14 @@
+uuid: 387e7897-b4e7-4f87-b7e3-e03d4e5317e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - private_taxonomy
+third_party_settings:
+  private_taxonomy:
+    private: 0
+name: Quote
+vid: quote
+description: null
+weight: 0
+new_revision: false

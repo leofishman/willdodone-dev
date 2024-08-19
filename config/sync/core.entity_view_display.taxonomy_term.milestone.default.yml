@@ -1,0 +1,55 @@
+uuid: 93de1165-1fd7-41af-a4a9-a0ecfc2859f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.milestone.field_benefit_of_achieving
+    - field.field.taxonomy_term.milestone.field_media
+    - field.field.taxonomy_term.milestone.field_progress
+    - taxonomy.vocabulary.milestone
+  module:
+    - simpler_quickedit
+    - task_field
+    - text
+id: taxonomy_term.milestone.default
+targetEntityType: taxonomy_term
+bundle: milestone
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_benefit_of_achieving:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_progress:
+    type: task_field_progress_default
+    label: above
+    settings:
+      foo: bar
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        edit: '1'
+        editHover: '1'
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

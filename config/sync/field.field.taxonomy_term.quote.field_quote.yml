@@ -1,0 +1,22 @@
+uuid: 037e7d12-cd92-48c5-b358-e8e8cb000999
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_quote
+    - taxonomy.vocabulary.quote
+  module:
+    - text
+id: taxonomy_term.quote.field_quote
+field_name: field_quote
+entity_type: taxonomy_term
+bundle: quote
+label: Quote
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

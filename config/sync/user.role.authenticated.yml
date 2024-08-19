@@ -11,6 +11,7 @@ dependencies:
     - media.type.video
     - node.type.task
     - taxonomy.vocabulary.goal
+    - taxonomy.vocabulary.milestone
     - taxonomy.vocabulary.project
     - taxonomy.vocabulary.tags
   module:
@@ -48,6 +49,7 @@ permissions:
   - 'create remote_video media'
   - 'create task content'
   - 'create terms in goal'
+  - 'create terms in milestone'
   - 'create terms in project'
   - 'create terms in tags'
   - 'create video media'
@@ -60,6 +62,7 @@ permissions:
   - 'delete own task content'
   - 'delete own video media'
   - 'delete terms in goal'
+  - 'delete terms in milestone'
   - 'delete terms in project'
   - 'delete terms in tags'
   - 'edit own audio media'
@@ -71,6 +74,7 @@ permissions:
   - 'edit own terms in project'
   - 'edit own video media'
   - 'edit terms in goal'
+  - 'edit terms in milestone'
   - 'edit terms in project'
   - 'edit terms in tags'
   - 'post comments'
