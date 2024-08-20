@@ -1,0 +1,22 @@
+uuid: c95d5c70-6463-45f0-8e01-9b386cb66ccc
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+  theme:
+    - olivero
+id: olivero_groupoperations
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: group_operations
+settings:
+  id: group_operations
+  label: 'Group operations'
+  label_display: visible
+  provider: group
+  context_mapping:
+    group: '@group.group_route_context:group'
+visibility: {  }
