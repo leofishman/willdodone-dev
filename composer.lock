@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "464f13d79cb3100cbe6c49ed8650e4c9",
+    "content-hash": "7a20935bc58a8260b05a2ce6121e85d6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2667,6 +2667,61 @@
             }
         },
         {
+            "name": "drupal/entitygroupfield",
+            "version": "2.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entitygroupfield.git",
+                "reference": "2.0.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entitygroupfield-2.0.0-alpha1.zip",
+                "reference": "2.0.0-alpha1",
+                "shasum": "8a652543ba7cf587d023c8e4e8652592691b3565"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10",
+                "drupal/group": "^2.0 || ^3.0"
+            },
+            "require-dev": {
+                "drupal/variationcache": "~1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-alpha1",
+                    "datestamp": "1687130173",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Derek Wright",
+                    "homepage": "https://www.drupal.org/u/dww",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Ivan Duarte",
+                    "homepage": "https://www.drupal.org/u/jidrone",
+                    "role": "Co-Maintainer"
+                }
+            ],
+            "description": "Defines a field to view and edit the groups associated with content.",
+            "homepage": "http://drupal.org/project/entitygroupfield",
+            "support": {
+                "source": "https://git.drupalcode.org/project/entitygroupfield",
+                "issues": "https://drupal.org/project/issues/entitygroupfield"
+            }
+        },
+        {
             "name": "drupal/facets",
             "version": "dev-3.0.x",
             "source": {
@@ -2974,6 +3029,122 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/group",
                 "issues": "https://drupal.org/project/issues/group"
+            }
+        },
+        {
+            "name": "drupal/groupmedia",
+            "version": "4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/groupmedia.git",
+                "reference": "4.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/groupmedia-4.0.2.zip",
+                "reference": "4.0.2",
+                "shasum": "95bbec1b6a2c28bc976ec43ecb3f1330fd509fcd"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/group": "^3.0"
+            },
+            "require-dev": {
+                "drupal/paragraphs": "*",
+                "drupal/views_bulk_operations": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.2",
+                    "datestamp": "1694467520",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Dmitriiev",
+                    "homepage": "https://www.drupal.org/u/admitriiev",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Nikolay Lobachev",
+                    "homepage": "https://www.drupal.org/u/lobsterr",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module allows you to integrate media entity into group functionality",
+            "homepage": "http://drupal.org/project/groupmedia",
+            "support": {
+                "source": "https://git.drupalcode.org/project/groupmedia",
+                "issues": "https://drupal.org/project/issues/groupmedia"
+            }
+        },
+        {
+            "name": "drupal/groupmenu",
+            "version": "3.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/groupmenu.git",
+                "reference": "3.0.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/groupmenu-3.0.0-alpha2.zip",
+                "reference": "3.0.0-alpha2",
+                "shasum": "4ef4c5d71d11380bc7423716f7889bb5c27c48d1"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/group": "*"
+            },
+            "require-dev": {
+                "drupal/gnode": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.0-alpha2",
+                    "datestamp": "1715254863",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "chrisfromredfin",
+                    "homepage": "https://www.drupal.org/user/74392"
+                },
+                {
+                    "name": "mike.davis",
+                    "homepage": "https://www.drupal.org/user/2660157"
+                },
+                {
+                    "name": "safetypin",
+                    "homepage": "https://www.drupal.org/user/120508"
+                },
+                {
+                    "name": "seanB",
+                    "homepage": "https://www.drupal.org/user/545912"
+                }
+            ],
+            "description": "Gives the ability to create and manage menus for groups.",
+            "homepage": "https://www.drupal.org/project/groupmenu",
+            "support": {
+                "source": "https://git.drupalcode.org/project/groupmenu"
             }
         },
         {
@@ -10267,9 +10438,11 @@
         "drupal/ajax_comments": 10,
         "drupal/custom_field": 5,
         "drupal/entity_usage": 10,
+        "drupal/entitygroupfield": 15,
         "drupal/facets": 20,
         "drupal/flag": 10,
         "drupal/formblock": 10,
+        "drupal/groupmenu": 15,
         "drupal/inline_entity_form": 5,
         "drupal/project_browser": 15
     },

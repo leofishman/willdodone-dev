@@ -14,7 +14,6 @@ dependencies:
     - node.type.task
     - taxonomy.vocabulary.goal
     - taxonomy.vocabulary.milestone
-    - taxonomy.vocabulary.project
     - taxonomy.vocabulary.quote
     - taxonomy.vocabulary.tags
   module:
@@ -63,7 +62,6 @@ permissions:
   - 'create task content'
   - 'create terms in goal'
   - 'create terms in milestone'
-  - 'create terms in project'
   - 'create terms in quote'
   - 'create terms in tags'
   - 'create url aliases'
@@ -78,7 +76,6 @@ permissions:
   - 'delete own video media'
   - 'delete terms in goal'
   - 'delete terms in milestone'
-  - 'delete terms in project'
   - 'delete terms in tags'
   - 'edit own article content'
   - 'edit own audio media'
@@ -92,7 +89,6 @@ permissions:
   - 'edit own video media'
   - 'edit terms in goal'
   - 'edit terms in milestone'
-  - 'edit terms in project'
   - 'edit terms in quote'
   - 'edit terms in tags'
   - 'flag bookmark'

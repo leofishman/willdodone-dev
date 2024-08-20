@@ -12,13 +12,13 @@ dependencies:
     - field.field.node.task.field_image
     - field.field.node.task.field_link
     - field.field.node.task.field_progress
-    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - image.style.medium
     - node.type.task
   module:
     - comment
+    - entitygroupfield
     - image
     - simpler_quickedit
     - task_field
@@ -39,7 +39,7 @@ content:
         editHover: '1'
         click: 0
         edit: 0
-    weight: 4
+    weight: 5
     region: content
   comment:
     type: comment_default
@@ -49,6 +49,18 @@ content:
       pager_id: 0
     third_party_settings: {  }
     weight: 6
+    region: content
+  entitygroupfield:
+    type: parent_group_label_formatter
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        edit: '1'
+        editHover: '1'
+    weight: 3
     region: content
   field_image:
     type: image
@@ -73,18 +85,6 @@ content:
         edit: 0
     weight: 0
     region: content
-  field_project:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: false
-    third_party_settings:
-      simpler_quickedit:
-        click: '1'
-        edit: '1'
-        editHover: 0
-    weight: 5
-    region: content
   field_tags:
     type: entity_reference_label
     label: above
@@ -100,7 +100,7 @@ content:
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
 hidden:
   field_files: true

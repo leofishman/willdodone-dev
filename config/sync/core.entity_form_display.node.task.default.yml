@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.task.field_image
     - field.field.node.task.field_link
     - field.field.node.task.field_progress
-    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - image.style.thumbnail
@@ -18,6 +17,7 @@ dependencies:
   module:
     - comment
     - datetime_range
+    - entitygroupfield
     - file
     - image
     - link
@@ -31,7 +31,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 13
+    weight: 3
     region: content
     settings:
       rows: 9
@@ -41,32 +41,42 @@ content:
     third_party_settings: {  }
   comment:
     type: comment_default
-    weight: 10
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 7
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: 1
+    region: content
+    settings:
+      help_text: ''
+      label: Project
+      multiple: true
+      required: false
+    third_party_settings: {  }
   field_files:
     type: file_generic
-    weight: 27
+    weight: 9
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_goal:
     type: options_select
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_image:
     type: image_image
-    weight: 3
+    weight: 4
     region: content
     settings:
       progress_indicator: throbber
@@ -74,7 +84,7 @@ content:
     third_party_settings: {  }
   field_link:
     type: link_default
-    weight: 26
+    weight: 8
     region: content
     settings:
       placeholder_url: ''
@@ -82,19 +92,13 @@ content:
     third_party_settings: {  }
   field_progress:
     type: task_field_progress
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_project:
-    type: options_select
     weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_tags:
     type: entity_reference_autocomplete_tags
-    weight: 5
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -104,33 +108,33 @@ content:
     third_party_settings: {  }
   field_time_used:
     type: daterange_default
-    weight: 14
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 11
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
-    type: boolean_checkbox
-    weight: 8
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  status:
     type: boolean_checkbox
     weight: 12
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 9
+    weight: 13
     region: content
     settings:
       display_label: true
@@ -145,7 +149,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS

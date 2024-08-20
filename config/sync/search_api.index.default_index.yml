@@ -3,11 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_progress
     - field.storage.node.field_files
     - field.storage.node.field_goal
     - field.storage.node.field_link
-    - field.storage.node.field_progress
-    - field.storage.node.field_project
     - field.storage.node.field_tags
     - search_api.server.default_server
     - core.entity_view_mode.node.search_index
@@ -79,14 +78,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_link
-  field_project:
-    label: Project
-    datasource_id: 'entity:node'
-    property_path: field_project
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_project
   field_tags:
     label: Tags
     datasource_id: 'entity:node'
