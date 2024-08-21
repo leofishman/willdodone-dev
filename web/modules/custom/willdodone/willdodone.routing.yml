@@ -1,7 +1,0 @@
-willdodone.toggle_timer:
-  path: '/willdodone/toggle-timer/{entity_type}/{entity_id}/{field_name}/{delta}'
-  defaults:
-    _controller: '\Drupal\willdodone\Controller\TimerController::toggleTimer'
-  requirements:
-    _permission: 'access content'
-  methods: [POST]

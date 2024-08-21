@@ -9,5 +9,7 @@ services:
       - { name: event_subscriber }
   willdodone.timer_service:
     class: \Drupal\willdodone\Service\TimerService
-    arguments: ['@entity_type.manager','@current_user']
+    arguments: ['@entity_type.manager','@current_user'
+
+### TODO REMOVE ALL SERVICES
 
