@@ -31,7 +31,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_image:
     type: image
@@ -42,7 +42,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_progress:
     type: task_field_progress_default
@@ -50,7 +50,7 @@ content:
     settings:
       foo: bar
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_tags:
     type: entity_reference_label
@@ -60,10 +60,20 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  flag_bookmark:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  flag_timer:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 7
     region: content
   search_api_excerpt:
     settings: {  }

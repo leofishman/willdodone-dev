@@ -9,6 +9,7 @@ module:
   big_pipe: 0
   block: 0
   block_content: 0
+  bpmn_io: 0
   breakpoint: 0
   ckeditor5: 0
   color_field: 0
@@ -20,6 +21,17 @@ module:
   datetime_range: 0
   dblog: 0
   dynamic_page_cache: 0
+  eca: 0
+  eca_access: 0
+  eca_base: 0
+  eca_cm: 0
+  eca_config: 0
+  eca_content: 0
+  eca_flag: 0
+  eca_log: 0
+  eca_modeller_bpmn: 0
+  eca_ui: 0
+  eca_views: 0
   editor: 0
   entity: 0
   entitygroupfield: 0

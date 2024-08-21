@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment.default
     - core.entity_view_mode.node.teaser
     - field.field.node.task.body
     - field.field.node.task.comment
@@ -17,7 +16,6 @@ dependencies:
     - image.style.medium
     - node.type.task
   module:
-    - comment
     - entitygroupfield
     - image
     - simpler_quickedit
@@ -39,16 +37,7 @@ content:
         editHover: '1'
         click: 0
         edit: 0
-    weight: 5
-    region: content
-  comment:
-    type: comment_default
-    label: above
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    weight: 6
+    weight: 3
     region: content
   entitygroupfield:
     type: parent_group_label_formatter
@@ -60,7 +49,7 @@ content:
         click: '1'
         edit: '1'
         editHover: '1'
-    weight: 3
+    weight: 1
     region: content
   field_image:
     type: image
@@ -71,7 +60,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
+    weight: 4
     region: content
   field_progress:
     type: task_field_progress_default
@@ -83,7 +72,7 @@ content:
         click: '1'
         editHover: '1'
         edit: 0
-    weight: 0
+    weight: 2
     region: content
   field_tags:
     type: entity_reference_label
@@ -95,14 +84,30 @@ content:
         editHover: '1'
         click: 0
         edit: 0
-    weight: 2
+    weight: 5
+    region: content
+  flag_bookmark:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  flag_current_task:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  flag_timer:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 7
     region: content
 hidden:
+  comment: true
   field_files: true
   field_goal: true
   field_link: true

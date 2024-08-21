@@ -1,0 +1,15 @@
+uuid: 7392872e-84ba-4ae3-b41f-e00f7f8432c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.current_task
+  module:
+    - flag
+id: flag_action.current_task_flag
+label: 'Start Timer'
+type: node
+plugin: 'flag_action:current_task_flag'
+configuration:
+  flag_id: current_task
+  flag_action: flag
