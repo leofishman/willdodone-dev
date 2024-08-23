@@ -2,7 +2,10 @@
 
 namespace Drupal\willdodone\Plugin\Action;
 
+use Drupal\Component\DependencyInjection\ContainerInterface;
+use Drupal\Component\Plugin\DependentPluginInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\eca\Plugin\Action\ActionBase;
 use Drupal\eca\Plugin\Action\ConfigurableActionTrait;
 use Drupal\eca\Plugin\ECA\PluginFormTrait;
@@ -25,6 +28,9 @@ class TimerStartAction extends ActionBase {
    */
   public function execute( $entity = NULL) {
     // Flag is being flagged (timer start)
+
+    //TODO: Stop all other timers running and add end time on each
+
     // Get the current date and time.
     $current_datetime = new DrupalDateTime('now');
     $formatted_datetime = $current_datetime->format('Y-m-d\TH:i:s');
@@ -37,21 +43,19 @@ class TimerStartAction extends ActionBase {
       ];
       $entity->get('field_time_used')->appendItem($new_value);
 
-//    } else {
-//      // Flag is being unflagged (timer stop)
-//
-//      // Find the most recently added value in field_time_used
-//      $field_values = $entity->get('field_time_used')->getValue();
-//      $last_item_index = count($field_values) - 1;
-//
-//      // Update its end value with the current date/time
-//      $field_values[$last_item_index]['end_value'] = $formatted_datetime;
-//      $entity->set('field_time_used', $field_values);
-
     }
 
     // Save the entity
     $entity->save();
+  }
+  /**
+   * {@inheritdoc}
+   */
+  public function calculateDependencies() {
+    if ($this->flag) {
+      $this->addDependency('config', $this->flag->getConfigDependencyName());
+    }
+    return $this->dependencies;
   }
 
 }
