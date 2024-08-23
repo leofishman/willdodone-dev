@@ -1,0 +1,35 @@
+uuid: 0a9dc2a7-3ac1-487b-bb93-d9c4a8d9a040
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: timer
+label: Timer
+bundles:
+  - article
+  - page
+  - task
+entity_type: node
+global: true
+flag_short: 'Time this item'
+flag_long: ''
+flag_message: 'Timer started'
+unflag_short: 'Stop timing this item'
+unflag_long: ''
+unflag_message: 'Timer Stoped'
+unflag_denied_text: ''
+weight: 0
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links:
+    full: full
+    teaser: teaser
+    token: token
+  show_as_field: true
+  show_on_form: true
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

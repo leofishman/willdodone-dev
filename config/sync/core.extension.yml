@@ -6,7 +6,6 @@ module:
   automated_cron: 0
   backup_migrate: 0
   better_exposed_filters: 0
-  big_pipe: 0
   block: 0
   block_content: 0
   bpmn_io: 0
@@ -20,7 +19,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  dynamic_page_cache: 0
   eca: 0
   eca_access: 0
   eca_base: 0
@@ -29,7 +27,9 @@ module:
   eca_content: 0
   eca_flag: 0
   eca_log: 0
+  eca_misc: 0
   eca_modeller_bpmn: 0
+  eca_tamper: 0
   eca_ui: 0
   eca_views: 0
   editor: 0
@@ -40,7 +40,6 @@ module:
   facets_range_widget: 0
   facets_searchbox_widget: 0
   field: 0
-  field_states: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -74,7 +73,6 @@ module:
   node_view_permissions: 0
   optional_end_date: 0
   options: 0
-  page_cache: 0
   path: 0
   path_alias: 0
   private_taxonomy: 0
@@ -87,6 +85,7 @@ module:
   simpler_quickedit: 0
   standard: 0
   system: 0
+  tamper: 0
   task_field: 0
   taxonomy: 0
   text: 0
