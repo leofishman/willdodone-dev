@@ -12,3 +12,6 @@ dependencies:
   - quickedit:quickedit
   - taxonomy:taxonomy
   - private_taxonomy:private_taxonomy
+  - drupal:eca
+  - drupal:flag
+  - drupal:group
