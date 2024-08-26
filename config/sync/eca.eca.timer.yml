@@ -34,6 +34,12 @@ conditions:
       flag_name: timer
       negate: false
       entity: ''
+  eca_flag_entity_is_flagged_1:
+    plugin: eca_flag_entity_is_flagged
+    configuration:
+      flag_name: bookmark
+      negate: false
+      entity: ''
 gateways: {  }
 actions:
   wdd_timer_start_action:

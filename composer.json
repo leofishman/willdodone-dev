@@ -16,6 +16,7 @@
   ],
   "require": {
     "composer/installers": "^2.0",
+    "cweagans/composer-patches": "^1.7",
     "drupal/ai": "1.0.x-dev@dev",
     "drupal/ajax_comments": "^1.0@beta",
     "drupal/backup_migrate": "^5.0",
@@ -28,7 +29,7 @@
     "drupal/custom_field": "^3.0@RC",
     "drupal/eca": "^2.0",
     "drupal/eca_cm": "^1.0",
-    "drupal/eca_flag": "^2.0",
+    "drupal/eca_flag": "2.1.x-dev@dev",
     "drupal/eca_tamper": "^2.0",
     "drupal/entity_reference_revisions": "^1.11",
     "drupal/entity_usage": "^2.0@beta",
@@ -61,6 +62,7 @@
   "config": {
       "allow-plugins": {
           "composer/installers": true,
+          "cweagans/composer-patches": true,
           "drupal/core-composer-scaffold": true,
           "drupal/core-project-message": true,
           "phpstan/extension-installer": true,
@@ -103,6 +105,16 @@
           "web/themes/custom/{$name}": [
               "type:drupal-custom-theme"
           ]
+      },
+      "enable-patching": true,
+      "composer-exit-on-patch-failure": false,
+      "patchLevel": {
+          "drupal/core": "-p2"
+      },
+      "patches": {
+        "drupal/eca_flag": {
+          "Issue #3469011: Regression: entity, flag, flagging tokens removed without notice": "patches/eca_flag.patch"
+        }
       },
       "drupal-core-project-message": {
           "include-keys": [
