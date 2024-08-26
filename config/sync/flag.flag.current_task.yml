@@ -1,6 +1,6 @@
 uuid: db76ee7a-d956-498f-9f55-e00116c1410b
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - node
@@ -16,7 +16,7 @@ flag_message: Running
 unflag_short: 'Stop Timer'
 unflag_long: 'Task done or attention deviate to another task'
 unflag_message: 'Timer stoped'
-unflag_denied_text: ''
+unflag_denied_text: 'not allowed'
 weight: 0
 flag_type: 'entity:node'
 link_type: ajax_link

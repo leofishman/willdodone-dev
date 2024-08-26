@@ -1,0 +1,15 @@
+uuid: 8306a974-47b9-4fdd-8d5d-c161780b9894
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.timer
+  module:
+    - flag
+id: flag_action.timer_unflag
+label: 'Stop timing this item'
+type: node
+plugin: 'flag_action:timer_unflag'
+configuration:
+  flag_id: timer
+  flag_action: unflag

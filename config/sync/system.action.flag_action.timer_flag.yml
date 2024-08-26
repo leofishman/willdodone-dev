@@ -1,0 +1,15 @@
+uuid: 83f18dfc-34f3-4d33-8da9-f84e064acc2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.timer
+  module:
+    - flag
+id: flag_action.timer_flag
+label: 'Time this item'
+type: node
+plugin: 'flag_action:timer_flag'
+configuration:
+  flag_id: timer
+  flag_action: flag

@@ -1,0 +1,136 @@
+From a2c0e74cbbb841537aae00cb3ea34b0b9a5d2cf3 Mon Sep 17 00:00:00 2001
+From: John Locke <john@freelock.com>
+Date: Mon, 19 Aug 2024 12:04:28 -0700
+Subject: [PATCH 1/2] Issue #3469011: Regression: entity, flag, flagging tokens
+ removed without notice
+
+---
+ src/Plugin/ECA/Event/FlagEvent.php | 40 ++++++++++++++++++++++++++++++
+ 1 file changed, 40 insertions(+)
+
+diff --git a/src/Plugin/ECA/Event/FlagEvent.php b/src/Plugin/ECA/Event/FlagEvent.php
+index 3605b15..eca6f83 100644
+--- a/src/Plugin/ECA/Event/FlagEvent.php
++++ b/src/Plugin/ECA/Event/FlagEvent.php
+@@ -3,7 +3,9 @@
+ namespace Drupal\eca_flag\Plugin\ECA\Event;
+ 
+ use Drupal\eca\Attributes\Token;
++use Drupal\eca\Plugin\DataType\DataTransferObject;
+ use Drupal\eca\Plugin\ECA\Event\EventBase;
++use Drupal\eca_flag\Event\FlaggingBase;
+ use Drupal\eca_flag\Event\FlaggingDelete;
+ use Drupal\eca_flag\Event\FlaggingEvents;
+ use Drupal\eca_flag\Event\FlaggingInsert;
+@@ -50,6 +52,44 @@ class FlagEvent extends EventBase {
+     ];
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
++  #[Token(
++    name: 'flagging',
++    description: 'The flagging entity.',
++  )]
++  #[Token(
++    name: 'flag',
++    description: 'The flag entity.',
++  )]
++  #[Token(
++    name: 'entity',
++    description: 'The flagged entity',
++  )]
++  public function getData(string $key): mixed {
++    $event = $this->getEvent();
++    if ($event instanceof FlaggingEvent) {
++      $flagging = $event->getFlagging();
++    }
++    elseif ($event instanceof UnflaggingEvent) {
++      $flaggings = $event->getFlaggings();
++      $flagging = reset($flaggings);
++    }
++    switch ($key) {
++      case 'flagging':
++        return $flagging;
++
++      case 'flag':
++        return $flagging->getFlag();
++
++      case 'entity':
++        return $flagging->getFlaggable();
++    }
++
++    return parent::getData($key);
++  }
++
+   /**
+    * {@inheritdoc}
+    */
+-- 
+GitLab
+
+
+From b1ce4c572b1b7eddde7c187a7d30f5be0ef70efc Mon Sep 17 00:00:00 2001
+From: John Locke <14576-freelock@users.noreply.drupalcode.org>
+Date: Tue, 20 Aug 2024 19:11:27 +0000
+Subject: [PATCH 2/2] Update file FlagEvent.php
+
+---
+ src/Plugin/ECA/Event/FlagEvent.php | 23 ++++++++++++++---------
+ 1 file changed, 14 insertions(+), 9 deletions(-)
+
+diff --git a/src/Plugin/ECA/Event/FlagEvent.php b/src/Plugin/ECA/Event/FlagEvent.php
+index eca6f83..ad59547 100644
+--- a/src/Plugin/ECA/Event/FlagEvent.php
++++ b/src/Plugin/ECA/Event/FlagEvent.php
+@@ -3,9 +3,7 @@
+ namespace Drupal\eca_flag\Plugin\ECA\Event;
+ 
+ use Drupal\eca\Attributes\Token;
+-use Drupal\eca\Plugin\DataType\DataTransferObject;
+ use Drupal\eca\Plugin\ECA\Event\EventBase;
+-use Drupal\eca_flag\Event\FlaggingBase;
+ use Drupal\eca_flag\Event\FlaggingDelete;
+ use Drupal\eca_flag\Event\FlaggingEvents;
+ use Drupal\eca_flag\Event\FlaggingInsert;
+@@ -69,6 +67,8 @@ class FlagEvent extends EventBase {
+   )]
+   public function getData(string $key): mixed {
+     $event = $this->getEvent();
++    $flagging = null;
++    $flaggings = null;
+     if ($event instanceof FlaggingEvent) {
+       $flagging = $event->getFlagging();
+     }
+@@ -76,15 +76,20 @@ class FlagEvent extends EventBase {
+       $flaggings = $event->getFlaggings();
+       $flagging = reset($flaggings);
+     }
+-    switch ($key) {
+-      case 'flagging':
+-        return $flagging;
++    if ($flagging) {
++      switch ($key) {
++        case 'flagging':
++          return $flagging;
+ 
+-      case 'flag':
+-        return $flagging->getFlag();
++        case 'flag':
++          return $flagging->getFlag();
+ 
+-      case 'entity':
+-        return $flagging->getFlaggable();
++        case 'entity':
++          return $flagging->getFlaggable();
++      }
++    }
++    if ($key == 'flaggings' && $flaggings) {
++      return $flaggings;
+     }
+ 
+     return parent::getData($key);
+-- 
+GitLab
+
