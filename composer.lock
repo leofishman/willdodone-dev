@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3f00a3322804c78d7e1db2e3dbdc41f",
+    "content-hash": "217d64d690e904c099776a196175a3c2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2305,6 +2305,62 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/custom_field",
                 "issues": "https://www.drupal.org/project/issues/custom_field"
+            }
+        },
+        {
+            "name": "drupal/custom_formatters",
+            "version": "4.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/custom_formatters.git",
+                "reference": "4.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/custom_formatters-4.0.0-beta1.zip",
+                "reference": "4.0.0-beta1",
+                "shasum": "6b0744a58b61b8249f69af89fd3656c729226748"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.0-beta1",
+                    "datestamp": "1666002196",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Deciphered",
+                    "homepage": "https://www.drupal.org/user/103796"
+                },
+                {
+                    "name": "podarok",
+                    "homepage": "https://www.drupal.org/user/116002"
+                }
+            ],
+            "description": "The Custom Formatters module allows users to easily create custom Field Formatters without the need to write a custom module",
+            "homepage": "https://www.drupal.org/project/custom_formatters",
+            "keywords": [
+                "Drupal",
+                "embed",
+                "media",
+                "transcode",
+                "video"
+            ],
+            "support": {
+                "source": "https://www.drupal.org/project/custom_formatters",
+                "issues": "https://www.drupal.org/project/issues/custom_formatters"
             }
         },
         {
@@ -10647,6 +10703,7 @@
         "drupal/ai": 20,
         "drupal/ajax_comments": 10,
         "drupal/custom_field": 5,
+        "drupal/custom_formatters": 10,
         "drupal/eca_flag": 20,
         "drupal/entity_usage": 10,
         "drupal/entitygroupfield": 15,

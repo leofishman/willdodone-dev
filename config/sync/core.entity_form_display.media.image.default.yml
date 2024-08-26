@@ -54,4 +54,5 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  entitygroupfield: true
   name: true

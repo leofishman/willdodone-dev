@@ -436,9 +436,13 @@ display:
           id: area_text_custom
           table: views
           field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No bookmarks available.'
+          content: 'No running tasks available.'
+          tokenize: false
       sorts: {  }
       arguments: {  }
       filters:

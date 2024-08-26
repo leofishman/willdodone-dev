@@ -15,6 +15,7 @@ mode: media_library
 content: {  }
 hidden:
   created: true
+  entitygroupfield: true
   field_media_document: true
   name: true
   path: true
