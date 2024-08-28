@@ -11,7 +11,7 @@ dependencies:
 id: olivero_views_block__running_tasks_block_1
 theme: olivero
 region: social
-weight: 0
+weight: -9
 provider: null
 plugin: 'views_block:running_tasks-block_1'
 settings:

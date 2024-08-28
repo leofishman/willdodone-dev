@@ -96,6 +96,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_tags
+  id:
+    label: ID
+    datasource_id: 'entity:group'
+    property_path: id
+    type: integer
+    dependencies:
+      module:
+        - group
   label:
     label: Title
     datasource_id: 'entity:group'
@@ -176,6 +184,11 @@ field_settings:
     dependencies:
       module:
         - node
+  title_1:
+    label: 'group Content » Title'
+    datasource_id: 'entity:group'
+    property_path: 'search_api_reverse_entity_references_group_relationship__gid:entity_id:entity:title'
+    type: text
   type:
     label: 'Content type'
     datasource_id: 'entity:node'

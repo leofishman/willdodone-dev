@@ -1,0 +1,5 @@
+.item-list ul.project {
+    list-style-type: none;
+    padding: 0; /* Optionally remove default padding */
+    margin: 0; /* Optionally remove default margin */
+}

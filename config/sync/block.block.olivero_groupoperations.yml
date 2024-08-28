@@ -9,7 +9,7 @@ dependencies:
 id: olivero_groupoperations
 theme: olivero
 region: sidebar
-weight: 0
+weight: -8
 provider: null
 plugin: group_operations
 settings:

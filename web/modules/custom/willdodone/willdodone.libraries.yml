@@ -1,3 +1,8 @@
+global:
+  version: 1.0
+  css:
+   theme:
+     css/global.css: {}
 quick_add:
   version: 1.0
   css:
