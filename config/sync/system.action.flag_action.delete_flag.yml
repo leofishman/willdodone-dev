@@ -1,0 +1,15 @@
+uuid: 44c63e1e-7ed5-4bee-8180-d692057437a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.delete
+  module:
+    - flag
+id: flag_action.delete_flag
+label: 'Delete task'
+type: node
+plugin: 'flag_action:delete_flag'
+configuration:
+  flag_id: delete
+  flag_action: flag
