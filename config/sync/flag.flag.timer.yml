@@ -12,11 +12,11 @@ bundles:
   - task
 entity_type: node
 global: true
-flag_short: 'Time this item'
-flag_long: ''
+flag_short: play_circle
+flag_long: 'Start timming task'
 flag_message: 'Timer started'
-unflag_short: 'Stop timing this item'
-unflag_long: ''
+unflag_short: pause_circle
+unflag_long: 'Stop timming task'
 unflag_message: 'Timer Stoped'
 unflag_denied_text: ''
 weight: 0
