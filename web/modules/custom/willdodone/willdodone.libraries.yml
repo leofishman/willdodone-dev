@@ -18,3 +18,4 @@ timer:
   dependencies:
     - core/jquery
     - core/drupalSettings
+    - flag/flag

@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.storage.node.field_progress
     - node.type.task
     - system.menu.main
   module:
     - group
     - node
+    - task_field
     - user
 id: tasks
 label: Tasks
@@ -116,7 +118,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -129,6 +131,69 @@ display:
           settings:
             link: false
           group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_progress:
+          id: field_progress
+          table: node__field_progress
+          field: field_progress
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: priority
+          type: task_field_progress_default
+          settings:
+            foo: bar
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -270,17 +335,60 @@ display:
           plugin_id: bundle
           value:
             task: task
+        field_progress_status:
+          id: field_progress_status
+          table: node__field_progress
+          field: field_progress_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '!='
+          value: completed
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: grid_responsive
         options:
           grouping:
             -
               field: gid
-              rendered: true
-              rendered_strip: false
+              rendered: false
+              rendered_strip: true
+            -
+              field: field_progress
+              rendered: false
+              rendered_strip: true
           uses_fields: true
-          columns: 3
-          cell_min_width: 250
+          columns: 4
+          cell_min_width: 160
           grid_gutter: 20
           alignment: horizontal
       row:
@@ -310,17 +418,7 @@ display:
             'group_node:task': 'group_node:task'
             'group_node:article': '0'
             'group_node:page': '0'
-      header:
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: result
-          empty: false
-          content: 'Displaying @start - @end of @total'
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -333,7 +431,8 @@ display:
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_progress'
   tasks_block_1:
     id: tasks_block_1
     display_title: Block
@@ -452,7 +551,8 @@ display:
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_progress'
   tasks_feed_1:
     id: tasks_feed_1
     display_title: Feed
@@ -479,7 +579,8 @@ display:
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_progress'
   tasks_page_1:
     id: tasks_page_1
     display_title: Tasks
@@ -487,6 +588,7 @@ display:
     position: 1
     display_options:
       display_description: ''
+      exposed_block: true
       display_extenders: {  }
       path: tasks
       menu:
@@ -504,4 +606,5 @@ display:
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_progress'

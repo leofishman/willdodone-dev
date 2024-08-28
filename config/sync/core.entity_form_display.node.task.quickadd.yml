@@ -19,6 +19,11 @@ targetEntityType: node
 bundle: task
 mode: quickadd
 content:
+  flag:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0

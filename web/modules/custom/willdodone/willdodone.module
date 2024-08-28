@@ -64,6 +64,15 @@ function willdodone_theme() {
 //        'elapsed_time' => NULL,
       ],
     ],
+    'flag__timer' => [
+      'variables' => [
+        'attributes' => [],
+        'title' => NULL,
+        'action' => 'flag',
+        'flag' => NULL,
+        'flaggable' => NULL,
+      ],
+    ],
   ];
 }
 
