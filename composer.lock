@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "217d64d690e904c099776a196175a3c2",
+    "content-hash": "c3f00a3322804c78d7e1db2e3dbdc41f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1416,7 +1416,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai.git",
-                "reference": "caee0d01b7a776e3e980bc8abed128ea83376743"
+                "reference": "8ca690b254d66c0c6e092116c2f144db14f349d7"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11",
@@ -1441,8 +1441,8 @@
                     "dev-1.0.x": "1.0.x-dev"
                 },
                 "drupal": {
-                    "version": "1.0.0-alpha6+25-dev",
-                    "datestamp": "1724657026",
+                    "version": "1.0.0-alpha6+30-dev",
+                    "datestamp": "1724853797",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -2308,74 +2308,18 @@
             }
         },
         {
-            "name": "drupal/custom_formatters",
-            "version": "4.0.0-beta1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/custom_formatters.git",
-                "reference": "4.0.0-beta1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/custom_formatters-4.0.0-beta1.zip",
-                "reference": "4.0.0-beta1",
-                "shasum": "6b0744a58b61b8249f69af89fd3656c729226748"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "4.0.0-beta1",
-                    "datestamp": "1666002196",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Deciphered",
-                    "homepage": "https://www.drupal.org/user/103796"
-                },
-                {
-                    "name": "podarok",
-                    "homepage": "https://www.drupal.org/user/116002"
-                }
-            ],
-            "description": "The Custom Formatters module allows users to easily create custom Field Formatters without the need to write a custom module",
-            "homepage": "https://www.drupal.org/project/custom_formatters",
-            "keywords": [
-                "Drupal",
-                "embed",
-                "media",
-                "transcode",
-                "video"
-            ],
-            "support": {
-                "source": "https://www.drupal.org/project/custom_formatters",
-                "issues": "https://www.drupal.org/project/issues/custom_formatters"
-            }
-        },
-        {
             "name": "drupal/eca",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eca.git",
-                "reference": "2.0.3"
+                "reference": "2.0.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eca-2.0.3.zip",
-                "reference": "2.0.3",
-                "shasum": "f68250e55b02311af07de7b1a62efad8f1f521fd"
+                "url": "https://ftp.drupal.org/files/projects/eca-2.0.4.zip",
+                "reference": "2.0.4",
+                "shasum": "0cf4b5fc71c2ed595cf7ad36d526359a61c7a633"
             },
             "require": {
                 "dragonmantank/cron-expression": "^3.1",
@@ -2397,8 +2341,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.3",
-                    "datestamp": "1724595781",
+                    "version": "2.0.4",
+                    "datestamp": "1724772349",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2532,7 +2476,7 @@
         },
         {
             "name": "drupal/eca_modeller_bpmn",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "require": {
                 "drupal/core": "^10.3 || ^11",
                 "drupal/eca": "^2",
@@ -2541,8 +2485,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "2.0.3",
-                    "datestamp": "1724595781",
+                    "version": "2.0.4",
+                    "datestamp": "1724772349",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2627,7 +2571,7 @@
         },
         {
             "name": "drupal/eca_ui",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "require": {
                 "drupal/core": "^10.3 || ^11",
                 "drupal/eca": "*"
@@ -2635,8 +2579,8 @@
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "2.0.3",
-                    "datestamp": "1724595781",
+                    "version": "2.0.4",
+                    "datestamp": "1724772349",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3241,20 +3185,20 @@
         },
         {
             "name": "drupal/groupmedia",
-            "version": "4.0.2",
+            "version": "4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/groupmedia.git",
-                "reference": "4.0.2"
+                "reference": "4.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/groupmedia-4.0.2.zip",
-                "reference": "4.0.2",
-                "shasum": "95bbec1b6a2c28bc976ec43ecb3f1330fd509fcd"
+                "url": "https://ftp.drupal.org/files/projects/groupmedia-4.0.3.zip",
+                "reference": "4.0.3",
+                "shasum": "2a6de82cec4b57d5d720aa12bc11aaf25126f7bd"
             },
             "require": {
-                "drupal/core": "^9 || ^10",
+                "drupal/core": "^9 || ^10 || ^11",
                 "drupal/group": "^3.0"
             },
             "require-dev": {
@@ -3264,8 +3208,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.0.2",
-                    "datestamp": "1694467520",
+                    "version": "4.0.3",
+                    "datestamp": "1724687192",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4092,17 +4036,17 @@
         },
         {
             "name": "drupal/project_browser",
-            "version": "2.0.0-alpha2",
+            "version": "2.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/project_browser.git",
-                "reference": "2.0.0-alpha2"
+                "reference": "2.0.0-alpha3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/project_browser-2.0.0-alpha2.zip",
-                "reference": "2.0.0-alpha2",
-                "shasum": "3deb0caba5b79e172998f4bbd3b2e3da12d6e50b"
+                "url": "https://ftp.drupal.org/files/projects/project_browser-2.0.0-alpha3.zip",
+                "reference": "2.0.0-alpha3",
+                "shasum": "4fe2abfbeffe070c41bb8bc4860d56c9bc629c73"
             },
             "require": {
                 "composer-runtime-api": "^2",
@@ -4124,8 +4068,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-alpha2",
-                    "datestamp": "1719515678",
+                    "version": "2.0.0-alpha3",
+                    "datestamp": "1724854708",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -10703,7 +10647,6 @@
         "drupal/ai": 20,
         "drupal/ajax_comments": 10,
         "drupal/custom_field": 5,
-        "drupal/custom_formatters": 10,
         "drupal/eca_flag": 20,
         "drupal/entity_usage": 10,
         "drupal/entitygroupfield": 15,
