@@ -1,0 +1,94 @@
+diff --git a/src/Controller/GroupMenuController.php b/src/Controller/GroupMenuController.php
+--- a/src/Controller/GroupMenuController.php
++++ b/src/Controller/GroupMenuController.php
+@@ -2,90 +2,14 @@
+ 
+ namespace Drupal\groupmenu\Controller;
+ 
+-use Drupal\Core\Entity\EntityFormBuilderInterface;
+-use Drupal\Core\Entity\EntityTypeManagerInterface;
+-use Drupal\Core\Render\RendererInterface;
+-use Drupal\Core\TempStore\PrivateTempStoreFactory;
+ use Drupal\group\Entity\Controller\GroupRelationshipController;
+ use Drupal\group\Entity\GroupInterface;
+-use Drupal\group\Plugin\Group\Relation\GroupRelationTypeManagerInterface;
+-use Symfony\Component\DependencyInjection\ContainerInterface;
+ 
+ /**
+  * Returns responses for 'group_menu' GroupRelationship routes.
+  */
+ class GroupMenuController extends GroupRelationshipController {
+ 
+-  /**
+-   * The private store factory.
+-   *
+-   * @var \Drupal\Core\TempStore\PrivateTempStoreFactory
+-   */
+-  protected PrivateTempStoreFactory $privateTempStoreFactory;
+-
+-  /**
+-   * The entity type manager.
+-   *
+-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+-   */
+-  protected EntityTypeManagerInterface $entityTypeManager;
+-
+-  /**
+-   * The entity form builder.
+-   *
+-   * @var \Drupal\Core\Entity\EntityFormBuilderInterface
+-   */
+-  protected EntityFormBuilderInterface $entityFormBuilder;
+-
+-  /**
+-   * The group relation type manager.
+-   *
+-   * @var \Drupal\group\Plugin\Group\Relation\GroupRelationTypeManagerInterface
+-   */
+-  protected GroupRelationTypeManagerInterface $groupRelationTypeManager;
+-
+-  /**
+-   * The renderer.
+-   *
+-   * @var \Drupal\Core\Render\RendererInterface
+-   */
+-  protected RendererInterface $renderer;
+-
+-  /**
+-   * Constructs a new GroupRelationshipController.
+-   *
+-   * @param \Drupal\Core\TempStore\PrivateTempStoreFactory $temp_store_factory
+-   *   The private store factory.
+-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+-   *   The entity type manager.
+-   * @param \Drupal\Core\Entity\EntityFormBuilderInterface $entity_form_builder
+-   *   The entity form builder.
+-   * @param \Drupal\group\Plugin\Group\Relation\GroupRelationTypeManagerInterface $groupRelationTypeManager
+-   *   The group relation type manager.
+-   * @param \Drupal\Core\Render\RendererInterface $renderer
+-   *   The renderer.
+-   */
+-  public function __construct(PrivateTempStoreFactory $temp_store_factory, EntityTypeManagerInterface $entity_type_manager, EntityFormBuilderInterface $entity_form_builder, GroupRelationTypeManagerInterface $groupRelationTypeManager, RendererInterface $renderer) {
+-    $this->privateTempStoreFactory = $temp_store_factory;
+-    $this->entityTypeManager = $entity_type_manager;
+-    $this->entityFormBuilder = $entity_form_builder;
+-    $this->groupRelationTypeManager = $groupRelationTypeManager;
+-    $this->renderer = $renderer;
+-  }
+-
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public static function create(ContainerInterface $container) {
+-    return new static(
+-      $container->get('tempstore.private'),
+-      $container->get('entity_type.manager'),
+-      $container->get('entity.form_builder'),
+-      $container->get('group_relation_type.manager'),
+-      $container->get('renderer'),
+-    );
+-  }
+-
+   /**
+    * Provides the group menu overview page.
+    *

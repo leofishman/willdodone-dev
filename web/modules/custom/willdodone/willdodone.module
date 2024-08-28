@@ -97,3 +97,13 @@ function willdodone_theme_suggestions_timer_status(array $variables) {
 
   return $suggestions;
 }
+
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function willdodone_views_pre_render($view) {
+    if ($view->id() == 'projects' && $view->current_display == 'block_menu_projects') {
+        $view->element['#attached']['library'][] = 'willdodone/global';
+    }
+}

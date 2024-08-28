@@ -114,6 +114,9 @@
       "patches": {
         "drupal/eca_flag": {
           "Issue #3469011: Regression: entity, flag, flagging tokens removed without notice": "patches/eca_flag.patch"
+        },
+        "drupal/groupmenu": {
+          "Issue #: Fatal error: Type of GroupMenuController::$privateTempStoreFactory must not be defined on line 17": "patches/groupmenu.patch"
         }
       },
       "drupal-core-project-message": {

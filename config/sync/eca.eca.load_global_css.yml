@@ -1,0 +1,13 @@
+uuid: 17fc2753-8d1e-470a-90f9-f23e1742dd52
+langcode: en
+status: false
+dependencies: {  }
+id: load_global_css
+modeller: core
+label: 'load global css'
+version: null
+weight: null
+events: {  }
+conditions: {  }
+gateways: {  }
+actions: {  }
