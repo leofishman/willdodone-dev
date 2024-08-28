@@ -21,8 +21,10 @@
 {# Depending on the flag action, set the appropriate action class. #}
 {% if action == 'unflag' %}
     {% set action_class = 'action-unflag' %}
+    {% set icon_class = 'pause' %}
 {% else %}
     {% set action_class = 'action-flag' %}
+    {% set icon_class = 'pause' %}
 {% endif %}
 
 {# Set the remaining Flag CSS classes. #}
@@ -31,12 +33,19 @@
     'flag',
     'flag-' ~ flag.id()|clean_class,
     'js-flag-' ~ flag.id()|clean_class ~ '-' ~ flaggable.id(),
-    action_class
+    action_class,
+    icon_class
   ]
 %}
 
 {# Set nofollow to prevent search bots from crawling anonymous flag links #}
 {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
 
-<div class="{{classes|join(' ')}}"><span class="icon"></span><a{{ attributes }}>{{ title }}</a></div>
+<div class="{{classes|join(' ')}}">
+
+    <a{{ attributes }}>
+        <span class="material-symbols-outlined">
+            {{ title }}
+        </span>
+    </a></div>
 {% endapply %}

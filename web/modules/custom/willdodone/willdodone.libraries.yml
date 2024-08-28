@@ -15,6 +15,7 @@ timer:
   css:
     theme:
       css/timer.css: {}
+      //fonts.googleapis.com/css2?family=Material+Symbols+Outlined: {type: external }
   dependencies:
     - core/jquery
     - core/drupalSettings

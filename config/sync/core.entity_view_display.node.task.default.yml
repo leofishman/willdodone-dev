@@ -19,10 +19,8 @@ dependencies:
     - comment
     - datetime_range
     - entitygroupfield
-    - file
     - image
     - layout_builder
-    - layout_discovery
     - link
     - simpler_quickedit
     - task_field
@@ -30,284 +28,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    enabled: true
+    enabled: false
     allow_custom: false
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: head
-          context_mapping: {  }
-        components:
-          36f29ce9-0ef5-4034-bc1f-19045458cc8d:
-            uuid: 36f29ce9-0ef5-4034-bc1f-19045458cc8d
-            region: content
-            configuration:
-              id: 'extra_field_block:node:task:flag_timer'
-              label: 'Flag: <em class="placeholder">Timer</em>'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                settings: {  }
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: ''
-        components:
-          64aa4d01-3259-4fbe-83bf-f9fd96f54cb0:
-            uuid: 64aa4d01-3259-4fbe-83bf-f9fd96f54cb0
-            region: content
-            configuration:
-              id: 'extra_field_block:node:task:flag_timer'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 0
-            additional: {  }
-          2cc0258a-7fbf-445a-a131-a1e7a1fc1c8f:
-            uuid: 2cc0258a-7fbf-445a-a131-a1e7a1fc1c8f
-            region: content
-            configuration:
-              id: 'extra_field_block:node:task:flag_current_task'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 1
-            additional: {  }
-          c1534e98-796c-43ca-86ae-2321fc815da7:
-            uuid: c1534e98-796c-43ca-86ae-2321fc815da7
-            region: content
-            configuration:
-              id: 'field_block:node:task:entitygroupfield'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: parent_group_label_formatter
-                label: hidden
-                settings:
-                  link: true
-                third_party_settings:
-                  simpler_quickedit:
-                    click: '1'
-                    edit: '1'
-                    editHover: '1'
-            weight: 2
-            additional: {  }
-          33903299-de8c-4f22-aef1-94f99c044a88:
-            uuid: 33903299-de8c-4f22-aef1-94f99c044a88
-            region: content
-            configuration:
-              id: 'field_block:node:task:field_progress'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: task_field_progress_default
-                label: above
-                settings:
-                  foo: bar
-                third_party_settings:
-                  simpler_quickedit:
-                    click: '1'
-                    edit: '1'
-                    editHover: '1'
-            weight: 3
-            additional: {  }
-          3b46babb-f5f2-4253-aaf7-abb47ba8dbe3:
-            uuid: 3b46babb-f5f2-4253-aaf7-abb47ba8dbe3
-            region: content
-            configuration:
-              id: 'field_block:node:task:field_image'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: image
-                label: hidden
-                settings:
-                  image_link: ''
-                  image_style: wide
-                  image_loading:
-                    attribute: eager
-                third_party_settings:
-                  simpler_quickedit:
-                    editHover: '1'
-                    click: 0
-                    edit: 0
-            weight: 4
-            additional: {  }
-          a906f5a4-a0fe-4c9d-bf38-c75cc7dd8ca9:
-            uuid: a906f5a4-a0fe-4c9d-bf38-c75cc7dd8ca9
-            region: content
-            configuration:
-              id: 'field_block:node:task:body'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: text_summary_or_trimmed
-                label: inline
-                settings:
-                  trim_length: 600
-                third_party_settings:
-                  simpler_quickedit:
-                    editHover: '1'
-                    click: 0
-                    edit: 0
-            weight: 5
-            additional: {  }
-          1b13fb28-d555-4a40-9d59-bc9b0dffe2de:
-            uuid: 1b13fb28-d555-4a40-9d59-bc9b0dffe2de
-            region: content
-            configuration:
-              id: 'field_block:node:task:field_time_used'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: daterange_custom
-                label: above
-                settings:
-                  timezone_override: ''
-                  date_format: 'Y-m-d\TH:i:s'
-                  from_to: both
-                  separator: '-'
-                third_party_settings:
-                  simpler_quickedit:
-                    click: '1'
-                    edit: 0
-                    editHover: 0
-            weight: 6
-            additional: {  }
-          81865ed2-aa3f-4352-a31a-a47b54c2b2fd:
-            uuid: 81865ed2-aa3f-4352-a31a-a47b54c2b2fd
-            region: content
-            configuration:
-              id: 'field_block:node:task:comment'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: comment_default
-                label: above
-                settings:
-                  view_mode: default
-                  pager_id: 0
-                third_party_settings:
-                  simpler_quickedit:
-                    click: 0
-                    edit: 0
-                    editHover: 0
-            weight: 7
-            additional: {  }
-          751aeaac-e4c1-41c1-bfaf-a70f83d00149:
-            uuid: 751aeaac-e4c1-41c1-bfaf-a70f83d00149
-            region: content
-            configuration:
-              id: 'field_block:node:task:field_tags'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: true
-                third_party_settings:
-                  simpler_quickedit:
-                    editHover: '1'
-                    click: 0
-                    edit: 0
-            weight: 8
-            additional: {  }
-          70ab7993-48d5-4bef-b079-1be6fd1678f3:
-            uuid: 70ab7993-48d5-4bef-b079-1be6fd1678f3
-            region: content
-            configuration:
-              id: 'field_block:node:task:field_goal'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: inline
-                settings:
-                  link: true
-                third_party_settings:
-                  simpler_quickedit:
-                    editHover: '1'
-                    click: 0
-                    edit: 0
-            weight: 9
-            additional: {  }
-          57307f75-c291-4f36-a377-0068fd7e70e7:
-            uuid: 57307f75-c291-4f36-a377-0068fd7e70e7
-            region: content
-            configuration:
-              id: 'field_block:node:task:field_files'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: file_default
-                label: above
-                settings:
-                  use_description_as_link_text: true
-                third_party_settings: {  }
-            weight: 10
-            additional: {  }
-          c09740be-08ed-4836-8d12-24cbd16276a4:
-            uuid: c09740be-08ed-4836-8d12-24cbd16276a4
-            region: content
-            configuration:
-              id: 'extra_field_block:node:task:flag_bookmark'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 11
-            additional: {  }
-          58acb5d4-f837-49dc-83e8-5c5c64543f9b:
-            uuid: 58acb5d4-f837-49dc-83e8-5c5c64543f9b
-            region: content
-            configuration:
-              id: 'field_block:node:task:field_link'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: link
-                label: above
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: '0'
-                  target: '0'
-                third_party_settings:
-                  simpler_quickedit:
-                    edit: '1'
-                    click: 0
-                    editHover: 0
-            weight: 12
-            additional: {  }
-          a76ecb8a-3da5-4dc0-81ba-2230da83c809:
-            uuid: a76ecb8a-3da5-4dc0-81ba-2230da83c809
-            region: content
-            configuration:
-              id: 'extra_field_block:node:task:links'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 13
-            additional: {  }
-        third_party_settings: {  }
 id: node.task.default
 targetEntityType: node
 bundle: task
@@ -348,15 +70,7 @@ content:
         click: '1'
         edit: '1'
         editHover: '1'
-    weight: 2
-    region: content
-  field_files:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 10
+    weight: 1
     region: content
   field_goal:
     type: entity_reference_label
@@ -399,7 +113,7 @@ content:
         edit: '1'
         click: 0
         editHover: 0
-    weight: 12
+    weight: 11
     region: content
   field_progress:
     type: task_field_progress_default
@@ -411,7 +125,7 @@ content:
         click: '1'
         edit: '1'
         editHover: '1'
-    weight: 3
+    weight: 2
     region: content
   field_tags:
     type: entity_reference_label
@@ -443,12 +157,12 @@ content:
   flag_bookmark:
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 10
     region: content
   flag_current_task:
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
   flag_timer:
     settings: {  }
@@ -458,7 +172,8 @@ content:
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 13
+    weight: 12
     region: content
 hidden:
+  field_files: true
   search_api_excerpt: true
