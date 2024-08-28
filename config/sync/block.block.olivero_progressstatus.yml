@@ -1,0 +1,24 @@
+uuid: 822b95dd-4070-48b9-afb0-8b49a2aa8e74
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.progress_status
+  module:
+    - facets
+  theme:
+    - olivero
+id: olivero_progressstatus
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'facet_block:progress_status'
+settings:
+  id: 'facet_block:progress_status'
+  label: 'Progress » Status'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: olivero_progressstatus
+visibility: {  }

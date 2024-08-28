@@ -3,14 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_progress
+    - field.storage.group.field_description
     - field.storage.node.field_files
     - field.storage.node.field_goal
     - field.storage.node.field_link
+    - field.storage.node.field_progress
     - field.storage.node.field_tags
     - search_api.server.default_server
     - core.entity_view_mode.node.search_index
   module:
+    - group
     - node
     - user
     - search_api
@@ -54,6 +56,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_progress
+  field_description:
+    label: Description
+    datasource_id: 'entity:group'
+    property_path: field_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.group.field_description
   field_files:
     label: Files
     datasource_id: 'entity:node'
@@ -86,6 +96,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_tags
+  label:
+    label: Title
+    datasource_id: 'entity:group'
+    property_path: label
+    type: string
+    dependencies:
+      module:
+        - group
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -177,10 +195,18 @@ field_settings:
       module:
         - node
 datasource_settings:
-  'entity:node':
+  'entity:group':
     bundles:
       default: true
       selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - task
     languages:
       default: true
       selected: {  }
