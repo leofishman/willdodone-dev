@@ -8,6 +8,7 @@ dependencies:
   module:
     - better_exposed_filters
     - search_api
+    - user
 id: search_task
 label: 'search task'
 module: views
@@ -474,8 +475,9 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'access content'
       cache:
         type: search_api_none
         options: {  }
@@ -752,6 +754,7 @@ display:
           preserve_facet_query_args: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header:
         result:
           id: result
@@ -773,6 +776,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
+        - user.permissions
       tags:
         - 'config:search_api.index.default_index'
         - 'search_api_list:default_index'
@@ -805,6 +809,7 @@ display:
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
+        - user.permissions
       tags:
         - 'config:search_api.index.default_index'
         - 'search_api_list:default_index'
@@ -829,6 +834,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
+        - user.permissions
       tags:
         - 'config:search_api.index.default_index'
         - 'search_api_list:default_index'
