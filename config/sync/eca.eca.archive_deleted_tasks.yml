@@ -2,8 +2,6 @@ uuid: f1f5f0a8-76c5-48cf-bd1b-6c011cb319aa
 langcode: en
 status: true
 dependencies:
-  config:
-    - system.action.flag_action.delete_unflag
   module:
     - eca_flag
     - node
@@ -21,8 +19,13 @@ events:
       -
         id: entity_unpublish_action_node
         condition: eca_flag_entity_is_flagged
+  flag_unflag:
+    plugin: 'flag:unflag'
+    label: Unflag
+    configuration: {  }
+    successors:
       -
-        id: eca_preconfigured_action_flag_ac
+        id: entity_publish_action_node
         condition: eca_flag_entity_is_flagged
 conditions:
   eca_flag_entity_is_flagged:
@@ -39,9 +42,9 @@ actions:
     configuration:
       object: node
     successors: {  }
-  eca_preconfigured_action_flag_ac:
-    plugin: 'eca_preconfigured_action:flag_action.delete_unflag'
-    label: 'Pre-configured: Unflag this item'
+  entity_publish_action_node:
+    plugin: 'entity:publish_action:node'
+    label: 'Publish content item'
     configuration:
       object: node
     successors: {  }
