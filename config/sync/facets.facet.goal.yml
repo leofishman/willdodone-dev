@@ -1,4 +1,4 @@
-uuid: bee434c3-b6f9-444b-af00-a9241f8e0d1c
+uuid: 15241b09-dc72-48f9-acf7-cabd05ace0fb
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.search_task
   module:
     - search_api
-id: progress_status
-name: 'Progress » Status'
+id: goal
+name: Goal
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: progress_status
+url_alias: goal
 facet_source_id: 'search_api:views_page__search_task__page_1'
-field_identifier: status_1
+field_identifier: field_goal
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -27,14 +27,20 @@ hierarchy:
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 widget:
-  type: dropdown
+  type: checkbox
   config:
     show_numbers: true
-    default_option_label: Choose
+    soft_limit: 0
+    show_reset_link: false
+    reset_text: 'Show all'
+    hide_reset_when_no_selection: false
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
 empty_behavior:
   behavior: none
 only_visible_when_facet_source_is_visible: true
-show_only_one_result: true
+show_only_one_result: false
 show_title: false
 processor_configs:
   active_widget_order:
@@ -59,6 +65,11 @@ processor_configs:
     processor_id: hierarchy_processor
     weights:
       build: 100
+    settings: {  }
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler

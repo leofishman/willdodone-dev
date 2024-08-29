@@ -100,6 +100,21 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  flag_bookmark:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  flag_delete:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  flag_timer:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }

@@ -1,4 +1,4 @@
-uuid: 2f33003c-4f64-4ffe-970f-ac84429e5504
+uuid: 2a349a1f-6e33-41bf-a874-5e0368e6e0dc
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.search_task
   module:
     - search_api
-id: group_content_title
-name: 'group Content » Title'
+id: project
+name: Project
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: group_content_title
+url_alias: project
 facet_source_id: 'search_api:views_page__search_task__page_1'
-field_identifier: title_1
+field_identifier: project_id
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -27,21 +27,21 @@ hierarchy:
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 widget:
-  type: links
+  type: checkbox
   config:
-    show_numbers: false
+    show_numbers: true
     soft_limit: 0
-    show_reset_link: false
+    show_reset_link: true
     reset_text: 'Show all'
-    hide_reset_when_no_selection: false
+    hide_reset_when_no_selection: true
     soft_limit_settings:
       show_less_label: 'Show less'
       show_more_label: 'Show more'
 empty_behavior:
   behavior: none
-only_visible_when_facet_source_is_visible: true
+only_visible_when_facet_source_is_visible: false
 show_only_one_result: true
-show_title: true
+show_title: false
 processor_configs:
   active_widget_order:
     processor_id: active_widget_order
@@ -68,6 +68,11 @@ processor_configs:
     settings: {  }
   list_item:
     processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
+  translate_entity:
+    processor_id: translate_entity
     weights:
       build: 5
     settings: {  }

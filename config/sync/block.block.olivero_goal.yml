@@ -1,0 +1,24 @@
+uuid: 1d41eeb9-932e-43fa-9a40-55f43bc58c11
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.goal
+  module:
+    - facets
+  theme:
+    - olivero
+id: olivero_goal
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'facet_block:goal'
+settings:
+  id: 'facet_block:goal'
+  label: Goal
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: olivero_goal
+visibility: {  }

@@ -96,6 +96,11 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  flag_delete:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
   flag_timer:
     settings: {  }
     third_party_settings: {  }
