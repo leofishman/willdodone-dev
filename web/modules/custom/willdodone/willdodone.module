@@ -7,6 +7,8 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\taxonomy\TermInterface;
+use Drupal\task_field\Plugin\Field\FieldType\ProgressItem;
+use Drupal\facets\Entity\Facet;
 
 
 /**
@@ -46,24 +48,6 @@ function quickAddAjaxCallback(array &$form, \Drupal\Core\Form\FormStateInterface
  */
 function willdodone_theme() {
   return [
-    'timer_status' => [
-      'variables' => [
-        'status' => '',
-//        'start' => '',
-//        'end' => '',
-//        'show_elapsed_time' => FALSE,
-//        'elapsed_time' => NULL,
-      ],
-    ],
-    'timer_formatter' => [
-      'variables' => [
-        'status' => '',
-//        'start' => '',
-//        'end' => '',
-//        'show_elapsed_time' => FALSE,
-//        'elapsed_time' => NULL,
-      ],
-    ],
     'flag__timer' => [
       'variables' => [
         'attributes' => [],
@@ -105,5 +89,24 @@ function willdodone_theme_suggestions_timer_status(array $variables) {
 function willdodone_views_pre_render($view) {
     if ($view->id() == 'projects' && $view->current_display == 'block_menu_projects') {
         $view->element['#attached']['library'][] = 'willdodone/global';
+    }
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function willdodone_preprocess_facets_result_item(array &$variables) {
+
+    if (isset($variables['facet']) && $variables['facet'] instanceof Facet && $variables['facet']->id() === 'progress_priority') {
+        $priorityOptions = ProgressItem::getDefaultPriorityOptions();
+
+        $rawValue = $variables['raw_value'];
+        if (array_key_exists($rawValue, $priorityOptions)) {
+            $variables['value'] = $priorityOptions[$rawValue];
+        } else {
+            // Handle the case where the raw value is not a valid priority option
+            $variables['value'] = t('Unknown Priority: ') . $variables['raw_value'];
+        }
     }
 }

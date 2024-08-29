@@ -11,7 +11,7 @@ dependencies:
 id: olivero_progressstatus
 theme: olivero
 region: sidebar
-weight: -8
+weight: -9
 provider: null
 plugin: 'facet_block:progress_status'
 settings:
