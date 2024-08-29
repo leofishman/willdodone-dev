@@ -6,7 +6,9 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.article.body
     - field.field.node.article.comment
+    - field.field.node.article.field_files
     - field.field.node.article.field_image
+    - field.field.node.article.field_link
     - field.field.node.article.field_tags
     - image.style.medium
     - node.type.article
@@ -48,8 +50,17 @@ content:
     third_party_settings: {  }
     weight: 10
     region: content
+  flag_bookmark:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
   links:
     weight: 100
     region: content
 hidden:
   comment: true
+  entitygroupfield: true
+  field_files: true
+  field_link: true
+  search_api_excerpt: true

@@ -1,0 +1,27 @@
+uuid: 91ea1289-502f-46e2-8e6d-bb95135976ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_files
+    - node.type.article
+  module:
+    - file
+id: node.article.field_files
+field_name: field_files
+entity_type: node
+bundle: article
+label: Files
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: tasks/files
+  file_extensions: 'txt json zip xdoc pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file
