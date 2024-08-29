@@ -6,13 +6,18 @@ dependencies:
     - core.entity_view_display.comment.comment.default
     - field.field.node.article.body
     - field.field.node.article.comment
+    - field.field.node.article.field_files
     - field.field.node.article.field_image
+    - field.field.node.article.field_link
     - field.field.node.article.field_tags
     - image.style.wide
     - node.type.article
   module:
     - comment
+    - file
     - image
+    - link
+    - simpler_quickedit
     - text
     - user
 _core:
@@ -27,7 +32,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   comment:
     type: comment_default
@@ -36,7 +41,15 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 110
+    weight: 7
+    region: content
+  field_files:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_image:
     type: image
@@ -47,7 +60,23 @@ content:
       image_loading:
         attribute: eager
     third_party_settings: {  }
-    weight: -1
+    weight: 0
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      simpler_quickedit:
+        edit: '1'
+        click: 0
+        editHover: 0
+    weight: 5
     region: content
   field_tags:
     type: entity_reference_label
@@ -55,11 +84,18 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 2
+    region: content
+  flag_bookmark:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 6
     region: content
-hidden: {  }
+hidden:
+  entitygroupfield: true
+  search_api_excerpt: true
