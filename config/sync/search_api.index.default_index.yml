@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.group.field_description
     - field.storage.node.field_files
     - field.storage.node.field_goal
     - field.storage.node.field_link
@@ -12,9 +11,10 @@ dependencies:
     - search_api.server.default_server
     - core.entity_view_mode.node.search_index
   module:
-    - group
     - node
     - user
+    - entitygroupfield
+    - group
     - search_api
 _core:
   default_config_hash: 3aiqici40Ky7H7_FK6JBlEawsJtrD7MGX3dQh3xgqoc
@@ -56,14 +56,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_progress
-  field_description:
-    label: Description
-    datasource_id: 'entity:group'
-    property_path: field_description
-    type: text
-    dependencies:
-      config:
-        - field.storage.group.field_description
   field_files:
     label: Files
     datasource_id: 'entity:node'
@@ -96,22 +88,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_tags
-  id:
-    label: ID
-    datasource_id: 'entity:group'
-    property_path: id
-    type: integer
-    dependencies:
-      module:
-        - group
-  label:
-    label: Title
-    datasource_id: 'entity:group'
-    property_path: label
-    type: string
-    dependencies:
-      module:
-        - group
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -127,6 +103,15 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_progress
+  project_id:
+    label: Project
+    datasource_id: 'entity:node'
+    property_path: 'entitygroupfield:entity:gid'
+    type: integer
+    dependencies:
+      module:
+        - entitygroupfield
+        - group
   rendered_item:
     label: 'Rendered item'
     property_path: rendered_item
@@ -184,11 +169,6 @@ field_settings:
     dependencies:
       module:
         - node
-  title_1:
-    label: 'group Content » Title'
-    datasource_id: 'entity:group'
-    property_path: 'search_api_reverse_entity_references_group_relationship__gid:entity_id:entity:title'
-    type: text
   type:
     label: 'Content type'
     datasource_id: 'entity:node'
@@ -212,6 +192,14 @@ datasource_settings:
     bundles:
       default: true
       selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:group_relationship':
+    bundles:
+      default: true
+      selected:
+        - project-group_node-task
     languages:
       default: true
       selected: {  }
