@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.task.field_image
     - field.field.node.task.field_link
     - field.field.node.task.field_progress
+    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - image.style.thumbnail
@@ -93,4 +94,5 @@ hidden:
   field_files: true
   field_goal: true
   field_link: true
+  field_project: true
   field_time_used: true

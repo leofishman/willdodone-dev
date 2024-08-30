@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.task.field_image
     - field.field.node.task.field_link
     - field.field.node.task.field_progress
+    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - image.style.thumbnail
@@ -58,8 +59,8 @@ content:
     region: content
     settings:
       help_text: ''
-      label: Project
-      multiple: true
+      label: ''
+      multiple: false
       required: false
     third_party_settings: {  }
   field_custom_progress:
@@ -168,3 +169,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_progress: true
+  field_project: true

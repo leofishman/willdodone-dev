@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.task.field_image
     - field.field.node.task.field_link
     - field.field.node.task.field_progress
+    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - node.type.task
@@ -20,8 +21,14 @@ targetEntityType: node
 bundle: task
 mode: quickadd
 content:
+  field_project:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   flag:
-    weight: 10
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }

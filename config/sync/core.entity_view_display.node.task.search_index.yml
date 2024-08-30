@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.task.field_image
     - field.field.node.task.field_link
     - field.field.node.task.field_progress
+    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - node.type.task
@@ -124,5 +125,6 @@ content:
 hidden:
   field_custom_progress: true
   field_image: true
+  field_project: true
   field_time_used: true
   search_api_excerpt: true

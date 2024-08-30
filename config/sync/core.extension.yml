@@ -51,6 +51,7 @@ module:
   formblock: 0
   gnode: 0
   group: 0
+  group_action: 0
   groupmedia: 0
   groupmedia_vbo: 0
   help: 0
