@@ -1,0 +1,24 @@
+uuid: d69d5927-bc5e-4764-ae8e-a1090386b00a
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.project
+  module:
+    - facets
+  theme:
+    - olivero
+id: olivero_project
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'facet_block:project'
+settings:
+  id: 'facet_block:project'
+  label: Project
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: olivero_project
+visibility: {  }

@@ -12,12 +12,12 @@ dependencies:
     - field.field.node.task.field_image
     - field.field.node.task.field_link
     - field.field.node.task.field_progress
-    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - node.type.task
   module:
     - comment
+    - entitygroupfield
     - file
     - link
     - task_field
@@ -42,7 +42,15 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 7
+    weight: 6
+    region: content
+  entitygroupfield:
+    type: parent_group_label_formatter
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_files:
     type: file_table
@@ -50,7 +58,7 @@ content:
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_goal:
     type: entity_reference_label
@@ -62,7 +70,7 @@ content:
         click: 0
         edit: 0
         editHover: 0
-    weight: 4
+    weight: 3
     region: content
   field_link:
     type: link_separate
@@ -74,7 +82,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
   field_progress:
     type: task_field_progress_default
@@ -84,30 +92,33 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_project:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: false
-    third_party_settings:
-      simpler_quickedit:
-        click: 0
-        edit: 0
-        editHover: 0
-    weight: 2
-    region: content
   field_tags:
     type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    weight: 3
+    weight: 2
+    region: content
+  flag_bookmark:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  flag_delete:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  flag_timer:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 8
+    weight: 7
     region: content
 hidden:
   field_image: true

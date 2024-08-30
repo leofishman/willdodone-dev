@@ -24,3 +24,13 @@
 .timer-status__elapsed-time {
   margin-left: 8px;
 }
+
+.flag-timer.action-unflag SPAN.icon {
+  width: 15px;
+  background-image: url('../images/icons/pause.gif');
+}
+
+.flag-timer.action-flag SPAN.icon {
+  width: 15px;
+  background-image: url('../images/icons/play.gif');
+}

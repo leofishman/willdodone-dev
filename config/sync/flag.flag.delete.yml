@@ -1,0 +1,35 @@
+uuid: dca5c032-d5ce-4238-97dd-60945b087f45
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: delete
+label: Delete
+bundles:
+  - task
+entity_type: node
+global: true
+flag_short: 'Delete task'
+flag_long: ''
+flag_message: 'Task deleted'
+unflag_short: 'Recover task'
+unflag_long: ''
+unflag_message: 'Task recovered'
+unflag_denied_text: ''
+weight: 0
+flag_type: 'entity:node'
+link_type: confirm
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: owner
+linkTypeConfig:
+  flag_confirmation: 'Delete this task?'
+  unflag_confirmation: 'Recover this task?'
+  flag_create_button: delete
+  flag_delete_button: 'confirm delete'
+  form_behavior: modal

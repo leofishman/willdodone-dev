@@ -1,20 +1,19 @@
-uuid: d83c5483-05c0-4a9a-99c1-09c9429b83ba
+uuid: 42ea7058-31c2-48b1-83d4-31339e050ceb
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.main
-    - taxonomy.vocabulary.project
+    - group.type.project
+    - system.menu.admin
   module:
-    - taxonomy
-    - user
+    - group
 id: projects
 label: Projects
 module: views
 description: ''
 tag: ''
-base_table: taxonomy_term_field_data
-base_field: tid
+base_table: groups_field_data
+base_field: id
 display:
   default:
     id: default
@@ -24,16 +23,16 @@ display:
     display_options:
       title: Projects
       fields:
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
+        label:
+          id: label
+          table: groups_field_data
+          field: label
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: term_name
+          entity_type: null
+          entity_field: label
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -54,8 +53,8 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: false
-            ellipsis: false
+            word_boundary: true
+            ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
@@ -63,14 +62,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: '0'
+          element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -89,7 +88,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          convert_spaces: false
       pager:
         type: mini
         options:
@@ -102,12 +100,12 @@ display:
             next: ››
             previous: ‹‹
           expose:
-            items_per_page: true
+            items_per_page: false
             items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 20, 25, 50'
-            items_per_page_options_all: true
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
-            offset: true
+            offset: false
             offset_label: Offset
       exposed_form:
         type: basic
@@ -120,60 +118,39 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: perm
-        options:
-          perm: 'access content'
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
       empty: {  }
-      sorts:
-        field_progress_priority:
-          id: field_progress_priority
-          table: taxonomy_term__field_progress
-          field: field_progress_priority
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: standard
-          order: DESC
-          expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
+      sorts: {  }
       arguments: {  }
       filters:
         status:
           id: status
-          table: taxonomy_term_field_data
+          table: groups_field_data
           field: status
-          entity_type: taxonomy_term
+          entity_type: group
           entity_field: status
           plugin_id: boolean
           value: '1'
           group: 1
           expose:
             operator: ''
-        vid:
-          id: vid
-          table: taxonomy_term_field_data
-          field: vid
-          entity_type: taxonomy_term
-          entity_field: vid
+        type:
+          id: type
+          table: groups_field_data
+          field: type
+          entity_type: group
+          entity_field: type
           plugin_id: bundle
           value:
             project: project
       style:
         type: default
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: false
       row:
-        type: 'entity:taxonomy_term'
-        options:
-          relationship: none
-          view_mode: default
+        type: fields
       query:
         type: views_query
         options:
@@ -192,11 +169,10 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user.permissions
       tags: {  }
-  block_1:
-    id: block_1
-    display_title: Block
+  block_menu_projects:
+    id: block_menu_projects
+    display_title: 'Projects Menu Block'
     display_plugin: block
     position: 2
     display_options:
@@ -206,34 +182,29 @@ display:
           offset: 0
           items_per_page: 5
       style:
-        type: grid
+        type: html_list
         options:
           grouping: {  }
-          columns: 2
-          automatic_width: true
-          alignment: horizontal
-          row_class_custom: ''
-          row_class_default: true
-          col_class_custom: ''
-          col_class_default: true
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: project
       row:
         type: fields
-        options:
-          default_field_elements: false
-          inline: {  }
-          separator: ''
-          hide_empty: false
+        options: {  }
       defaults:
         pager: false
         style: false
         row: false
+      display_description: ''
       display_extenders: {  }
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user.permissions
       tags: {  }
   page_1:
     id: page_1
@@ -246,17 +217,12 @@ display:
       menu:
         type: normal
         title: Projects
-        description: ''
-        weight: 0
-        expanded: false
-        menu_name: main
+        menu_name: admin
         parent: ''
-        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user.permissions
       tags: {  }

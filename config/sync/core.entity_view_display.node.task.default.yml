@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.task.field_image
     - field.field.node.task.field_link
     - field.field.node.task.field_progress
-    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - image.style.wide
@@ -19,13 +18,18 @@ dependencies:
   module:
     - comment
     - datetime_range
-    - file
+    - entitygroupfield
     - image
+    - layout_builder
     - link
     - simpler_quickedit
     - task_field
     - text
     - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
 id: node.task.default
 targetEntityType: node
 bundle: task
@@ -41,7 +45,7 @@ content:
         editHover: '1'
         click: 0
         edit: 0
-    weight: 3
+    weight: 5
     region: content
   comment:
     type: comment_default
@@ -54,15 +58,19 @@ content:
         click: 0
         edit: 0
         editHover: 0
-    weight: 5
+    weight: 7
     region: content
-  field_files:
-    type: file_default
-    label: above
+  entitygroupfield:
+    type: parent_group_label_formatter
+    label: hidden
     settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 10
+      link: true
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        edit: '1'
+        editHover: '1'
+    weight: 1
     region: content
   field_goal:
     type: entity_reference_label
@@ -74,7 +82,7 @@ content:
         editHover: '1'
         click: 0
         edit: 0
-    weight: 7
+    weight: 9
     region: content
   field_image:
     type: image
@@ -89,7 +97,7 @@ content:
         editHover: '1'
         click: 0
         edit: 0
-    weight: 2
+    weight: 4
     region: content
   field_link:
     type: link
@@ -105,7 +113,7 @@ content:
         edit: '1'
         click: 0
         editHover: 0
-    weight: 8
+    weight: 11
     region: content
   field_progress:
     type: task_field_progress_default
@@ -117,19 +125,7 @@ content:
         click: '1'
         edit: '1'
         editHover: '1'
-    weight: 1
-    region: content
-  field_project:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
-    third_party_settings:
-      simpler_quickedit:
-        click: '1'
-        editHover: '1'
-        edit: 0
-    weight: 0
+    weight: 2
     region: content
   field_tags:
     type: entity_reference_label
@@ -141,27 +137,48 @@ content:
         editHover: '1'
         click: 0
         edit: 0
-    weight: 6
+    weight: 8
     region: content
   field_time_used:
-    type: daterange_default
+    type: daterange_custom
     label: above
     settings:
       timezone_override: ''
-      format_type: html_time
+      date_format: 'Y-m-d\TH:i:s'
       from_to: both
       separator: '-'
     third_party_settings:
       simpler_quickedit:
-        click: 0
+        click: '1'
         edit: 0
         editHover: 0
-    weight: 4
+    weight: 6
+    region: content
+  flag_bookmark:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  flag_current_task:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  flag_delete:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  flag_timer:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 12
     region: content
 hidden:
+  field_files: true
   search_api_excerpt: true

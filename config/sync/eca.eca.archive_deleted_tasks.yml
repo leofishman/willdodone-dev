@@ -1,0 +1,50 @@
+uuid: f1f5f0a8-76c5-48cf-bd1b-6c011cb319aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - eca_flag
+    - node
+id: archive_deleted_tasks
+modeller: core
+label: 'Archive deleted tasks'
+version: '1'
+weight: 0
+events:
+  flag_flag:
+    plugin: 'flag:flag'
+    label: Flag
+    configuration: {  }
+    successors:
+      -
+        id: entity_unpublish_action_node
+        condition: eca_flag_entity_is_flagged
+  flag_unflag:
+    plugin: 'flag:unflag'
+    label: Unflag
+    configuration: {  }
+    successors:
+      -
+        id: entity_publish_action_node
+        condition: eca_flag_entity_is_flagged
+conditions:
+  eca_flag_entity_is_flagged:
+    plugin: eca_flag_entity_is_flagged
+    configuration:
+      flag_name: delete
+      negate: false
+      entity: ''
+gateways: {  }
+actions:
+  entity_unpublish_action_node:
+    plugin: 'entity:unpublish_action:node'
+    label: 'Unpublish content item'
+    configuration:
+      object: node
+    successors: {  }
+  entity_publish_action_node:
+    plugin: 'entity:publish_action:node'
+    label: 'Publish content item'
+    configuration:
+      object: node
+    successors: {  }

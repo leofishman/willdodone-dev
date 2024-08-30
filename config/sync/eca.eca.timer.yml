@@ -1,0 +1,56 @@
+uuid: 0422bfcd-12e7-43b6-bc6a-c706fbb11c59
+langcode: en
+status: true
+dependencies:
+  module:
+    - eca_flag
+    - willdodone
+id: timer
+modeller: core
+label: Timer
+version: Draft
+weight: 0
+events:
+  flag_flag:
+    plugin: 'flag:flag'
+    label: 'Flag start timer'
+    configuration: {  }
+    successors:
+      -
+        id: wdd_timer_start_action
+        condition: eca_flag_entity_is_flagged
+  flag_unflag:
+    plugin: 'flag:unflag'
+    label: 'Unflag stop timer'
+    configuration: {  }
+    successors:
+      -
+        id: wdd_timer_stop_action
+        condition: eca_flag_entity_is_flagged
+conditions:
+  eca_flag_entity_is_flagged:
+    plugin: eca_flag_entity_is_flagged
+    configuration:
+      flag_name: timer
+      negate: false
+      entity: ''
+  eca_flag_entity_is_flagged_1:
+    plugin: eca_flag_entity_is_flagged
+    configuration:
+      flag_name: bookmark
+      negate: false
+      entity: ''
+gateways: {  }
+actions:
+  wdd_timer_start_action:
+    plugin: wdd_timer_start_action
+    label: 'Timer Start Action'
+    configuration:
+      object: node
+    successors: {  }
+  wdd_timer_stop_action:
+    plugin: wdd_timer_stop_action
+    label: 'Timer Stop Action'
+    configuration:
+      object: node
+    successors: {  }

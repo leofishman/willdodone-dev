@@ -1,0 +1,26 @@
+uuid: 27bdd374-94aa-498b-ac23-0d17b48ef501
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_description
+    - filter.format.basic_html
+    - group.type.project
+  module:
+    - text
+id: group.project.field_description
+field_name: field_description
+entity_type: group
+bundle: project
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - basic_html
+field_type: text_with_summary

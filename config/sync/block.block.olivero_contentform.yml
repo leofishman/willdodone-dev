@@ -9,7 +9,7 @@ dependencies:
 id: olivero_contentform
 theme: olivero
 region: sidebar
-weight: -9
+weight: -11
 provider: null
 plugin: formblock_node
 settings:

@@ -7,13 +7,14 @@ dependencies:
     - field.storage.node.field_goal
     - field.storage.node.field_link
     - field.storage.node.field_progress
-    - field.storage.node.field_project
     - field.storage.node.field_tags
     - search_api.server.default_server
     - core.entity_view_mode.node.search_index
   module:
     - node
     - user
+    - entitygroupfield
+    - group
     - search_api
 _core:
   default_config_hash: 3aiqici40Ky7H7_FK6JBlEawsJtrD7MGX3dQh3xgqoc
@@ -79,14 +80,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_link
-  field_project:
-    label: Project
-    datasource_id: 'entity:node'
-    property_path: field_project
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_project
   field_tags:
     label: Tags
     datasource_id: 'entity:node'
@@ -110,6 +103,15 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_progress
+  project_id:
+    label: Project
+    datasource_id: 'entity:node'
+    property_path: 'entitygroupfield:entity:gid'
+    type: integer
+    dependencies:
+      module:
+        - entitygroupfield
+        - group
   rendered_item:
     label: 'Rendered item'
     property_path: rendered_item
@@ -186,10 +188,26 @@ field_settings:
       module:
         - node
 datasource_settings:
-  'entity:node':
+  'entity:group':
     bundles:
       default: true
       selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:group_relationship':
+    bundles:
+      default: true
+      selected:
+        - project-group_node-task
+    languages:
+      default: true
+      selected: {  }
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - task
     languages:
       default: true
       selected: {  }
