@@ -167,10 +167,10 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-        deadline:
-          id: deadline
+        deadline_1:
+          id: deadline_1
           table: search_api_index_default_index
-          field: deadline
+          field: deadline_1
           relationship: none
           group_type: group
           admin_label: ''
@@ -216,23 +216,23 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: html_date
+          date_format: long
           custom_date_format: ''
           timezone: ''
           link_to_item: false
           use_highlighting: false
           multi_type: separator
           multi_separator: ', '
-        priority:
-          id: priority
+        priority_1:
+          id: priority_1
           table: search_api_index_default_index
-          field: priority
+          field: priority_1
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: search_api_numeric
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -277,7 +277,7 @@ display:
           decimal: .
           separator: ','
           format_plural: false
-          format_plural_string: !!binary Aw==
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           link_to_item: false
@@ -285,10 +285,10 @@ display:
           multi_type: separator
           multi_separator: ', '
           format_plural_values: {  }
-        status_1:
-          id: status_1
+        status_2:
+          id: status_2
           table: search_api_index_default_index
-          field: status_1
+          field: status_2
           relationship: none
           group_type: group
           admin_label: ''
@@ -338,10 +338,66 @@ display:
           use_highlighting: false
           multi_type: separator
           multi_separator: ', '
-        label_1:
-          id: label_1
+        startdate:
+          id: startdate
           table: search_api_index_default_index
-          field: label
+          field: startdate
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_date
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: fallback
+          custom_date_format: ''
+          timezone: ''
+          link_to_item: false
+          use_highlighting: false
+          multi_type: separator
+          multi_separator: ', '
+        project_id:
+          id: project_id
+          table: search_api_index_default_index
+          field: project_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -387,11 +443,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            link_to_entity: false
-          group_column: value
+            link: true
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -402,12 +458,16 @@ display:
           separator: ', '
           field_api_classes: false
           field_rendering: true
-          fallback_handler: search_api
+          fallback_handler: search_api_entity
           fallback_options:
             link_to_item: false
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
+            display_methods:
+              project:
+                display_method: label
+                view_mode: default
       pager:
         type: full
         options:
@@ -496,10 +556,10 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-        deadline:
-          id: deadline
+        deadline_1:
+          id: deadline_1
           table: search_api_index_default_index
-          field: deadline
+          field: deadline_1
           relationship: none
           group_type: group
           admin_label: ''
@@ -509,10 +569,10 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-        priority:
-          id: priority
+        priority_1:
+          id: priority_1
           table: search_api_index_default_index
-          field: priority
+          field: priority_1
           relationship: none
           group_type: group
           admin_label: ''
@@ -522,15 +582,28 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-        status_1:
-          id: status_1
+        status_2:
+          id: status_2
           table: search_api_index_default_index
-          field: status_1
+          field: status_2
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: search_api
-          order: DESC
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+        startdate:
+          id: startdate
+          table: search_api_index_default_index
+          field: startdate
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
           expose:
             label: ''
             field_identifier: ''
@@ -730,7 +803,7 @@ display:
         options:
           grouping:
             -
-              field: priority
+              field: project_id
               rendered: true
               rendered_strip: true
           uses_fields: true

@@ -1,0 +1,110 @@
+uuid: 824a99f3-b0c8-48fa-a370-28b931273887
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_custom_progress
+    - node.type.task
+  module:
+    - custom_field
+id: node.task.field_custom_progress
+field_name: field_custom_progress
+entity_type: node
+bundle: task
+label: Progress
+description: 'Track the progress of an entity.'
+required: false
+translatable: false
+default_value:
+  -
+    status: will
+    priority: '0'
+    deadline: null
+    startdate: null
+default_value_callback: ''
+settings:
+  field_settings:
+    status:
+      type: select
+      weight: 0
+      check_empty: false
+      widget_settings:
+        label: status
+        settings:
+          description: ''
+          description_display: after
+          required: false
+          empty_option: '- Select -'
+          allowed_values:
+            -
+              key: will
+              value: Will
+            -
+              key: planning
+              value: Planning
+            -
+              key: do
+              value: Do
+            -
+              key: paused
+              value: Paused
+            -
+              key: postponed
+              value: Postponed
+            -
+              key: cancelled
+              value: Cancelled
+            -
+              key: done
+              value: Done
+    priority:
+      type: select
+      weight: 0
+      check_empty: false
+      widget_settings:
+        label: Priority
+        settings:
+          description: ''
+          description_display: after
+          required: false
+          empty_option: '- Select -'
+          allowed_values:
+            -
+              key: '0'
+              value: None
+            -
+              key: '5'
+              value: Low
+            -
+              key: '10'
+              value: Normal
+            -
+              key: '15'
+              value: Important
+            -
+              key: '20'
+              value: Urgent
+            -
+              key: '25'
+              value: Imminent
+    deadline:
+      type: datetime_default
+      weight: 0
+      check_empty: false
+      widget_settings:
+        label: Deadline
+        settings:
+          description: ''
+          description_display: after
+          required: false
+    startdate:
+      type: datetime_default
+      weight: 0
+      check_empty: false
+      widget_settings:
+        label: Startdate
+        settings:
+          description: ''
+          description_display: after
+          required: false
+field_type: custom

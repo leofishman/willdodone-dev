@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.task.body
     - field.field.node.task.comment
+    - field.field.node.task.field_custom_progress
     - field.field.node.task.field_files
     - field.field.node.task.field_goal
     - field.field.node.task.field_image
@@ -16,6 +17,7 @@ dependencies:
     - image.style.medium
     - node.type.task
   module:
+    - custom_field
     - entitygroupfield
     - image
     - simpler_quickedit
@@ -49,6 +51,43 @@ content:
         click: '1'
         edit: '1'
         editHover: '1'
+    weight: 1
+    region: content
+  field_custom_progress:
+    type: custom_formatter
+    label: above
+    settings:
+      fields:
+        status:
+          format_type: string
+          formatter_settings:
+            key_label: label
+            label_display: above
+            prefix_suffix: false
+        priority:
+          format_type: number_integer
+          formatter_settings:
+            key_label: label
+            label_display: above
+            prefix_suffix: false
+            thousand_separator: ','
+        deadline:
+          format_type: datetime_default
+          formatter_settings:
+            label_display: above
+            timezone_override: ''
+            format_type: medium
+        startdate:
+          format_type: datetime_default
+          formatter_settings:
+            label_display: above
+            timezone_override: ''
+            format_type: medium
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        edit: 0
+        editHover: 0
     weight: 2
     region: content
   field_image:
@@ -99,12 +138,12 @@ content:
   flag_delete:
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 9
     region: content
   flag_timer:
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   links:
     settings: {  }

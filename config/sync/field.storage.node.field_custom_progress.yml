@@ -1,0 +1,56 @@
+uuid: 15924558-fb62-4bff-9a27-3a935426b8bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - custom_field
+    - node
+id: node.field_custom_progress
+field_name: field_custom_progress
+entity_type: node
+type: custom
+settings:
+  columns:
+    status:
+      name: status
+      type: string
+      max_length: '255'
+      unsigned: 0
+      precision: '10'
+      scale: '2'
+      size: normal
+      datetime_type: datetime
+    priority:
+      name: priority
+      type: integer
+      max_length: '255'
+      unsigned: 1
+      precision: '10'
+      scale: '2'
+      size: tiny
+      datetime_type: datetime
+    deadline:
+      name: deadline
+      type: datetime
+      max_length: '255'
+      unsigned: 0
+      precision: '10'
+      scale: '2'
+      size: normal
+      datetime_type: date
+    startdate:
+      name: startdate
+      type: datetime
+      max_length: '255'
+      unsigned: 0
+      precision: '10'
+      scale: '2'
+      size: normal
+      datetime_type: date
+module: custom_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
