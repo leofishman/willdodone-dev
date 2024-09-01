@@ -1,0 +1,33 @@
+uuid: df21b704-f6c2-482d-b070-5cd78ff5a6bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project
+    - group.type.project
+    - node.type.task
+  content:
+    - 'group:project:49299c27-ed5c-45c8-a02c-2b695bb9afe2'
+id: node.task.field_project
+field_name: field_project
+entity_type: node
+bundle: task
+label: Project
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 49299c27-ed5c-45c8-a02c-2b695bb9afe2
+default_value_callback: ''
+settings:
+  handler: 'default:group'
+  handler_settings:
+    target_bundles:
+      project: project
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

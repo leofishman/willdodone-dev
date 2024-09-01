@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.task.field_goal
     - field.field.node.task.field_image
     - field.field.node.task.field_link
-    - field.field.node.task.field_progress
     - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
@@ -20,7 +19,6 @@ dependencies:
   module:
     - entitygroupfield
     - image
-    - task_field
     - user
 id: node.task.search_result
 targetEntityType: node
@@ -45,14 +43,6 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 2
-    region: content
-  field_progress:
-    type: task_field_progress_default
-    label: above
-    settings:
-      foo: bar
-    third_party_settings: {  }
-    weight: 3
     region: content
   field_tags:
     type: entity_reference_label
