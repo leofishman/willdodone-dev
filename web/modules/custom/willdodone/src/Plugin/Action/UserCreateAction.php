@@ -39,7 +39,7 @@ class UserCreateAction extends ActionBase {
         ->range(0, 1)
         ->accessCheck(TRUE)
         ->execute();
-        $leo = $query;
+
       return !empty($query);
     }
   /**
@@ -50,6 +50,7 @@ class UserCreateAction extends ActionBase {
     if ($entity->getEntityTypeId() == 'user') {
         $userName = $entity->getDisplayName();
         $groupName = $userName . ' space';
+
         if (!$this->group_exists($groupName)) {
             // Create a new group of type 'space'.
             $group = Group::create([
@@ -59,18 +60,10 @@ class UserCreateAction extends ActionBase {
             $group->save();
 
             // Add the user to the group.
-            $group->addMember($entity);
+            $group->addMember($entity,['group_roles' => 'space-admin']);
             // create default roles for space and project
             // add member as admin
-            // Create a new space content project.
-            $projectMachineName = 'project_' . $entity->id();
-            $project = $this->entityTypeManager->getStorage('group_content')->create([
-                'type' => 'group_content_type_project',
-                'gid' => $group->id(),
-                'label' => 'No project yet',
-                'field_machine_name' => $projectMachineName,
-            ]);
-            $project->save();
+
         }
         // add project as user space content group
 
