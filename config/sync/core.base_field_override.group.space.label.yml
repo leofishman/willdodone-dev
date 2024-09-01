@@ -8,7 +8,7 @@ id: group.space.label
 field_name: label
 entity_type: group
 bundle: space
-label: Title
+label: Space
 description: ''
 required: true
 translatable: true
