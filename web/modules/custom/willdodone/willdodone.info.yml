@@ -14,3 +14,4 @@ dependencies:
   - drupal:eca
   - drupal:flag
   - drupal:group
+  - drupal:user

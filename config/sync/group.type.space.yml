@@ -1,0 +1,12 @@
+uuid: d1865b40-9d3e-47e7-a0eb-e9e29118daf1
+langcode: en
+status: true
+dependencies: {  }
+id: space
+label: Space
+description: 'User personal space, where his app like project, calendar, documents, notes, comunications, profile, devices, places, etc...'
+new_revision: true
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - space-admin

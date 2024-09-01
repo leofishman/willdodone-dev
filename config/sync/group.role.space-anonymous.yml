@@ -1,0 +1,15 @@
+uuid: c3cd6dcc-77ac-4973-9eef-cbf421696ebf
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.space
+    - user.role.anonymous
+id: space-anonymous
+label: Anonymous
+weight: -102
+admin: false
+scope: outsider
+global_role: anonymous
+group_type: space
+permissions: {  }

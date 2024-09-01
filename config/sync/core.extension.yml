@@ -33,6 +33,7 @@ module:
   eca_modeller_bpmn: 0
   eca_tamper: 0
   eca_ui: 0
+  eca_user: 0
   eca_views: 0
   editor: 0
   entity: 0

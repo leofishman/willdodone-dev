@@ -1,0 +1,41 @@
+uuid: c8e772ed-9b5a-46f0-a53a-5f3eedb55a3f
+langcode: en
+status: true
+dependencies:
+  module:
+    - eca_content
+    - willdodone
+id: create_user_space
+modeller: core
+label: 'create user space'
+version: ''
+weight: 0
+events:
+  content_entity_presave:
+    plugin: 'content_entity:presave'
+    label: 'Presave content entity'
+    configuration:
+      type: 'user _all'
+    successors:
+      -
+        id: action_message_action
+        condition: null
+      -
+        id: wdd_user_create_action
+        condition: null
+conditions: {  }
+gateways: {  }
+actions:
+  action_message_action:
+    plugin: action_message_action
+    label: 'Display a message to the user'
+    configuration:
+      message: '[user:account-name]'
+      replace_tokens: false
+    successors: {  }
+  wdd_user_create_action:
+    plugin: wdd_user_create_action
+    label: 'User Create Action'
+    configuration:
+      object: ''
+    successors: {  }
