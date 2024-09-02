@@ -35,7 +35,7 @@ class TimerStartAction extends ActionBase {
     $current_datetime = new DrupalDateTime('now');
     $formatted_datetime = $current_datetime->format('Y-m-d\TH:i:s');
 
-    if ($entity->bundle() === 'task' && $entity->hasField('field_time_used'))  {
+    if ($entity->hasField('field_time_used'))  {
       // Add a new value to field_time_used with the current date/time as the start value
       $new_value = [
         'value' => $formatted_datetime,
@@ -44,7 +44,11 @@ class TimerStartAction extends ActionBase {
       $entity->get('field_time_used')->appendItem($new_value);
 
     }
-
+    if ($entity->hasField('field_custom_progress'))  {
+        $entity_field_progress = $entity->get('field_custom_progress')->getValue();
+        $entity_field_progress[0]['status'] = 'do';
+        $entity->set('field_custom_progress', $entity_field_progress);
+    }
     // Save the entity
     $entity->save();
   }

@@ -28,7 +28,7 @@ class TimerStopAction extends ActionBase {
     // Get the current date and time.
     $current_datetime = new DrupalDateTime('now');
     $formatted_datetime = $current_datetime->format('Y-m-d\TH:i:s');
-    if ($entity->bundle() === 'task' && $entity->hasField('field_time_used'))  {
+    if ($entity->hasField('field_time_used'))  {
       // Find the most recently added value in field_time_used
       $field_values = $entity->get('field_time_used')->getValue();
       $last_item_index = count($field_values) - 1;
@@ -37,7 +37,11 @@ class TimerStopAction extends ActionBase {
       $field_values[$last_item_index]['end_value'] = $formatted_datetime;
       $entity->set('field_time_used', $field_values);
     }
-
+      if ($entity->hasField('field_custom_progress'))  {
+          $entity_field_progress = $entity->get('field_custom_progress')->getValue();
+          $entity_field_progress[0]['status'] = 'paused';
+          $entity->set('field_custom_progress', $entity_field_progress);
+      }
     // Save the entity
     $entity->save();
   }
