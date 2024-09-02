@@ -39,8 +39,10 @@ class TimerStopAction extends ActionBase {
     }
       if ($entity->hasField('field_custom_progress'))  {
           $entity_field_progress = $entity->get('field_custom_progress')->getValue();
-          $entity_field_progress[0]['status'] = 'paused';
-          $entity->set('field_custom_progress', $entity_field_progress);
+          if ($entity_field_progress[0]['status'] == 'do') {
+              $entity_field_progress[0]['status'] =  'paused';
+              $entity->set('field_custom_progress', $entity_field_progress);
+          }
       }
     // Save the entity
     $entity->save();
