@@ -98,15 +98,28 @@ function willdodone_views_pre_render($view) {
  */
 function willdodone_preprocess_facets_result_item(array &$variables) {
 
-//    if (isset($variables['facet']) && $variables['facet'] instanceof Facet && $variables['facet']->id() === 'progress_priority') {
-//        $priorityOptions = ProgressItem::getDefaultPriorityOptions();
-//
-//        $rawValue = $variables['raw_value'];
-//        if (array_key_exists($rawValue, $priorityOptions)) {
-//            $variables['value'] = $priorityOptions[$rawValue];
-//        } else {
-//            // Handle the case where the raw value is not a valid priority option
-//            $variables['value'] = t('Unknown Priority: ') . $variables['raw_value'];
-//        }
-//    }
+    if (isset($variables['facet']) && $variables['facet'] instanceof Facet && $variables['facet']->id() === 'progress_priority') {
+        $priorityOptions = getDefaultPriorityOptions();
+
+        $rawValue = $variables['raw_value'];
+        if (array_key_exists($rawValue, $priorityOptions)) {
+            $variables['value'] = $priorityOptions[$rawValue];
+        } else {
+            // Handle the case where the raw value is not a valid priority option
+            $variables['value'] = t('Unknown Priority: ') . $variables['raw_value'];
+        }
+    }
+
+
+}
+
+function getDefaultPriorityOptions() {
+    return [
+        25 => t('Imminent'),
+        20 => t('Urgent'),
+        15 => t('Important'),
+        10 => t('Normal'),
+        5 => t('Low'),
+        0 => t('None'),
+    ];
 }
