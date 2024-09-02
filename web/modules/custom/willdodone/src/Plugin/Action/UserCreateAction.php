@@ -1,18 +1,20 @@
 <?php
 
 namespace Drupal\willdodone\Plugin\Action;
-
-//use Drupal\Component\DependencyInjection\ContainerInterface;
-use Drupal\Component\Plugin\DependentPluginInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Action\ActionBase;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\eca\Plugin\Action\ActionBase;
+use Drupal\Core\Session\AccountInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Component\Plugin\DependentPluginInterface;
+use Drupal\Core\Entity\DependencyTrait;
 use Drupal\eca\Plugin\Action\ConfigurableActionTrait;
 use Drupal\group\Entity\Group;
 use Drupal\group\Entity\GroupRole;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a custom action for timer functionality.
@@ -25,9 +27,37 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * )
  */
 class UserCreateAction extends ActionBase implements ContainerFactoryPluginInterface, DependentPluginInterface {
-
+    use DependencyTrait;
     use ConfigurableActionTrait;
     use StringTranslationTrait;
+    public function __construct(array $configuration, $plugin_id, $plugin_definition, MessengerInterface $messenger, LoggerChannelFactoryInterface $logger_factory, EntityTypeManagerInterface $entity_type_manager) {
+        parent::__construct($configuration, $plugin_id, $plugin_definition);
+        $this->setMessenger($messenger);
+        $this->loggerFactory = $logger_factory;
+        $this->entityTypeManager = $entity_type_manager;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+        return new static(
+            $configuration,
+            $plugin_id,
+            $plugin_definition,
+            $container->get('messenger'),
+            $container->get('logger.factory'),
+            $container->get('entity_type.manager')
+        );
+    }
+
+  /**
+   * {@inheritDoc}
+   */
+  public function access($object, AccountInterface $account = NULL, $return_as_object = FALSE) {
+    $result = AccessResult::allowed();
+    return $return_as_object ? $result : $result->isAllowed();
+  }
 
     /**
      * The entity type manager.
@@ -42,40 +72,6 @@ class UserCreateAction extends ActionBase implements ContainerFactoryPluginInter
      * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
      */
     protected $loggerFactory;
-
-    /**
-     * Constructs a new UserCreateAction object.
-     *
-     * @param array $configuration
-     *   A configuration array containing information about the plugin instance.
-     * @param string $plugin_id
-     *   The plugin_id for the plugin instance.
-     * @param mixed $plugin_definition
-     *   The plugin implementation definition.
-     * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-     *   The entity type manager.
-     * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
-     *   The logger factory.
-     */
-    public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, LoggerChannelFactoryInterface $logger_factory) {
-        parent::__construct($configuration, $plugin_id, $plugin_definition);
-        $this->entityTypeManager = $entity_type_manager;
-        $this->loggerFactory = $logger_factory;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): static
-    {
-        return new static(
-            $configuration,
-            $plugin_id,
-            $plugin_definition,
-            $container->get('entity_type.manager'),
-            $container->get('logger.factory')
-        );
-    }
 
     /**
      * Check if a group with the given name exists.
@@ -114,12 +110,8 @@ class UserCreateAction extends ActionBase implements ContainerFactoryPluginInter
                     'type' => 'space',
                     'label' => $groupName,
                 ]);
-                $group->save();
-
-                // Create default roles for the space group.
-                $this->createDefaultRoles($group);
-
                 // Add the user to the group with the admin role.
+                $group->save();
                 $group->addMember($entity, ['group_roles' => ['space-admin']]);
 
                 $this->loggerFactory->get('willdodone')->info('Group "%group_name" created and user added.', ['%group_name' => $groupName]);
@@ -133,29 +125,7 @@ class UserCreateAction extends ActionBase implements ContainerFactoryPluginInter
         }
     }
 
-    /**
-     * Create default roles for the group.
-     *
-     * @param \Drupal\group\Entity\Group $group
-     *   The group entity.
-     */
-    protected function createDefaultRoles(Group $group) {
-        $roles = [
-            'space-admin' => $this->t('Space Admin'),
-            'space-member' => $this->t('Space Member'),
-        ];
 
-        foreach ($roles as $role_id => $label) {
-            if (!$group->getGroupType()->hasRole($role_id)) {
-                $group_role = GroupRole::create([
-                    'id' => $role_id,
-                    'label' => $label,
-                    'group_type' => $group->getGroupType()->id(),
-                ]);
-                $group_role->save();
-            }
-        }
-    }
 
     /**
      * {@inheritdoc}
