@@ -1,0 +1,14 @@
+uuid: 894b72f3-6f56-4070-91b9-368abafa8664
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.wdd_user
+  module:
+    - user
+id: user_remove_role_action.wdd_user
+label: 'Remove the wdd user role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: wdd_user

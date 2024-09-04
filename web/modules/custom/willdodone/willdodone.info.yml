@@ -11,7 +11,7 @@ dependencies:
   - pathauto:pathauto
   - quickedit:quickedit
   - taxonomy:taxonomy
-  - private_taxonomy:private_taxonomy
   - drupal:eca
   - drupal:flag
   - drupal:group
+  - drupal:user

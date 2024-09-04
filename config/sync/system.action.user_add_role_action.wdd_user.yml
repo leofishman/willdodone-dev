@@ -1,0 +1,14 @@
+uuid: 7c8f40e6-771b-498d-9561-62c2c3cc7e36
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.wdd_user
+  module:
+    - user
+id: user_add_role_action.wdd_user
+label: 'Add the wdd user role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: wdd_user

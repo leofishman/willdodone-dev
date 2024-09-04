@@ -3,11 +3,10 @@
  * @file
  * Primary module hooks for willdodone module.
  */
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Access\AccessResult;
-use Drupal\taxonomy\TermInterface;
 
+use Drupal\facets\Entity\Facet;
+use Drupal\willdodone\Service\DateRangeCalculator;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * Implements hook_form_alter().
@@ -46,24 +45,6 @@ function quickAddAjaxCallback(array &$form, \Drupal\Core\Form\FormStateInterface
  */
 function willdodone_theme() {
   return [
-    'timer_status' => [
-      'variables' => [
-        'status' => '',
-//        'start' => '',
-//        'end' => '',
-//        'show_elapsed_time' => FALSE,
-//        'elapsed_time' => NULL,
-      ],
-    ],
-    'timer_formatter' => [
-      'variables' => [
-        'status' => '',
-//        'start' => '',
-//        'end' => '',
-//        'show_elapsed_time' => FALSE,
-//        'elapsed_time' => NULL,
-      ],
-    ],
     'flag__timer' => [
       'variables' => [
         'attributes' => [],
@@ -71,10 +52,62 @@ function willdodone_theme() {
         'action' => 'flag',
         'flag' => NULL,
         'flaggable' => NULL,
+        'time' => NULL,
       ],
     ],
   ];
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for flag templates.
+ */
+function willdodone_preprocess_flag__timer(array &$variables) {
+    // Define your variable time here. For example:
+    if ($variables["flaggable"] ) {
+        if ($variables["flaggable"]->get("field_time_used")) {
+            $field_time_used = $variables["flaggable"]->get("field_time_used");
+        }
+    }
+    if (isset($field_time_used)) {
+        $total_time = 0;
+        $total_time = 0;
+        $date_range_values = $field_time_used->getValue();
+        foreach ($date_range_values as $date_range) {
+            $start_date = DrupalDateTime::createFromFormat('Y-m-d\TH:i:s', $date_range['value']);
+            $date_range['end_value'] = $date_range['end_value'] ? $date_range['end_value'] : 'now';
+            $end_date = DrupalDateTime::createFromFormat('Y-m-d\TH:i:s', $date_range['end_value']);
+
+            if ($start_date && $end_date) {
+                $interval = $end_date->diff($start_date);
+                $total_time += $interval->days * 24 * 3600 + $interval->h * 3600 + $interval->i * 60 + $interval->s;
+            }
+            //TODO add time since last start until now when no end_value
+        }
+
+
+//        foreach ($field_time_used->getValue() as $time) {
+////            $total_time += date_diff($time, time())->format("%s");
+//            $start_date = new datetime($time['value']);
+//            $end_date = new datetime($time['end_value']);
+//            $interval = $start_date->diff($end_date);
+//
+//            $minutes = $interval->days * 24 * 60;
+//            $minutes += $interval->h * 60;
+//            $minutes += $interval->i;
+//            $minutes += $interval->s / 60;
+//$total_time = $minutes;
+//            echo "The difference is " . number_format($minutes, 2) . " minutes.";
+////            if ($start_date && $end_date) {
+////                $interval = $end_date->diff($start_date);
+////                $total_time += $interval->days * 24 * 3600 + $interval->h * 3600 + $interval->i * 60 + $interval->s;
+////            }
+////            $total_time += $time->get('value')->dif($time->get('end_value'));
+////            $variables['time'] = $total_time;
+//        }
+    }
+    $variables['variable_time'] = $total_time; // This could be dynamic based on your logic.
+}
+
 
 /**
  * Implements hook_theme_suggestions_HOOK().
@@ -106,4 +139,38 @@ function willdodone_views_pre_render($view) {
     if ($view->id() == 'projects' && $view->current_display == 'block_menu_projects') {
         $view->element['#attached']['library'][] = 'willdodone/global';
     }
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function willdodone_preprocess_facets_result_item(array &$variables) {
+
+    if (isset($variables['facet']) && $variables['facet'] instanceof Facet && $variables['facet']->id() === 'progress_priority') {
+        $priorityOptions = _getDefaultPriorityOptions();
+
+        $rawValue = $variables['raw_value'];
+        if (array_key_exists($rawValue, $priorityOptions)) {
+            $variables['value'] = $priorityOptions[$rawValue];
+        } else {
+            // Handle the case where the raw value is not a valid priority option
+            $variables['value'] = t('Unknown Priority: ') . $variables['raw_value'];
+        }
+    }
+
+
+}
+
+
+/// util functions
+function _getDefaultPriorityOptions() {
+    return [
+        25 => t('Imminent'),
+        20 => t('Urgent'),
+        15 => t('Important'),
+        10 => t('Normal'),
+        5 => t('Low'),
+        0 => t('None'),
+    ];
 }

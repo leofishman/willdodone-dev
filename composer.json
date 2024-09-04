@@ -38,6 +38,7 @@
     "drupal/flag": "4.x-dev@dev",
     "drupal/formblock": "^2.0@beta",
     "drupal/group": "^3.2",
+    "drupal/group_action": "^1.1",
     "drupal/groupmedia": "^4.0",
     "drupal/groupmenu": "^3.0@alpha",
     "drupal/inline_entity_form": "^3.0@RC",
@@ -114,9 +115,6 @@
       "patches": {
         "drupal/eca_flag": {
           "Issue #3469011: Regression: entity, flag, flagging tokens removed without notice": "patches/eca_flag.patch"
-        },
-        "drupal/groupmenu": {
-          "Issue #: Fatal error: Type of GroupMenuController::$privateTempStoreFactory must not be defined on line 17": "patches/groupmenu.patch"
         }
       },
       "drupal-core-project-message": {

@@ -1,0 +1,33 @@
+uuid: 2a9f6356-eab2-46af-bea3-0a7a7428ef31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.space.field_projects
+    - group.type.space
+id: group.space.default
+targetEntityType: group
+bundle: space
+mode: default
+content:
+  field_projects:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+hidden:
+  changed: true
+  created: true
+  search_api_excerpt: true
+  uid: true

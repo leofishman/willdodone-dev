@@ -1,0 +1,15 @@
+uuid: 658a8e62-13ae-4f6b-af71-99d75832f974
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.space
+    - user.role.authenticated
+id: space-member
+label: Member
+weight: -100
+admin: false
+scope: insider
+global_role: authenticated
+group_type: space
+permissions: {  }

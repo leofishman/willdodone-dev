@@ -10,8 +10,10 @@ dependencies:
     - comment
     - contextual
     - file
+    - media
     - node
     - path
+    - private_taxonomy
     - system
     - taxonomy
     - toolbar
@@ -44,4 +46,6 @@ permissions:
   - 'revert all revisions'
   - 'view all revisions'
   - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view private taxonomies'
   - 'view the administration theme'
