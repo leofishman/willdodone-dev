@@ -5,24 +5,25 @@ dependencies:
   config:
     - field.field.node.task.body
     - field.field.node.task.comment
+    - field.field.node.task.field_custom_progress
     - field.field.node.task.field_files
     - field.field.node.task.field_goal
     - field.field.node.task.field_image
     - field.field.node.task.field_link
-    - field.field.node.task.field_progress
+    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - image.style.thumbnail
     - node.type.task
   module:
     - comment
+    - custom_field
     - datetime_range
     - entitygroupfield
     - file
     - image
     - link
     - path
-    - task_field
     - text
 id: node.task.default
 targetEntityType: node
@@ -57,9 +58,18 @@ content:
     region: content
     settings:
       help_text: ''
-      label: Project
-      multiple: true
+      label: ''
+      multiple: false
       required: false
+    third_party_settings: {  }
+  field_custom_progress:
+    type: custom_stacked
+    weight: 2
+    region: content
+    settings:
+      label: true
+      wrapper: div
+      open: true
     third_party_settings: {  }
   field_files:
     type: file_generic
@@ -89,12 +99,6 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
-    third_party_settings: {  }
-  field_progress:
-    type: task_field_progress
-    weight: 2
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_tags:
     type: entity_reference_autocomplete_tags
@@ -162,4 +166,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_project: true

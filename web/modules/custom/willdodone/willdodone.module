@@ -3,101 +3,102 @@
  * @file
  * Primary module hooks for willdodone module.
  */
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Access\AccessResult;
-use Drupal\taxonomy\TermInterface;
 
+use Drupal\facets\Entity\Facet;
+use Drupal\willdodone\Service\DateRangeCalculator;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * Implements hook_form_alter().
  */
 function willdodone_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  $content_types = ['task', 'project'];
-  $vocabularies = ['tags', 'goals'];
+    $content_types = ['task', 'project'];
+    $vocabularies = ['tags', 'goals'];
 
-  if (in_array($form_id, array_map(function($type) { return "node_{$type}_form"; }, $content_types))) {
-    foreach ($vocabularies as $vocabulary) {
-      if (isset($form["field_{$vocabulary}"])) {
-        $form["field_{$vocabulary}"]["widget"]["#selection_settings"]["filter"]["field_user"] = \Drupal::currentUser()->id();
-      }
+    if (in_array($form_id, array_map(function($type) { return "node_{$type}_form"; }, $content_types))) {
+        foreach ($vocabularies as $vocabulary) {
+            if (isset($form["field_{$vocabulary}"])) {
+                $form["field_{$vocabulary}"]["widget"]["#selection_settings"]["filter"]["field_user"] = \Drupal::currentUser()->id();
+            }
+        }
     }
-  }
-  if ($form_id == 'node_task_quickadd_form') {
-    $form['#attached']['library'][] = 'willdodone/quick_add';
-    $form['actions']['submit']['#ajax'] = [
-      'callback' => '::quickAddAjaxCallback',
-      'wrapper' => 'quick-add-wrapper',
-    ];
+    if ($form_id == 'node_task_quickadd_form') {
+        $form['#attached']['library'][] = 'willdodone/quick_add';
+        $form['actions']['submit']['#ajax'] = [
+            'callback' => '::quickAddAjaxCallback',
+            'wrapper' => 'quick-add-wrapper',
+        ];
 
-  }
-  if ($form_id =='comment_comment_form') {
-      $form['#attached']['library'][] = 'willdodone/comment';
-  }
+    }
+    if ($form_id =='comment_comment_form') {
+        $form['#attached']['library'][] = 'willdodone/comment';
+    }
 }
 
 
 function quickAddAjaxCallback(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  return $form['actions']['submit'];
+    return $form['actions']['submit'];
 }
 
 /**
  * Implements hook_theme().
  */
 function willdodone_theme() {
-  return [
-    'timer_status' => [
-      'variables' => [
-        'status' => '',
-//        'start' => '',
-//        'end' => '',
-//        'show_elapsed_time' => FALSE,
-//        'elapsed_time' => NULL,
-      ],
-    ],
-    'timer_formatter' => [
-      'variables' => [
-        'status' => '',
-//        'start' => '',
-//        'end' => '',
-//        'show_elapsed_time' => FALSE,
-//        'elapsed_time' => NULL,
-      ],
-    ],
-    'flag__timer' => [
-      'variables' => [
-        'attributes' => [],
-        'title' => NULL,
-        'action' => 'flag',
-        'flag' => NULL,
-        'flaggable' => NULL,
-      ],
-    ],
-  ];
+    return [
+        'flag__timer' => [
+            'variables' => [
+                'attributes' => [],
+                'title' => NULL,
+                'action' => 'flag',
+                'flag' => NULL,
+                'flaggable' => NULL,
+                'used_time_raw' => NULL,
+                'used_time_formated' => NULL,
+            ],
+        ],
+    ];
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK().
+ * Implements hook_preprocess_HOOK() for flag templates.
  */
-function willdodone_theme_suggestions_timer_status(array $variables) {
-  $suggestions = [];
-  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+function willdodone_preprocess_flag__timer(array &$variables) {
+    // Define your variable time here. For example:
+    if ($variables["flaggable"] ) {
+        if ($variables["flaggable"]->get("field_time_used")) {
+            $field_time_used = $variables["flaggable"]->get("field_time_used");
+        }
+    }
+    if (isset($field_time_used)) {
+        $total_time = 0;
+        $date_range_values = $field_time_used->getValue();
+        $times = 0;
+        foreach ($date_range_values as $date_range) {
+            $start_date = DrupalDateTime::createFromFormat('Y-m-d\TH:i:s', $date_range['value']);
+            // Handle the case when end_value is empty
+            if (empty($date_range['end_value'])) {
+                $end_date = new DrupalDateTime('now');
+            } else {
+                $end_date = DrupalDateTime::createFromFormat('Y-m-d\TH:i:s', $date_range['end_value']);
+            }
 
-  $suggestions[] = 'timer_status__' . $sanitized_view_mode;
+            if ($start_date && $end_date) {
+                $interval = $end_date->diff($start_date);
+                $total_time += $interval->days * 24 * 3600 + $interval->h * 3600 + $interval->i * 60 + $interval->s;
+            }
+        }
+    }
 
-  if (isset($variables['elements']['#entity_type'])) {
-    $suggestions[] = 'timer_status__' . $variables['elements']['#entity_type'];
-    $suggestions[] = 'timer_status__' . $variables['elements']['#entity_type'] . '__' . $sanitized_view_mode;
-  }
+    // Calculate the current time minus the $time_interval
+    $currentTime = new DrupalDateTime('now');
+    $currentTime->sub(new \DateInterval('PT' . $total_time . 'S'));
 
-  if (isset($variables['elements']['#bundle'])) {
-    $suggestions[] = 'timer_status__' . $variables['elements']['#entity_type'] . '__' . $variables['elements']['#bundle'];
-    $suggestions[] = 'timer_status__' . $variables['elements']['#entity_type'] . '__' . $variables['elements']['#bundle'] . '__' . $sanitized_view_mode;
-  }
+    // Format the datetime to the desired format
+    $formatedTime = $currentTime->format('Y-m-d\TH:i:sP');
 
-  return $suggestions;
+    $variables['used_time_raw'] =  $total_time > 360 ? gmdate("H:i", $total_time) : gmdate("i", $total_time);
+    $variables['used_time_formated'] = $formatedTime; // This could be dynamic based on your logic.
 }
-
 
 /**
  * Implements hook_views_pre_render().
@@ -106,4 +107,37 @@ function willdodone_views_pre_render($view) {
     if ($view->id() == 'projects' && $view->current_display == 'block_menu_projects') {
         $view->element['#attached']['library'][] = 'willdodone/global';
     }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function willdodone_preprocess_facets_result_item(array &$variables) {
+
+    if (isset($variables['facet']) && $variables['facet'] instanceof Facet && $variables['facet']->id() === 'progress_priority') {
+        $priorityOptions = _getDefaultPriorityOptions();
+
+        $rawValue = $variables['raw_value'];
+        if (array_key_exists($rawValue, $priorityOptions)) {
+            $variables['value'] = $priorityOptions[$rawValue];
+        } else {
+            // Handle the case where the raw value is not a valid priority option
+            $variables['value'] = t('Unknown Priority: ') . $variables['raw_value'];
+        }
+    }
+
+
+}
+
+
+/// util functions
+function _getDefaultPriorityOptions() {
+    return [
+        25 => t('Imminent'),
+        20 => t('Urgent'),
+        15 => t('Important'),
+        10 => t('Normal'),
+        5 => t('Low'),
+        0 => t('None'),
+    ];
 }

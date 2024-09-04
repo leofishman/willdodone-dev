@@ -12,6 +12,8 @@
  * - action: 'flag' or 'unflag'
  * - flag: The flag object.
  * - flaggable: The flaggable entity.
+ * - used_time_raw: time used in seconds
+ * - used_time_formated: time used formatted for jstimer
  */
 #}
 {% apply spaceless %}
@@ -21,10 +23,8 @@
 {# Depending on the flag action, set the appropriate action class. #}
 {% if action == 'unflag' %}
     {% set action_class = 'action-unflag' %}
-    {% set icon_class = 'pause' %}
 {% else %}
     {% set action_class = 'action-flag' %}
-    {% set icon_class = 'pause' %}
 {% endif %}
 
 {# Set the remaining Flag CSS classes. #}
@@ -33,8 +33,7 @@
     'flag',
     'flag-' ~ flag.id()|clean_class,
     'js-flag-' ~ flag.id()|clean_class ~ '-' ~ flaggable.id(),
-    action_class,
-    icon_class
+    action_class
   ]
 %}
 
@@ -47,5 +46,21 @@
         <span class="material-symbols-outlined">
             {{ title }}
         </span>
-    </a></div>
+
+    </a>{{ variable_time }}
+    <span class="timer">
+    {% if action == 'flag' %}
+        <span class="datetime">{{ used_time_raw }} min</span>
+    {% else %}
+        <span class="jst_timer">
+          <span style="display:none" class="datetime">{{ used_time_formated }}</span>
+          <span style="display:none" class="dir">up</span>
+          <span class="format_txt" style="display:none;">%hours%:%mins%:%secs%</span>
+        </span>
+    {% endif %}
+    </span>
+</div>
+
+
+
 {% endapply %}

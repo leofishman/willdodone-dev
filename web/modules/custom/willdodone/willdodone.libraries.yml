@@ -24,4 +24,5 @@ timer:
   dependencies:
     - core/jquery
     - core/drupalSettings
+    - core/once
     - flag/flag

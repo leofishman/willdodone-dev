@@ -1,0 +1,15 @@
+uuid: c17f64f1-ef38-4b08-aff5-77e1dfef5566
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.space
+    - user.role.administrator
+id: space-admin_out
+label: Administrator
+weight: 101
+admin: true
+scope: outsider
+global_role: administrator
+group_type: space
+permissions: {  }

@@ -1,0 +1,24 @@
+uuid: e51e07df-ddd8-4e43-ad9b-0d588d46ce90
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.progress_priority
+  module:
+    - facets
+  theme:
+    - olivero
+id: olivero_progresspriority
+theme: olivero
+region: sidebar
+weight: -8
+provider: null
+plugin: 'facet_block:progress_priority'
+settings:
+  id: 'facet_block:progress_priority'
+  label: 'Progress » Priority'
+  label_display: '0'
+  provider: facets
+  context_mapping: {  }
+  block_id: olivero_progresspriority
+visibility: {  }

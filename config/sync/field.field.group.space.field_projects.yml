@@ -1,0 +1,33 @@
+uuid: f3c2a834-a296-458a-97a0-81d019cc7739
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_projects
+    - group.type.project
+    - group.type.space
+  content:
+    - 'group:project:49299c27-ed5c-45c8-a02c-2b695bb9afe2'
+id: group.space.field_projects
+field_name: field_projects
+entity_type: group
+bundle: space
+label: Projects
+description: Projects
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 49299c27-ed5c-45c8-a02c-2b695bb9afe2
+default_value_callback: ''
+settings:
+  handler: 'default:group'
+  handler_settings:
+    target_bundles:
+      project: project
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,15 @@
+uuid: 6e48c332-f35e-4c41-b903-cab358ff830b
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.space
+    - user.role.authenticated
+id: space-outsider
+label: Outsider
+weight: -101
+admin: false
+scope: outsider
+global_role: authenticated
+group_type: space
+permissions: {  }

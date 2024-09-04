@@ -17,6 +17,7 @@ module:
   config: 0
   contact: 0
   contextual: 0
+  custom_field: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
@@ -32,6 +33,7 @@ module:
   eca_modeller_bpmn: 0
   eca_tamper: 0
   eca_ui: 0
+  eca_user: 0
   eca_views: 0
   editor: 0
   entity: 0
@@ -50,6 +52,7 @@ module:
   formblock: 0
   gnode: 0
   group: 0
+  group_action: 0
   groupmedia: 0
   groupmedia_vbo: 0
   help: 0
@@ -61,6 +64,8 @@ module:
   jquery_ui_datepicker: 0
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0
+  jst_timer: 0
+  jstimer: 0
   layout_builder: 0
   layout_discovery: 0
   link: 0
@@ -87,7 +92,6 @@ module:
   standard: 0
   system: 0
   tamper: 0
-  task_field: 0
   taxonomy: 0
   text: 0
   token: 0

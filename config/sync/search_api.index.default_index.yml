@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_files
     - field.storage.node.field_goal
     - field.storage.node.field_link
-    - field.storage.node.field_progress
+    - field.storage.node.field_custom_progress
     - field.storage.node.field_tags
     - search_api.server.default_server
     - core.entity_view_mode.node.search_index
@@ -48,14 +48,14 @@ field_settings:
     dependencies:
       module:
         - node
-  deadline:
-    label: 'Progress » Deadline'
+  deadline_1:
+    label: 'Progress C » deadline'
     datasource_id: 'entity:node'
-    property_path: 'field_progress:deadline'
+    property_path: 'field_custom_progress:deadline'
     type: date
     dependencies:
       config:
-        - field.storage.node.field_progress
+        - field.storage.node.field_custom_progress
   field_files:
     label: Files
     datasource_id: 'entity:node'
@@ -95,14 +95,14 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
-  priority:
-    label: 'Progress » Priority'
+  priority_1:
+    label: 'Progress C» priority'
     datasource_id: 'entity:node'
-    property_path: 'field_progress:priority'
+    property_path: 'field_custom_progress:priority'
     type: integer
     dependencies:
       config:
-        - field.storage.node.field_progress
+        - field.storage.node.field_custom_progress
   project_id:
     label: Project
     datasource_id: 'entity:node'
@@ -126,6 +126,14 @@ field_settings:
           article: search_index
           page: search_index
           task: search_index
+  startdate:
+    label: 'Progress C» startdate'
+    datasource_id: 'entity:node'
+    property_path: 'field_custom_progress:startdate'
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_custom_progress
   status:
     label: 'Publishing status'
     datasource_id: 'entity:node'
@@ -136,14 +144,14 @@ field_settings:
     dependencies:
       module:
         - node
-  status_1:
-    label: 'Progress » Status'
+  status_2:
+    label: 'Progress C » status'
     datasource_id: 'entity:node'
-    property_path: 'field_progress:status'
+    property_path: 'field_custom_progress:status'
     type: string
     dependencies:
       config:
-        - field.storage.node.field_progress
+        - field.storage.node.field_custom_progress
   sticky:
     label: 'Sticky at top of lists'
     datasource_id: 'entity:node'
@@ -152,14 +160,6 @@ field_settings:
     dependencies:
       module:
         - node
-  timer:
-    label: 'Progress » Timer'
-    datasource_id: 'entity:node'
-    property_path: 'field_progress:timer'
-    type: boolean
-    dependencies:
-      config:
-        - field.storage.node.field_progress
   title:
     label: Title
     datasource_id: 'entity:node'

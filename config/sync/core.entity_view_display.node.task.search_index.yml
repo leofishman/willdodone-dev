@@ -7,11 +7,12 @@ dependencies:
     - core.entity_view_mode.node.search_index
     - field.field.node.task.body
     - field.field.node.task.comment
+    - field.field.node.task.field_custom_progress
     - field.field.node.task.field_files
     - field.field.node.task.field_goal
     - field.field.node.task.field_image
     - field.field.node.task.field_link
-    - field.field.node.task.field_progress
+    - field.field.node.task.field_project
     - field.field.node.task.field_tags
     - field.field.node.task.field_time_used
     - node.type.task
@@ -20,7 +21,6 @@ dependencies:
     - entitygroupfield
     - file
     - link
-    - task_field
     - text
     - user
 id: node.task.search_index
@@ -84,14 +84,6 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
-  field_progress:
-    type: task_field_progress_default
-    label: above
-    settings:
-      foo: bar
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_tags:
     type: entity_reference_label
     label: hidden
@@ -121,6 +113,8 @@ content:
     weight: 7
     region: content
 hidden:
+  field_custom_progress: true
   field_image: true
+  field_project: true
   field_time_used: true
   search_api_excerpt: true

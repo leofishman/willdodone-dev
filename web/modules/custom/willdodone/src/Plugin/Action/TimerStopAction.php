@@ -28,7 +28,9 @@ class TimerStopAction extends ActionBase {
     // Get the current date and time.
     $current_datetime = new DrupalDateTime('now');
     $formatted_datetime = $current_datetime->format('Y-m-d\TH:i:s');
-    if ($entity->bundle() === 'task' && $entity->hasField('field_time_used'))  {
+
+    // Timer add end time to time used field
+    if ($entity->hasField('field_time_used'))  {
       // Find the most recently added value in field_time_used
       $field_values = $entity->get('field_time_used')->getValue();
       $last_item_index = count($field_values) - 1;
@@ -38,7 +40,39 @@ class TimerStopAction extends ActionBase {
       $entity->set('field_time_used', $field_values);
     }
 
-    // Save the entity
+    // Stop timer put the status in paused
+    if ($entity->hasField('field_custom_progress'))  {
+      $entity_field_progress = $entity->get('field_custom_progress')->getValue();
+      if ($entity_field_progress[0]['status'] == 'do') {
+          $entity_field_progress[0]['status'] =  'paused';
+          $entity->set('field_custom_progress', $entity_field_progress);
+      }
+    }
+
+//    try {
+//      // Get the flag object from the event (assuming $this->event->getFlagging() returns the flag object)
+//      $flag = $this->event->getFlaggings();
+//
+//      // Get the current values of the field_time field
+//       $flag_id = key($this->event->getFlaggings());
+//
+//      $field_time = $flag[$flag_id]->get('field_time');
+//
+//        $last_item_index = count($field_time) - 1;
+//
+//        // Update its end value with the current date/time
+//        $field_time[$last_item_index]['end_value'] = $formatted_datetime;
+//      // Set the updated values back to the field
+////         $flag[$flag_id]->set('field_time', $field_time);
+//
+//      // Save the flag
+//      $flag[$flag_id]->save();
+//    } catch (\Exception $e) {}
+
+
+
+
+      // Save the entity
     $entity->save();
   }
 

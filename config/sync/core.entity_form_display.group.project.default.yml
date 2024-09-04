@@ -6,13 +6,11 @@ dependencies:
     - field.field.group.project.field_description
     - field.field.group.project.field_link
     - field.field.group.project.field_media
-    - field.field.group.project.field_progress
     - group.type.project
   module:
     - link
     - media_library
     - path
-    - task_field
     - text
 id: group.project.default
 targetEntityType: group
@@ -43,12 +41,6 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
-  field_progress:
-    type: task_field_progress
-    weight: 2
-    region: content
-    settings: {  }
     third_party_settings: {  }
   label:
     type: string_textfield

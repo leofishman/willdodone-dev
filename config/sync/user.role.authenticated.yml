@@ -108,6 +108,4 @@ permissions:
   - 'view own article content'
   - 'view own page content'
   - 'view own task content'
-  - 'view own unpublished content'
-  - 'view own unpublished media'
   - 'view vocabulary labels'

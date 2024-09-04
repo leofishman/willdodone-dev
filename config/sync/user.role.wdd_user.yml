@@ -1,0 +1,9 @@
+uuid: 47d4bf88-6e4d-4a04-9125-4f4da64d0561
+langcode: en
+status: true
+dependencies: {  }
+id: wdd_user
+label: 'wdd user'
+weight: 4
+is_admin: null
+permissions: {  }

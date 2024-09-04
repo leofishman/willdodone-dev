@@ -1,0 +1,42 @@
+uuid: 465be8e5-299a-40d9-99fd-1c83e04125e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.task.field_project
+    - field.storage.node.field_project
+    - node.type.task
+  module:
+    - eca_content
+    - group_action
+id: insert_task_into_a_project_group
+modeller: core
+label: 'Insert task into a project group upon creation'
+version: ''
+weight: 0
+events:
+  content_entity_insert:
+    plugin: 'content_entity:insert'
+    label: 'Insert content entity'
+    configuration:
+      type: 'node task'
+    successors:
+      -
+        id: group_add_content_node
+        condition: null
+conditions: {  }
+gateways: {  }
+actions:
+  group_add_content_node:
+    plugin: 'group_add_content:node'
+    label: 'Group: add content (node only)'
+    configuration:
+      values: {  }
+      operation: create
+      content_plugin: 'group_node:task'
+      group_id: '[node:field_project:0:target_id]'
+      entity_id: ''
+      add_method: skip_existing
+      object: ''
+      replace_tokens: true
+    successors: {  }
