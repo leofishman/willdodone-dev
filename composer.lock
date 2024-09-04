@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c2cb063ea963a6f0f5fd7f22a97581b",
+    "content-hash": "1ad00c5a1c5dc41fe289d6c1ef2a60ab",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2157,6 +2157,75 @@
             "time": "2024-08-08T09:23:57+00:00"
         },
         {
+            "name": "drupal/countdown",
+            "version": "1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/countdown.git",
+                "reference": "8.x-1.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/countdown-8.x-1.10.zip",
+                "reference": "8.x-1.10",
+                "shasum": "4432ecafb897264bce46aea8de4e1b27ecb89e87"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.10",
+                    "datestamp": "1717977634",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bocaj",
+                    "homepage": "https://www.drupal.org/user/582042"
+                },
+                {
+                    "name": "deekayen",
+                    "homepage": "https://www.drupal.org/user/972"
+                },
+                {
+                    "name": "joachim",
+                    "homepage": "https://www.drupal.org/user/107701"
+                },
+                {
+                    "name": "mahyarsbt",
+                    "homepage": "https://www.drupal.org/user/722386"
+                },
+                {
+                    "name": "rahul.nahar001",
+                    "homepage": "https://www.drupal.org/user/1975254"
+                },
+                {
+                    "name": "UsingSession",
+                    "homepage": "https://www.drupal.org/user/3582050"
+                }
+            ],
+            "description": "Adds a block to count the days, hours, minutes, and seconds since or until a specified event.",
+            "homepage": "https://www.drupal.org/project/countdown",
+            "keywords": [
+                "Drupal",
+                "countdown"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/countdown",
+                "issues": "https://drupal.org/project/issues/countdown"
+            }
+        },
+        {
             "name": "drupal/ctools",
             "version": "4.1.0",
             "source": {
@@ -3710,6 +3779,55 @@
             "support": {
                 "source": "https://www.drupal.org/project/jquery_ui_touch_punch",
                 "issues": "https://www.drupal.org/project/issues/jquery_ui_touch_punch"
+            }
+        },
+        {
+            "name": "drupal/jstimer",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jstimer.git",
+                "reference": "a2253c70e2df8ad8ab23c21ece83938834fdb3b2"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.5+1-dev",
+                    "datestamp": "1722437602",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "i-trokhanenko",
+                    "homepage": "https://www.drupal.org/user/3546872"
+                },
+                {
+                    "name": "jvandervort",
+                    "homepage": "https://www.drupal.org/user/35604"
+                },
+                {
+                    "name": "psebborn",
+                    "homepage": "https://www.drupal.org/user/2230930"
+                }
+            ],
+            "description": "Provides a timer api and several timer widgets for dynamic html things.",
+            "homepage": "https://www.drupal.org/project/jstimer",
+            "support": {
+                "source": "https://git.drupalcode.org/project/jstimer"
             }
         },
         {
@@ -10705,6 +10823,7 @@
         "drupal/formblock": 10,
         "drupal/groupmenu": 15,
         "drupal/inline_entity_form": 5,
+        "drupal/jstimer": 20,
         "drupal/project_browser": 15,
         "drupal/tamper": 20
     },

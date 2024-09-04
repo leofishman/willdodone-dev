@@ -1,36 +1,4 @@
-.timer-status {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.timer-status--running {
-  background-color: #e6f7e6;
-  color: #2e7d32;
-}
-
-.timer-status--stopped {
-  background-color: #ffebee;
-  color: #c62828;
-}
-
-.timer-status__icon {
-  margin-right: 8px;
-}
-
-.timer-status__elapsed-time {
-  margin-left: 8px;
-}
-
-.flag-timer.action-unflag SPAN.icon {
-  width: 15px;
-  background-image: url('../images/icons/pause.gif');
-}
-
-.flag-timer.action-flag SPAN.icon {
-  width: 15px;
-  background-image: url('../images/icons/play.gif');
+span.timer {
+  padding: 5px;
+  vertical-align: top;
 }

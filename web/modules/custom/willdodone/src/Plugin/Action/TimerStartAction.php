@@ -51,24 +51,6 @@ class TimerStartAction extends ActionBase {
         $entity_field_progress[0]['status'] = 'do';
         $entity->set('field_custom_progress', $entity_field_progress);
     }
-    $this->event->getFlagging()->get('field_time');
-    try {
-        // Get the flag object from the event (assuming $this->event->getFlagging() returns the flag object)
-        $flag = $this->event->getFlagging();
-
-        // Get the current values of the field_time field
-        $field_time = $flag->get('field_time')->getValue();
-
-        // Append the new value to the field_time field
-        $field_time[] = ['value' => $formatted_datetime];
-
-        // Set the updated values back to the field
-        $flag->set('field_time', $field_time);
-
-        // Save the flag
-        $flag->save();
-    } catch (\Exception $e) {}
-
 
     // Save the entity
     $entity->save();
