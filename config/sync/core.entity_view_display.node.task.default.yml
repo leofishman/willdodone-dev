@@ -166,11 +166,11 @@ content:
     weight: 8
     region: content
   field_time_used:
-    type: daterange_custom
+    type: daterange_default
     label: above
     settings:
       timezone_override: ''
-      date_format: 'Y-m-d\TH:i:s'
+      format_type: short
       from_to: both
       separator: '-'
     third_party_settings:
