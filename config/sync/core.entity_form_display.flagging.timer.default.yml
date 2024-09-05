@@ -1,0 +1,12 @@
+uuid: e1492425-31bd-4727-97ae-d899703251d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.timer
+id: flagging.timer.default
+targetEntityType: flagging
+bundle: timer
+mode: default
+content: {  }
+hidden: {  }

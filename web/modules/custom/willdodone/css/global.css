@@ -1,9 +1,14 @@
+/* checkbox */
 .item-list ul.project, .facets-widget-checkbox ul, ul.facet-inactive {
     list-style-type: none;
     padding: 0; /* Optionally remove default padding */
     margin: 0; /* Optionally remove default margin */
 }
-
 .item-list ul.project li, .facets-widget-checkbox ul li, ul li {
     margin: 5px;
+}
+
+/* views, grid display, my tasks */
+.view.view-search-task.view-id-search_task {
+  display: block;
 }
