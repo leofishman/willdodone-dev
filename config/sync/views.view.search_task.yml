@@ -105,7 +105,7 @@ display:
           admin_label: ''
           entity_type: group
           plugin_id: search_api_field
-          label: ''
+          label: Project
           exclude: false
           alter:
             alter_text: false
@@ -402,7 +402,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: search_api_field
-          label: ''
+          label: Project
           exclude: false
           alter:
             alter_text: false
@@ -435,7 +435,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -466,6 +466,9 @@ display:
             multi_separator: ', '
             display_methods:
               project:
+                display_method: label
+                view_mode: default
+              space:
                 display_method: label
                 view_mode: default
       pager:
@@ -794,31 +797,132 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        status_2:
+          id: status_2
+          table: search_api_index_default_index
+          field: status_2
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_string
+          operator: '!='
+          value:
+            min: ''
+            max: ''
+            value: done
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        status_2_1:
+          id: status_2_1
+          table: search_api_index_default_index
+          field: status_2
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_string
+          operator: '!='
+          value:
+            min: ''
+            max: ''
+            value: postponed
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
       style:
-        type: grid_responsive
+        type: grid
         options:
           grouping:
             -
               field: project_id
               rendered: true
               rendered_strip: true
+            -
+              field: priority_1
+              rendered: true
+              rendered_strip: true
           uses_fields: true
           columns: 4
-          cell_min_width: 180
-          grid_gutter: 18
+          automatic_width: true
           alignment: horizontal
+          row_class_custom: ''
+          row_class_default: true
+          col_class_custom: ''
+          col_class_default: true
       row:
         type: search_api
         options:
           view_modes:
             'entity:group':
               project: default
+              space: default
+            'entity:group_relationship':
+              project-group_membership: default
+              project-group_node-article: default
+              project-group_node-page: default
+              space-group_membership: default
             'entity:node':
-              task: teaser
+              task: search_result
       query:
         type: search_api_query
         options:

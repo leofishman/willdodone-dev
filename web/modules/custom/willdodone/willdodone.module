@@ -56,6 +56,18 @@ function willdodone_theme() {
                 'used_time_formated' => NULL,
             ],
         ],
+        'views_view__search_task__page_1' => [
+          'template' => 'views-view--search-task--my-tasks',
+          'base hook' => 'views_view',
+        ],
+        'views_view_grid_responsive__search_task__page_1' => [
+          'template' => 'views-view-grid-responsive--search-task--my-tasks',
+          'base hook' => 'views_view_grid',
+        ],
+         'views_view_field__search_task__page_1' => [
+          'template' => 'views-view-field-search-task--my-tasks',
+          'base hook' => 'views_view_field',
+        ],
     ];
 }
 
@@ -74,18 +86,26 @@ function willdodone_preprocess_flag__timer(array &$variables) {
         $date_range_values = $field_time_used->getValue();
         $times = 0;
         foreach ($date_range_values as $date_range) {
+          try {
             $start_date = DrupalDateTime::createFromFormat('Y-m-d\TH:i:s', $date_range['value']);
+
             // Handle the case when end_value is empty
             if (empty($date_range['end_value'])) {
-                $end_date = new DrupalDateTime('now');
+              $end_date = new DrupalDateTime('now');
             } else {
-                $end_date = DrupalDateTime::createFromFormat('Y-m-d\TH:i:s', $date_range['end_value']);
+              $end_date = DrupalDateTime::createFromFormat('Y-m-d\TH:i:s', $date_range['end_value']);
             }
 
             if ($start_date && $end_date) {
-                $interval = $end_date->diff($start_date);
-                $total_time += $interval->days * 24 * 3600 + $interval->h * 3600 + $interval->i * 60 + $interval->s;
+              $interval = $end_date->diff($start_date);
+              $total_time += $interval->days * 24 * 3600 + $interval->h * 3600 + $interval->i * 60 + $interval->s;
             }
+
+          } catch (Exception $e) {
+            // Log the error or handle it as needed
+            error_log('Date range error: ' . $e->getMessage());
+            continue; // Skip to the next iteration of the foreach it may generate time difference.
+          }
         }
     }
 
@@ -109,6 +129,7 @@ function willdodone_views_pre_render($view) {
     }
 }
 
+
 /**
  * Implements hook_preprocess_HOOK().
  */
@@ -129,10 +150,15 @@ function willdodone_preprocess_facets_result_item(array &$variables) {
 
 }
 
-
+function willdodone_preprocess_views_view_field(&$variables) {
+  //TODO show priority value instead of key
+//  if (substr($variables['field']->definition["search_api field"],0,8 ) == 'priority') {
+//   // $variables['output'] = _getDefaultPriorityOptions($variables['output']);
+//  }
+}
 /// util functions
-function _getDefaultPriorityOptions() {
-    return [
+function _getDefaultPriorityOptions($priority_key = NULL) {
+  $priorities_array = [
         25 => t('Imminent'),
         20 => t('Urgent'),
         15 => t('Important'),
@@ -140,4 +166,8 @@ function _getDefaultPriorityOptions() {
         5 => t('Low'),
         0 => t('None'),
     ];
+  if ($priority_key) {
+    return  $priorities_array[$priority_key];
+  }
+    return $priorities_array;
 }
