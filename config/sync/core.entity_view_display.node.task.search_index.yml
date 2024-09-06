@@ -18,6 +18,7 @@ dependencies:
     - node.type.task
   module:
     - comment
+    - custom_field
     - entitygroupfield
     - file
     - link
@@ -42,7 +43,7 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
   entitygroupfield:
     type: parent_group_label_formatter
@@ -50,7 +51,15 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 8
+    weight: 7
+    region: content
+  field_custom_progress:
+    type: custom_formatter
+    label: above
+    settings:
+      fields: {  }
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_files:
     type: file_table
@@ -58,7 +67,7 @@ content:
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_goal:
     type: entity_reference_label
@@ -70,7 +79,7 @@ content:
         click: 0
         edit: 0
         editHover: 0
-    weight: 3
+    weight: 2
     region: content
   field_link:
     type: link_separate
@@ -82,7 +91,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_tags:
     type: entity_reference_label
@@ -90,17 +99,17 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   flag_bookmark:
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 8
     region: content
   flag_delete:
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 9
     region: content
   flag_timer:
     settings: {  }
@@ -110,10 +119,9 @@ content:
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
 hidden:
-  field_custom_progress: true
   field_image: true
   field_project: true
   field_time_used: true
