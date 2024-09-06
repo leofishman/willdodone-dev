@@ -21,7 +21,7 @@ settings:
   handler: 'default:file'
   handler_settings: {  }
   file_directory: tasks/files
-  file_extensions: 'txt json zip xdoc'
+  file_extensions: 'txt json zip xdoc jpg pdf png gz'
   max_filesize: ''
-  description_field: false
+  description_field: true
 field_type: file
