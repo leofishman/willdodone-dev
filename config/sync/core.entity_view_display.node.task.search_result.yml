@@ -18,29 +18,54 @@ dependencies:
     - node.type.task
   module:
     - custom_field
-    - entitygroupfield
     - image
+    - simpler_quickedit
     - user
 id: node.task.search_result
 targetEntityType: node
 bundle: task
 mode: search_result
 content:
-  entitygroupfield:
-    type: parent_group_label_formatter
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
   field_custom_progress:
     type: custom_formatter
     label: above
     settings:
-      fields: {  }
-    third_party_settings: {  }
-    weight: 3
+      fields:
+        status:
+          format_type: string
+          formatter_settings:
+            key_label: label
+            label_display: inline
+            prefix_suffix: false
+        priority:
+          format_type: number_integer
+          formatter_settings:
+            key_label: label
+            label_display: above
+            prefix_suffix: false
+            thousand_separator: ','
+        deadline:
+          format_type: datetime_time_ago
+          formatter_settings:
+            label_display: above
+            timezone_override: ''
+            format_type: medium
+            future_format: '@interval hence'
+            past_format: '@interval ago'
+            granularity: 2
+        startdate:
+          format_type: datetime_time_ago
+          formatter_settings:
+            label_display: above
+            future_format: '@interval hence'
+            past_format: '@interval ago'
+            granularity: 2
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        editHover: '1'
+        edit: 0
+    weight: 4
     region: content
   field_image:
     type: image
@@ -50,6 +75,14 @@ content:
       image_style: thumbnail
       image_loading:
         attribute: lazy
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_project:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
     third_party_settings: {  }
     weight: 2
     region: content
@@ -89,8 +122,8 @@ content:
 hidden:
   body: true
   comment: true
+  entitygroupfield: true
   field_files: true
   field_goal: true
   field_link: true
-  field_project: true
   field_time_used: true
