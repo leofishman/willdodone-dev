@@ -1,0 +1,8 @@
+uuid: 830486b0-1a36-451c-a972-b0b682fd2732
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: wjtsx4hEhCtB3W13KtVLBYqyhRc9-8475pGNTxCJzvE
+id: project
+label: Project

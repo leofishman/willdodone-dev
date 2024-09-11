@@ -1,0 +1,139 @@
+uuid: 7b43a1d9-a67c-4cd6-8a81-f48a0bb2c8d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - burndown.burndown_task_type.task
+    - field.field.burndown_task.task.field_comment
+    - field.field.burndown_task.task.field_goal
+    - field.field.burndown_task.task.field_time_used
+    - image.style.thumbnail
+  module:
+    - burndown
+    - comment
+    - datetime_range
+    - image
+    - link
+    - text
+id: burndown_task.task.default
+targetEntityType: burndown_task
+bundle: task
+mode: default
+content:
+  assigned_to:
+    type: entity_reference_autocomplete
+    weight: 10
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  description:
+    type: text_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  estimate:
+    type: text_textfield
+    weight: -3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_comment:
+    type: comment_default
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_goal:
+    type: entity_reference_autocomplete
+    weight: 30
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_time_used:
+    type: daterange_default
+    weight: 29
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  images:
+    type: image_image
+    weight: 25
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    label: above
+  link:
+    type: link_default
+    weight: 20
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    label: above
+  name:
+    type: string_textfield
+    weight: -10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  priority:
+    type: options_select
+    weight: -5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  relationships:
+    type: burndown_task_relationship_default
+    weight: 28
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  tags:
+    type: entity_reference_autocomplete_tags
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 11
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  backlog_sort: true
+  board_sort: true
+  completed: true
+  log: true
+  project: true
+  resolution: true
+  sprint: true
+  swimlane: true
+  ticket_id: true
+  watch_list: true

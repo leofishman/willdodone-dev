@@ -1,0 +1,26 @@
+uuid: 68b3f06b-d827-49c8-b163-bde94271c0b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - burndown.burndown_task_type.task
+    - field.storage.burndown_task.field_time_used
+  module:
+    - datetime_range
+id: burndown_task.task.field_time_used
+field_name: field_time_used
+entity_type: burndown_task
+bundle: task
+label: 'Time used'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+    default_end_date_type: now
+    default_end_date: now
+default_value_callback: ''
+settings: {  }
+field_type: daterange

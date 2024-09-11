@@ -1,0 +1,43 @@
+uuid: 1bab3038-6417-47cc-a99d-1c99b6806d05
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.task_comment
+    - field.field.comment.task_comment.comment_body
+  module:
+    - path
+    - text
+id: comment.task_comment.default
+targetEntityType: comment
+bundle: task_comment
+mode: default
+content:
+  author:
+    weight: -2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  comment_body:
+    type: text_textarea
+    weight: 31
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  subject:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

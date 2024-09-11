@@ -1,0 +1,46 @@
+uuid: 9ec2681a-3a0b-4469-91b2-709bbfda674f
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+    - datetime
+_core:
+  default_config_hash: ciJdESjGrBRx5-6x2pAvWfSxDB0G5y3h4HZzAwOhQSo
+id: burndown_sprint.burndown_sprint.default
+targetEntityType: burndown_sprint
+bundle: burndown_sprint
+mode: default
+content:
+  end_date:
+    label: inline
+    type: datetime_default
+    settings:
+      timezone_override: ''
+      format_type: short
+    weight: 2
+    region: content
+    third_party_settings: {  }
+  name:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  start_date:
+    label: inline
+    type: datetime_default
+    settings:
+      timezone_override: ''
+      format_type: short
+    weight: 1
+    region: content
+    third_party_settings: {  }
+hidden:
+  project: true
+  search_api_excerpt: true
+  sort_order: true
+  status: true
+  user_id: true

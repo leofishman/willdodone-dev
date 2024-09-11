@@ -1,0 +1,13 @@
+uuid: 088c24fd-8a84-4772-b4f7-47d7d979cd66
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+_core:
+  default_config_hash: wB5bcOEU2dYaV4ZHl7mLRylWEa3cuXlELYfwcekhg8k
+id: burndown_sprint.full
+label: 'Full Content'
+description: ''
+targetEntityType: burndown_sprint
+cache: true

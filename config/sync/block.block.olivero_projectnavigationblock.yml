@@ -1,0 +1,20 @@
+uuid: 140e6b60-add3-4001-8698-fb7e0775bafc
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+  theme:
+    - olivero
+id: olivero_projectnavigationblock
+theme: olivero
+region: sidebar
+weight: -13
+provider: null
+plugin: burndown_project_nav_block
+settings:
+  id: burndown_project_nav_block
+  label: 'Project navigation block'
+  label_display: visible
+  provider: burndown
+visibility: {  }

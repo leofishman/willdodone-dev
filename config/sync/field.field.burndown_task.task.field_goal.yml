@@ -1,0 +1,29 @@
+uuid: e21d2462-d9d5-45d1-ad72-c3425a3796fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - burndown.burndown_task_type.task
+    - field.storage.burndown_task.field_goal
+    - taxonomy.vocabulary.goal
+id: burndown_task.task.field_goal
+field_name: field_goal
+entity_type: burndown_task
+bundle: task
+label: Goal
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      goal: goal
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

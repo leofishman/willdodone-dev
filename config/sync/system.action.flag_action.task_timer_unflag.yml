@@ -1,0 +1,15 @@
+uuid: 59af6bf6-a76e-4817-9d6a-05d1a7072a16
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.task_timer
+  module:
+    - flag
+id: flag_action.task_timer_unflag
+label: pause_circle
+type: burndown_task
+plugin: 'flag_action:task_timer_unflag'
+configuration:
+  flag_id: task_timer
+  flag_action: unflag

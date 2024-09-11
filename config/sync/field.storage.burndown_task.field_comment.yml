@@ -1,0 +1,20 @@
+uuid: ccfa21f4-862b-4574-8cbb-8a7e33aba93e
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+    - comment
+id: burndown_task.field_comment
+field_name: field_comment
+entity_type: burndown_task
+type: comment
+settings:
+  comment_type: task_comment
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

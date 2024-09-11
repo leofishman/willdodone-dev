@@ -1,0 +1,20 @@
+uuid: 0ae731b5-58bb-432a-9d9c-6dd87f11e9e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+  theme:
+    - olivero
+id: olivero_projectcloudblock
+theme: olivero
+region: sidebar
+weight: -12
+provider: null
+plugin: burndown_project_cloud_block
+settings:
+  id: burndown_project_cloud_block
+  label: 'Project cloud block'
+  label_display: visible
+  provider: burndown
+visibility: {  }

@@ -1,0 +1,12 @@
+uuid: f10e926d-f74c-4947-b364-954fb1a7e0ce
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rvtl7LXdytrnW-vz36-4k-2APiDmV0LoojSIW23PFQs
+id: in_progress
+label: 'In Progress'
+sort_order: 1
+show_backlog: false
+show_project_board: true
+show_completed: false

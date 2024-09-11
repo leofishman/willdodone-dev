@@ -4,6 +4,7 @@
  * Primary module hooks for willdodone module.
  */
 
+use Drupal\burndown\Plugin\Field\FieldType\BurndownLog;
 use Drupal\facets\Entity\Facet;
 use Drupal\willdodone\Service\DateRangeCalculator;
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -56,6 +57,17 @@ function willdodone_theme() {
                 'used_time_formated' => NULL,
             ],
         ],
+        'flag__task_timer' => [
+          'variables' => [
+              'attributes' => [],
+              'title' => NULL,
+              'action' => 'flag',
+              'flag' => NULL,
+              'flaggable' => NULL,
+              'used_time_raw' => NULL,
+              'used_time_formated' => NULL,
+          ],
+      ],
         'views_view__search_task__page_1' => [
           'template' => 'views-view--search-task--my-tasks',
           'base hook' => 'views_view',
@@ -68,7 +80,11 @@ function willdodone_theme() {
           'template' => 'views-view-field-search-task--my-tasks',
           'base hook' => 'views_view_field',
         ],
-    ];
+        'burndown_task' => [
+          'template' => 'burndown-task',
+          'base hook' => 'burndown_task',
+        ],
+      ];
 }
 
 /**

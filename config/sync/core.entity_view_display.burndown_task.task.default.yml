@@ -1,0 +1,163 @@
+uuid: a1e404f2-ee00-4ec7-a310-cbb1c5a595d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - burndown.burndown_task_type.task
+    - field.field.burndown_task.task.field_comment
+    - field.field.burndown_task.task.field_goal
+    - field.field.burndown_task.task.field_time_used
+  module:
+    - burndown
+    - image
+    - options
+    - simpler_quickedit
+_core:
+  default_config_hash: Xib_Gc7M8F5wFDgyYsXRtRR8F1FQL7wIOnvSqpLYJKU
+id: burndown_task.task.default
+targetEntityType: burndown_task
+bundle: task
+mode: default
+content:
+  assigned_to:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: compact
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  changed:
+    type: timestamp
+    label: hidden
+    settings:
+      date_format: short
+      custom_date_format: ''
+      timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  estimate:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        edit: 0
+        editHover: 0
+    weight: 8
+    region: content
+  flag_task_timer:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  images:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        edit: 0
+        editHover: 0
+    weight: 3
+    region: content
+  priority:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        edit: 0
+        editHover: 0
+    weight: 1
+    region: content
+  project:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        edit: 0
+        editHover: 0
+    weight: 4
+    region: content
+  relationships:
+    type: burndown_task_relationship_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      simpler_quickedit:
+        click: '1'
+        edit: 0
+        editHover: 0
+    weight: 9
+    region: content
+  ticket_id:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  user_id:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: compact
+      link: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  backlog_sort: true
+  board_sort: true
+  completed: true
+  created: true
+  description: true
+  field_comment: true
+  field_goal: true
+  field_time_used: true
+  link: true
+  log: true
+  resolution: true
+  search_api_excerpt: true
+  sprint: true
+  swimlane: true
+  watch_list: true

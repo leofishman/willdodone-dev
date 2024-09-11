@@ -1,0 +1,12 @@
+uuid: 71215811-42af-466c-9a53-6c78647dc609
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: '-uv0dOKweU9YKvrSMKp8KUs8ALdZL3RFBA8lIJHt8vw'
+id: deployed
+label: Deployed
+sort_order: 3
+show_backlog: false
+show_project_board: true
+show_completed: false

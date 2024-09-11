@@ -22,6 +22,7 @@
     "drupal/backup_migrate": "^5.0",
     "drupal/better_exposed_filters": "^6.0",
     "drupal/bpmn_io": "^2.0",
+    "drupal/burndown": "^1.0",
     "drupal/color_field": "^3.0",
     "drupal/core-composer-scaffold": "^10.3",
     "drupal/core-project-message": "^10.3",

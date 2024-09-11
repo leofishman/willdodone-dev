@@ -1,0 +1,8 @@
+uuid: 6b7d991d-1a64-4472-9fa7-5f55c1cc7649
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: uCvurbvrZurwgt2IR_0NEWWoN2lGRBo8L6SgIi6xd5Y
+id: task
+label: Task

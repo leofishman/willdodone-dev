@@ -1,0 +1,12 @@
+uuid: 75cfc5df-3a29-4160-9e74-057ffb76f997
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: gh1hrDL7VtChrX_ktAUY-kIlZZ_apuBpXkxts0-vj1w
+id: completed
+label: Completed
+sort_order: 0
+show_backlog: false
+show_project_board: false
+show_completed: true

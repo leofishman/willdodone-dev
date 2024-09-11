@@ -1,0 +1,22 @@
+uuid: 2b64f71f-0477-47be-92b9-faf6d6bd8277
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.task_comment
+    - field.storage.comment.comment_body
+  module:
+    - text
+id: comment.task_comment.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: task_comment
+label: Comment
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

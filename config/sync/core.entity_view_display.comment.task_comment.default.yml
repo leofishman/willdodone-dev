@@ -1,0 +1,28 @@
+uuid: 845774a1-3507-4d77-8562-71ed9c43d675
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.task_comment
+    - field.field.comment.task_comment.comment_body
+  module:
+    - text
+id: comment.task_comment.default
+targetEntityType: comment
+bundle: task_comment
+mode: default
+content:
+  comment_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

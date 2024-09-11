@@ -1,0 +1,26 @@
+{#
+/**
+ * @file burndown_task.html.twig
+ * Default theme implementation to present Task data.
+ *
+ * This template is used when viewing Task pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_burndown_task()
+ *
+ * @ingroup themeable
+ */
+#}
+<div
+  {{ attributes.addClass('burndown_task', 'list-group-item', 'row') }}
+  data-ticket-id="{{ ticket_id }}">
+
+    {% include 'burndown-task-row.html.twig' %}
+    {% set cacheServed = content|render %}
+    {{ content | without('ticket_id', 'name', 'tags') }}
+</div>
+

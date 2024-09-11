@@ -1,0 +1,21 @@
+uuid: 0c1a220d-3b26-495d-a478-a1a7dbf8fe21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.flagging.task_timer.field_time_field
+    - flag.flag.task_timer
+id: flagging.task_timer.default
+targetEntityType: flagging
+bundle: task_timer
+mode: default
+content:
+  field_time_field:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

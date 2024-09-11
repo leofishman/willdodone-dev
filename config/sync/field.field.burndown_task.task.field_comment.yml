@@ -1,0 +1,33 @@
+uuid: 27697c18-a23e-4090-bf2e-7fd7e3faa3f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - burndown.burndown_task_type.task
+    - field.storage.burndown_task.field_comment
+  module:
+    - comment
+id: burndown_task.task.field_comment
+field_name: field_comment
+entity_type: burndown_task
+bundle: task
+label: Comment
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

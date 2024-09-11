@@ -1,0 +1,12 @@
+uuid: 55e930c4-6fc1-4ee6-a7da-fdcf47a07b48
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: RqkrkZxXP1ot0GnbnVo3eQgi5Wc9eNSrFRmtdcB2XHo
+id: todo
+label: 'To Do'
+sort_order: 0
+show_backlog: false
+show_project_board: true
+show_completed: false

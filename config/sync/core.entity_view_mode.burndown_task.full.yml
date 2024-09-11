@@ -1,0 +1,13 @@
+uuid: 1c0898c0-6163-45b2-b0d4-6a5cf15256fc
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+_core:
+  default_config_hash: JGXADT9TNo5nMci7eeBpazA1yid_a20Iq7azlwB_m_Y
+id: burndown_task.full
+label: 'Full Content'
+description: ''
+targetEntityType: burndown_task
+cache: true

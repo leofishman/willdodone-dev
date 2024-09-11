@@ -1,0 +1,21 @@
+uuid: 741b71b9-901f-4f3f-a2d2-ffe87ddf5a03
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+    - datetime_range
+id: burndown_task.field_time_used
+field_name: field_time_used
+entity_type: burndown_task
+type: daterange
+settings:
+  datetime_type: datetime
+  optional_end_date: true
+module: datetime_range
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

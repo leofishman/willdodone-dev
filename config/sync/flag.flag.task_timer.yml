@@ -1,14 +1,14 @@
-uuid: 0a9dc2a7-3ac1-487b-bb93-d9c4a8d9a040
+uuid: 3e1a644f-9fda-4295-b31f-b75b6b54c02b
 langcode: en
 status: true
 dependencies:
   module:
-    - node
-id: timer
-label: Timer
+    - burndown
+id: task_timer
+label: 'task timer'
 bundles:
   - task
-entity_type: node
+entity_type: burndown_task
 global: true
 flag_short: play_circle
 flag_long: 'Start timming task'
@@ -18,15 +18,14 @@ unflag_long: 'Stop timming task'
 unflag_message: 'Timer Stoped'
 unflag_denied_text: ''
 weight: 0
-flag_type: 'entity:node'
-link_type: reload
+flag_type: 'entity:burndown_task'
+link_type: ajax_link
 flagTypeConfig:
   show_in_links:
     full: full
     teaser: teaser
-    token: token
   show_as_field: true
-  show_on_form: true
+  show_on_form: false
   show_contextual_link: false
   extra_permissions:
     owner: '0'

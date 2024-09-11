@@ -1,0 +1,12 @@
+uuid: 72839f90-c925-4e8a-a7ed-d09d2d163727
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Xxjyx9dhyae6HeO6oppOnGCLxzK9wuAb6vSGFwYFDjc
+id: testing
+label: Testing
+sort_order: 2
+show_backlog: false
+show_project_board: true
+show_completed: false

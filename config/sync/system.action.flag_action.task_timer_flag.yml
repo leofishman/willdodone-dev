@@ -1,0 +1,15 @@
+uuid: 98f0ee33-29a3-4892-aa90-651fda6f00a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.task_timer
+  module:
+    - flag
+id: flag_action.task_timer_flag
+label: play_circle
+type: burndown_task
+plugin: 'flag_action:task_timer_flag'
+configuration:
+  flag_id: task_timer
+  flag_action: flag
