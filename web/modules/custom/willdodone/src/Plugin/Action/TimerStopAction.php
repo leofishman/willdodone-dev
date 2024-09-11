@@ -40,6 +40,9 @@ class TimerStopAction extends ActionBase {
       $entity->set('field_time_used', $field_values);
     }
 
+    // TODO change swinline status accordly
+
+    ///**** DEPRECATED */
     // Stop timer put the status in paused
     if ($entity->hasField('field_custom_progress'))  {
       $entity_field_progress = $entity->get('field_custom_progress')->getValue();

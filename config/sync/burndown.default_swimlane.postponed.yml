@@ -1,0 +1,10 @@
+uuid: 682dabc7-787d-475c-b1e9-1e4274946644
+langcode: en
+status: true
+dependencies: {  }
+id: postponed
+label: Postponed
+sort_order: 3
+show_backlog: true
+show_project_board: false
+show_completed: false

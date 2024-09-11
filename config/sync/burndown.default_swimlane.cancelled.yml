@@ -1,0 +1,10 @@
+uuid: c82eebad-beff-433c-a586-23bf73619d43
+langcode: en
+status: true
+dependencies: {  }
+id: cancelled
+label: Cancelled
+sort_order: 5
+show_backlog: false
+show_project_board: false
+show_completed: true

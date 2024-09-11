@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: DHTyr7DSu-cr7-ru7PY6CompKyNyNFAjsHZeFKiBUBQ
 id: backlog
-label: Backlog
+label: Will
 sort_order: 0
 show_backlog: true
 show_project_board: false

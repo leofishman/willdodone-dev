@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: RqkrkZxXP1ot0GnbnVo3eQgi5Wc9eNSrFRmtdcB2XHo
 id: todo
-label: 'To Do'
+label: Paused
 sort_order: 0
 show_backlog: false
 show_project_board: true

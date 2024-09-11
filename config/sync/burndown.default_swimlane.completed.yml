@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: gh1hrDL7VtChrX_ktAUY-kIlZZ_apuBpXkxts0-vj1w
 id: completed
-label: Completed
+label: Done
 sort_order: 0
 show_backlog: false
 show_project_board: false

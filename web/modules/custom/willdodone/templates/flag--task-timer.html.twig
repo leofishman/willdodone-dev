@@ -47,7 +47,7 @@
             {{ title }}
         </span>
 
-    </a>{{ variable_time }}
+    </a>{{ variable_time }} {{action }}
     <span class="timer">
     {% if action == 'flag' %}
         <span class="datetime">{{ used_time_raw }} min</span>
@@ -61,6 +61,8 @@
     </span>
 </div>
 
+    {{used_time_raw}}
+    {{used_time_formated}}
 
 
 {% endapply %}

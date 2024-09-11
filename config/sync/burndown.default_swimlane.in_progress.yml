@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: rvtl7LXdytrnW-vz36-4k-2APiDmV0LoojSIW23PFQs
 id: in_progress
-label: 'In Progress'
+label: Do
 sort_order: 1
 show_backlog: false
 show_project_board: true

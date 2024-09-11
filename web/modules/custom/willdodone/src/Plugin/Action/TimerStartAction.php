@@ -17,7 +17,7 @@ use Drupal\eca_content\Plugin\EntitySaveTrait;
  * @Action(
  *   id = "wdd_timer_start_action",
  *   label = @Translation("Timer Start Action"),
- *   description = @Translation("Add record for time used upan starting."),
+ *   description = @Translation("Add record for time used upon starting."),
  *   type = "entity"
  * )
  */
@@ -45,6 +45,11 @@ class TimerStartAction extends ActionBase {
       $entity->get('field_time_used')->appendItem($new_value);
 
     }
+
+
+   // TODO change swinline status accordly
+
+    ///**** DEPRECATED */
     // Put status in Do
     if ($entity->hasField('field_custom_progress'))  {
         $entity_field_progress = $entity->get('field_custom_progress')->getValue();

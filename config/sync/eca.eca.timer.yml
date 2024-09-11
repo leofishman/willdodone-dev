@@ -31,7 +31,7 @@ conditions:
   eca_flag_entity_is_flagged:
     plugin: eca_flag_entity_is_flagged
     configuration:
-      flag_name: timer
+      flag_name: task_timer
       negate: false
       entity: ''
   eca_flag_entity_is_flagged_1:
